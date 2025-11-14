@@ -1,35 +1,142 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>用户登录</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 50px; }
-        .form-container { max-width: 300px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
-        input[type="text"], input[type="password"] { width: 100%; padding: 8px; margin: 10px 0; }
-        button { background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
-        .error { color: red; margin-top: 10px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-card h2 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #333;
+            font-size: 26px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2575fc;
+            box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            opacity: 0.9;
+        }
+
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 16px;
+            font-size: 15px;
+            padding: 10px;
+            background-color: #fdf2f2;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .error.show {
+            display: block;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 15px;
+        }
+
+        .register-link a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-<div class="form-container">
-    <h2>登录</h2>
+<div class="login-card">
+    <h2>欢迎回来</h2>
 
     <form th:action="@{/login}" method="post">
-        <div>
-            <label>用户名：</label>
-            <input type="text" name="username" required/>
+        <div class="input-group">
+            <label for="username">用户名</label>
+            <input type="text" id="username" name="username" required autocomplete="username" />
         </div>
-        <div>
-            <label>密码：</label>
-            <input type="password" name="password" required/>
+        <div class="input-group">
+            <label for="password">密码</label>
+            <input type="password" id="password" name="password" required autocomplete="current-password" />
         </div>
         <button type="submit">登录</button>
     </form>
 
-    <!-- 显示错误信息 -->
-    <div class="error" th:if="${param.error}">
+    <!-- 错误信息：当 URL 中有 ?error 参数时显示 -->
+    <div class="error" th:classappend="${param.error} ? 'show' : ''">
         登录失败，请检查用户名和密码。
     </div>
+
+    <div class="register-link">
+        还没有账户？<a href="/register">立即注册</a>
+    </div>
+</div>
 </body>
 </html>

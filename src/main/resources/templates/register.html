@@ -1,16 +1,121 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>注册</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .register-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .register-card h1 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2575fc;
+            box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
+        }
+
+        .input-group input::placeholder {
+            color: #aaa;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            opacity: 0.9;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 15px;
+        }
+
+        .login-link a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<h1>用户注册</h1>
-<form th:action="@{/register}" method="post">
-    <input type="text" name="username" placeholder="用户名" required />
-    <input type="email" name="email" placeholder="邮箱" required />
-    <input type="password" name="password" placeholder="密码" required />
-    <input type="password" name="confirmPassword" placeholder="确认密码" required />
-    <button type="submit">注册</button>
-</form>
+<div class="register-card">
+    <h1>创建账户</h1>
+    <form th:action="@{/register}" method="post">
+        <div class="input-group">
+            <input type="text" name="username" placeholder="用户名" required />
+        </div>
+        <div class="input-group">
+            <input type="email" name="email" placeholder="邮箱" required />
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" placeholder="密码" required />
+        </div>
+        <div class="input-group">
+            <input type="password" name="confirmPassword" placeholder="确认密码" required />
+        </div>
+        <button type="submit">注册</button>
+    </form>
+    <div class="login-link">
+        已有账户？<a href="/login">立即登录</a>
+    </div>
+</div>
 </body>
 </html>
