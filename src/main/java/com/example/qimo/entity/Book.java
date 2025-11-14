@@ -7,6 +7,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -30,4 +31,7 @@ public class Book {
     
     @LastModifiedDate
     private LocalDateTime updatedAt;
+    
+    @OneToMany(mappedBy = "book", cascade = CascadeType.REMOVE)
+    private List<Comment> comments;
 }

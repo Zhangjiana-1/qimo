@@ -1,10 +1,13 @@
 com\example\qimo\QimoApplication.class
 com\example\qimo\config\SecurityConfig.class
 com\example\qimo\entity\User$Role.class
+com\example\qimo\repository\CommentRepository.class
 com\example\qimo\service\BookService.class
 com\example\qimo\service\UserService.class
+com\example\qimo\service\CommentService.class
 com\example\qimo\entity\Book.class
 com\example\qimo\controller\BookController.class
+com\example\qimo\entity\Comment.class
 com\example\qimo\controller\UserController.class
 com\example\qimo\config\PasswordEncoderConfig.class
 com\example\qimo\runner\DataInitRunner.class
