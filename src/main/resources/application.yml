@@ -7,7 +7,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate  # 仅验证表结构，不自动建表（确保你已手动执行建表语句）
+      ddl-auto: update  # 从validate改为update，自动更新表结构
     show-sql: true
     properties:
       hibernate:

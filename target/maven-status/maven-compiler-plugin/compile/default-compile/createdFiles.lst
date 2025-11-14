@@ -8,6 +8,7 @@ com\example\qimo\service\CommentService.class
 com\example\qimo\entity\Book.class
 com\example\qimo\controller\BookController.class
 com\example\qimo\entity\Comment.class
+com\example\qimo\controller\AdminController.class
 com\example\qimo\controller\UserController.class
 com\example\qimo\config\PasswordEncoderConfig.class
 com\example\qimo\runner\DataInitRunner.class

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -140,11 +141,36 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/books">书籍列表</a>
                     </li>
-                    <li class="nav-item">
+                    
+                    <!-- 管理员用户管理链接 - 仅管理员可见 -->
+                    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                        <a class="nav-link" href="/admin/users">👥 用户管理</a>
+                    </li>
+                    
+                    <!-- 未登录时显示登录/注册 -->
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
                         <a class="nav-link" href="/login">登录</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
                         <a class="nav-link" href="/register">注册</a>
+                    </li>
+                    
+                    <!-- 已登录时显示用户信息和注销 -->
+                    <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" 
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span sec:authentication="name"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <!-- <li>
+                                <a class="dropdown-item" href="#">个人中心</a>
+                            </li> -->
+                            <li>
+                                <form th:action="@{/logout}" method="post" style="margin: 0;">
+                                    <button type="submit" class="dropdown-item">退出登录</button>
+                                </form>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

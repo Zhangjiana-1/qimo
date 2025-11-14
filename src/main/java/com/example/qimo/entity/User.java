@@ -37,6 +37,10 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "VARCHAR(20) DEFAULT 'USER'")
     private Role role = Role.USER;
+    
+    // 添加enabled字段，默认为true（启用状态）
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
+    private Boolean enabled = true;
 
     @CreatedDate
     @Column(updatable = false)
