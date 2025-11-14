@@ -1,2 +1,9 @@
 com\example\qimo\QimoApplication.class
 com\example\qimo\config\SecurityConfig.class
+com\example\qimo\entity\User$Role.class
+com\example\qimo\service\UserService.class
+com\example\qimo\controller\UserController.class
+com\example\qimo\config\PasswordEncoderConfig.class
+com\example\qimo\runner\DataInitRunner.class
+com\example\qimo\entity\User.class
+com\example\qimo\repository\UserRepository.class

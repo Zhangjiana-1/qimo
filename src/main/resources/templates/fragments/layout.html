@@ -1,0 +1,18 @@
+<!-- templates/fragments/layout.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">注册</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 th:text="${pageTitle}">注册页面</h1>
+        <div th:fragment="content">
+            <!-- 内容区域，子页面会替换这里 -->
+            <p>默认内容</p>
+        </div>
+    </div>
+</body>
+</html>
