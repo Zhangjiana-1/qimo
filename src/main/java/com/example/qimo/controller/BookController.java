@@ -3,6 +3,9 @@ package com.example.qimo.controller;
 import com.example.qimo.entity.Book;
 import com.example.qimo.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequestMapping("/books")
@@ -24,12 +26,22 @@ public class BookController {
     }
     
     /**
-     * 显示所有书籍列表
+     * 显示所有书籍列表（支持分页）
      */
     @GetMapping
-    public String listBooks(Model model) {
-        List<Book> books = bookService.findAllBooks();
-        model.addAttribute("books", books);
+    public String listBooks(@RequestParam(defaultValue = "0") int page, 
+                           @RequestParam(defaultValue = "6") int size, 
+                           Model model) {
+        // 构造分页参数，默认按创建时间降序排序
+        PageRequest pageRequest = PageRequest.of(page, size, 
+                Sort.by("createdAt").descending());
+        
+        // 获取分页结果
+        Page<Book> booksPage = bookService.findAllBooks(pageRequest);
+        
+        // 将分页对象放入Model
+        model.addAttribute("books", booksPage);
+        
         return "book/list";
     }
     

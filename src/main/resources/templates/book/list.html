@@ -175,6 +175,52 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- 分页导航组件 -->
+            <div class="mt-5 d-flex justify-content-center">
+                <nav aria-label="分页">
+                    <ul class="pagination">
+                        <!-- 上一页按钮 -->
+                        <li class="page-item" th:classappend="${books.first} ? 'disabled'">
+                            <a class="page-link" 
+                               th:href="@{/books?page={page}&size=6(page=${books.number-1})}" 
+                               th:aria-disabled="${books.first}">
+                                上一页
+                            </a>
+                        </li>
+                        
+                        <!-- 页码按钮 - 显示连续的页码 -->
+                        <th:block th:each="i : ${#numbers.sequence(0, books.totalPages-1)}">
+                            <!-- 只显示当前页附近的页码，最多显示5个页码 -->
+                            <th:block th:if="${i >= books.number - 2 && i <= books.number + 2}">
+                                <li class="page-item" th:classappend="${i == books.number} ? 'active'">
+                                    <a class="page-link" 
+                                       th:href="@{/books?page={page}&size=6(page=${i})}" 
+                                       th:text="${i + 1}">
+                                        页码
+                                    </a>
+                                </li>
+                            </th:block>
+                            
+                            <!-- 在页码不连续时显示省略号 -->
+                            <th:block th:if="${i == books.number - 3 || i == books.number + 3}">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">...</a>
+                                </li>
+                            </th:block>
+                        </th:block>
+                        
+                        <!-- 下一页按钮 -->
+                        <li class="page-item" th:classappend="${books.last} ? 'disabled'">
+                            <a class="page-link" 
+                               th:href="@{/books?page={page}&size=6(page=${books.number+1})}" 
+                               th:aria-disabled="${books.last}">
+                                下一页
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 
