@@ -40,6 +40,21 @@ public class BookService {
     }
     
     /**
+     * 根据书名关键词搜索书籍
+     * @param keyword 搜索关键词
+     * @param pageable 分页参数
+     * @return 符合条件的书籍分页对象
+     */
+    public Page<Book> searchBooksByTitle(String keyword, Pageable pageable) {
+        if (keyword == null || keyword.trim().isEmpty()) {
+            // 如果关键词为空，返回所有书籍
+            return findAllBooks(pageable);
+        }
+        // 否则进行关键词搜索
+        return bookRepository.findByTitleContainingIgnoreCase(keyword.trim(), pageable);
+    }
+    
+    /**
      * 根据ID查找书籍
      * @param id 书籍ID
      * @return 书籍对象

@@ -26,21 +26,24 @@ public class BookController {
     }
     
     /**
-     * 显示所有书籍列表（支持分页）
+     * 显示书籍列表（支持分页和搜索）
      */
     @GetMapping
     public String listBooks(@RequestParam(defaultValue = "0") int page, 
                            @RequestParam(defaultValue = "6") int size, 
+                           @RequestParam(required = false) String query,
                            Model model) {
         // 构造分页参数，默认按创建时间降序排序
         PageRequest pageRequest = PageRequest.of(page, size, 
                 Sort.by("createdAt").descending());
         
-        // 获取分页结果
-        Page<Book> booksPage = bookService.findAllBooks(pageRequest);
+        // 获取分页结果（支持搜索）
+        Page<Book> booksPage = bookService.searchBooksByTitle(query, pageRequest);
         
         // 将分页对象放入Model
         model.addAttribute("books", booksPage);
+        // 将搜索关键词放入Model供前端回显
+        model.addAttribute("query", query);
         
         return "book/list";
     }

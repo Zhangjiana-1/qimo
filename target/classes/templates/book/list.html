@@ -155,6 +155,15 @@
         <div class="content-container">
             <h1 class="mb-5">📚 所有书籍</h1>
             
+            <!-- 搜索表单 -->
+            <form th:action="@{/books}" method="get" class="mb-4">
+                <div class="input-group">
+                    <input type="text" name="query" class="form-control" placeholder="搜索书名" 
+                           th:value="${param.query != null ? param.query[0] : ''}">
+                    <button class="btn btn-primary" type="submit">搜索</button>
+                </div>
+            </form>
+            
             <!-- 书籍列表 -->
             <div class="row">
                 <div class="col-md-4 mb-4" th:each="book : ${books}">
@@ -183,7 +192,7 @@
                         <!-- 上一页按钮 -->
                         <li class="page-item" th:classappend="${books.first} ? 'disabled'">
                             <a class="page-link" 
-                               th:href="@{/books?page={page}&size=6(page=${books.number-1})}" 
+                               th:href="@{/books(page=${books.number-1},size=6,query=${param.query != null ? param.query[0] : ''})}" 
                                th:aria-disabled="${books.first}">
                                 上一页
                             </a>
@@ -195,7 +204,7 @@
                             <th:block th:if="${i >= books.number - 2 && i <= books.number + 2}">
                                 <li class="page-item" th:classappend="${i == books.number} ? 'active'">
                                     <a class="page-link" 
-                                       th:href="@{/books?page={page}&size=6(page=${i})}" 
+                                       th:href="@{/books(page=${i},size=6,query=${param.query != null ? param.query[0] : ''})}" 
                                        th:text="${i + 1}">
                                         页码
                                     </a>
@@ -213,7 +222,7 @@
                         <!-- 下一页按钮 -->
                         <li class="page-item" th:classappend="${books.last} ? 'disabled'">
                             <a class="page-link" 
-                               th:href="@{/books?page={page}&size=6(page=${books.number+1})}" 
+                               th:href="@{/books(page=${books.number+1},size=6,query=${param.query != null ? param.query[0] : ''})}" 
                                th:aria-disabled="${books.last}">
                                 下一页
                             </a>
