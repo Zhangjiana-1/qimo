@@ -41,6 +41,7 @@ public class SecurityConfig {
             )
             .formLogin(form -> form
                 .loginPage("/login")
+                .defaultSuccessUrl("/books") // 添加这一行，设置登录成功后跳转到书籍列表页
                 .permitAll()
             )
             .logout(logout -> logout

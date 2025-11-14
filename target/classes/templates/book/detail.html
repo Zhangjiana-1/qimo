@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${book.title} + ' - 书籍详情'">书籍详情 - 书籍管理系统</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            color: #333;
+            padding-top: 70px; /* 为固定导航栏留出空间 */
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
+            margin-bottom: 0 !important;
+        }
+
+        .content-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-detail-cover {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            color: #6a11cb;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
+            color: white;
+        }
+
+        .comment-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: #6a11cb;
+        }
+
+        .comment-date {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        .no-comments {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏直接嵌入页面 - 与list.html完全一致 -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">📚 书籍管理系统</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="切换导航">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/books">书籍列表</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">登录</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">注册</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content-container">
+            <!-- 书籍基本信息 -->
+            <div class="row mb-5">
+                <div class="col-md-3">
+                    <img th:if="${book.coverUrl}" th:src="${book.coverUrl}" alt="封面图" class="book-detail-cover">
+                    <img th:unless="${book.coverUrl}" src="https://via.placeholder.com/300x450?text=No+Cover" alt="默认封面" class="book-detail-cover">
+                </div>
+                <div class="col-md-9">
+                    <h1 th:text="${book.title}"></h1>
+                    <p class="mt-2"><strong>作者：</strong><span th:text="${book.author}"></span></p>
+                    <p class="mt-3"><strong>创建时间：</strong><span th:text="${book.createdAt}"></span></p>
+                    
+                    <h3 class="mt-5 section-title">内容简介</h3>
+                    <p class="text-muted" th:text="${book.description}"></p>
+                </div>
+            </div>
+
+            <!-- 评论区 -->
+            <div class="mt-8">
+                <h3 class="section-title">读者评论</h3>
+                
+                <!-- 评论列表 -->
+                <div th:if="${not #lists.isEmpty(comments)}">
+                    <div th:each="comment : ${comments}" class="comment-card">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="comment-author" th:text="${comment.user?.username}">匿名用户</span>
+                            <span class="comment-date" th:text="${#dates.format(comment.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></span>
+                        </div>
+                        <p th:text="${comment.content}"></p>
+                    </div>
+                </div>
+                
+                <!-- 无评论提示 -->
+                <div th:unless="${not #lists.isEmpty(comments)}" class="no-comments">
+                    <p>暂无评论</p>
+                </div>
+            </div>
+
+            <!-- 返回按钮 -->
+            <div class="mt-8 text-center">
+                <a th:href="@{/books}" class="btn action-btn">返回列表</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+</body>
+</html>
