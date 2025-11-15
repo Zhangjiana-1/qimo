@@ -7,6 +7,7 @@ E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\controller\CommentCont
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\entity\Comment.java
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\service\UserService.java
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\controller\AdminController.java
+E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\service\impl\BookServiceImpl.java
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\repository\BookRepository.java
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\QimoApplication.java
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\repository\CommentRepository.java
@@ -15,3 +16,4 @@ E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\config\SecurityConfig.
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\repository\UserRepository.java
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\service\BookService.java
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\config\PasswordEncoderConfig.java
+E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\controller\GlobalExceptionHandler.java

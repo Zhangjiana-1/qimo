@@ -1,3 +1,4 @@
+com\example\qimo\service\impl\BookServiceImpl.class
 com\example\qimo\QimoApplication.class
 com\example\qimo\config\SecurityConfig.class
 com\example\qimo\entity\User$Role.class
@@ -8,6 +9,7 @@ com\example\qimo\service\CommentService.class
 com\example\qimo\entity\Book.class
 com\example\qimo\controller\BookController.class
 com\example\qimo\entity\Comment.class
+com\example\qimo\controller\GlobalExceptionHandler.class
 com\example\qimo\controller\AdminController.class
 com\example\qimo\controller\UserController.class
 com\example\qimo\config\PasswordEncoderConfig.class

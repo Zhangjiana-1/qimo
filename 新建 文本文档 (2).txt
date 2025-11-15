@@ -9,117 +9,245 @@
 [INFO] --- clean:3.2.0:clean (default-clean) @ qimo ---
 [INFO] Deleting E:\zsc\semester-01\ai\qimo\target
 [INFO] 
-[INFO] >>> spring-boot:2.7.18:run (default-cli) > test-compile @ qimo >>>
-[INFO]
 [INFO] --- resources:3.2.0:resources (default-resources) @ qimo ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Using 'UTF-8' encoding to copy filtered properties files.
 [INFO] Copying 1 resource
-[INFO] Copying 15 resources
+[INFO] Copying 18 resources
 [INFO] 
 [INFO] --- compiler:3.10.1:compile (default-compile) @ qimo ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 17 source files to E:\zsc\semester-01\ai\qimo\target\classes
-[INFO] 
-[INFO] --- resources:3.2.0:testResources (default-testResources) @ qimo ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Using 'UTF-8' encoding to copy filtered properties files.
-[INFO] skip non existing resourceDirectory E:\zsc\semester-01\ai\qimo\src\test\resources
-[INFO]
-[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ qimo ---
-[INFO] No sources to compile
-[INFO]
-[INFO] <<< spring-boot:2.7.18:run (default-cli) < test-compile @ qimo <<<
-[INFO]
-[INFO]
-[INFO] --- spring-boot:2.7.18:run (default-cli) @ qimo ---
-[INFO] Attaching agents: []
-21:49:40.185 [Thread-0] DEBUG org.springframework.boot.devtools.restart.classloader.RestartClassLoader - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@66adab79
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::               (v2.7.18)
-
-2025-11-14 21:49:40.554  INFO 2816 --- [  restartedMain] com.example.qimo.QimoApplication         : Starting QimoApplication using Java 17.0.6 on nana with PID 2816 (E:\zsc\semester-01\ai\qimo\target\classes started by 86134 in E:\zsc\semester-01\ai\qimo)
-2025-11-14 21:49:40.555 DEBUG 2816 --- [  restartedMain] com.example.qimo.QimoApplication         : Running with Spring Boot v2.7.18, Spring v5.3.31
-2025-11-14 21:49:40.555  INFO 2816 --- [  restartedMain] com.example.qimo.QimoApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-11-14 21:49:40.602  INFO 2816 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-11-14 21:49:40.604  INFO 2816 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-11-14 21:49:41.107  INFO 2816 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-14 21:49:41.152  INFO 2816 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 3 JPA repository interfaces.
-2025-11-14 21:49:41.806  INFO 2816 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2025-11-14 21:49:41.816  INFO 2816 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-14 21:49:41.816  INFO 2816 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
-2025-11-14 21:49:41.938  INFO 2816 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-14 21:49:41.938  INFO 2816 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1334 ms
-2025-11-14 21:49:42.153  INFO 2816 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-11-14 21:49:42.195  INFO 2816 --- [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
-2025-11-14 21:49:42.337  INFO 2816 --- [  restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-11-14 21:49:42.421  INFO 2816 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-11-14 21:49:42.564  INFO 2816 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-11-14 21:49:42.581  INFO 2816 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2025-11-14 21:49:43.174 ERROR 2816 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [enabled] in table [users]
-2025-11-14 21:49:43.175  WARN 2816 --- [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [enabled] in table [users]
-2025-11-14 21:49:43.178  INFO 2816 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-11-14 21:49:43.184  INFO 2816 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-11-14 21:49:43.186  INFO 2816 --- [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat] 
-2025-11-14 21:49:43.201  INFO 2816 --- [  restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2025-11-14 21:49:43.224 ERROR 2816 --- [  restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [enabled] in table [users]
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.31.jar:5.3.31]
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.31.jar:5.3.31]
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
-        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
-        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
-        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
-        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
-        at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1168) ~[spring-context-5.3.31.jar:5.3.31]
-        at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:919) ~[spring-context-5.3.31.jar:5.3.31]
-        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.31.jar:5.3.31]
-        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.18.jar:2.7.18]
-        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.7.18.jar:2.7.18]    
-        at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409) ~[spring-boot-2.7.18.jar:2.7.18]
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.18.jar:2.7.18]        
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.7.18.jar:2.7.18]       
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) ~[spring-boot-2.7.18.jar:2.7.18]       
-        at com.example.qimo.QimoApplication.main(QimoApplication.java:13) ~[classes/:na]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]  
-        at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-        at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-2.7.18.jar:2.7.18]
-Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [enabled] in table [users]
-        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-5.3.31.jar:5.3.31]
-        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.31.jar:5.3.31]
-        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.31.jar:5.3.31]
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.31.jar:5.3.31]
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.31.jar:5.3.31]
-        ... 21 common frames omitted
-Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [enabled] in table [users]
-        at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:144) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
-        at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
-        at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
-        at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:76) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
-        at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:204) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
-        at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
-        at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
-        at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
-        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
-        at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.31.jar:5.3.31]
-        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.31.jar:5.3.31]
-        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.31.jar:5.3.31]
-        ... 25 common frames omitted
-
+[INFO] Compiling 20 source files to E:\zsc\semester-01\ai\qimo\target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR :
+[INFO] -------------------------------------------------------------
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[21,8] 类 AdminController 是公共的, 应在名为 AdminController.java 的文件中声明
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminController.java:[21,8] 类重复: com.example.qimo.controller.AdminController
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[52,16] 找不到符号
+  符号:   方法 setContent(java.lang.String)
+  位置: 类型为com.example.qimo.entity.Comment的变量 comment
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[53,16] 找不到符号
+  符号:   方法 setBook(com.example.qimo.entity.Book)
+  位置: 类型为com.example.qimo.entity.Comment的变量 comment
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[54,16] 找不到符号
+  符号:   方法 setUser(com.example.qimo.entity.User)
+  位置: 类型为com.example.qimo.entity.Comment的变量 comment
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[80,21] 找不到符号  
+  符号:   方法 getCoverUrl()
+  位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[80,51] 找不到符号  
+  符号:   方法 getCoverUrl()
+  位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[81,21] 找不到符号  
+  符号:   方法 setCoverUrl(<nulltype>)
+  位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[133,43] 找不到符号 
+  符号:   方法 getTitle()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[134,44] 找不到符号 
+  符号:   方法 getAuthor()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[135,49] 找不到符号 
+  符号:   方法 getDescription()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[138,25] 找不到符号 
+  符号:   方法 getCoverUrl()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[138,59] 找不到符号 
+  符号:   方法 getCoverUrl()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[139,29] 找不到符号 
+  符号:   方法 setCoverUrl(<nulltype>)
+  位置: 类型为com.example.qimo.entity.Book的变量 existingBook
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[141,50] 找不到符号 
+  符号:   方法 getCoverUrl()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[25,18] 找不到符号
+  符号:   方法 setUsername(java.lang.String)
+  位置: 类型为com.example.qimo.entity.User的变量 admin
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[26,18] 找不到符号
+  符号:   方法 setPassword(java.lang.String)
+  位置: 类型为com.example.qimo.entity.User的变量 admin
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[27,18] 找不到符号
+  符号:   方法 setEmail(java.lang.String)
+  位置: 类型为com.example.qimo.entity.User的变量 admin
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[28,18] 找不到符号
+  符号:   方法 setRole(com.example.qimo.entity.User.Role)
+  位置: 类型为com.example.qimo.entity.User的变量 admin
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[26,13] 找不到符号
+  符号:   方法 setPassword(java.lang.String)
+  位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[39,34] 找不到符号
+  符号:   方法 getEnabled()
+  位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[49,17] 找不到符号
+  符号:   方法 setPassword(java.lang.String)
+  位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[63,32] 找不到符号
+  符号:   方法 getEnabled()
+  位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[60,31] 找不到符号
+  符号:   方法 getUsername()
+  位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[61,31] 找不到符号
+  符号:   方法 getPassword()
+  位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[62,28] 找不到符号
+  符号:   方法 getRole()
+  位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[100,17] 找不到符号    
+  符号:   方法 setCreatedAt(java.time.LocalDateTime)
+  位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[103,21] 找不到符号    
+  符号:   方法 getCoverUrl()
+  位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[103,51] 找不到符号    
+  符号:   方法 getCoverUrl()
+  位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[104,21] 找不到符号    
+  符号:   方法 setCoverUrl(<nulltype>)
+  位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[128,43] 找不到符号    
+  符号:   方法 getTitle()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[129,44] 找不到符号    
+  符号:   方法 getAuthor()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[130,49] 找不到符号    
+  符号:   方法 getDescription()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[133,25] 找不到符号    
+  符号:   方法 getCoverUrl()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[133,59] 找不到符号    
+  符号:   方法 getCoverUrl()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[134,29] 找不到符号    
+  符号:   方法 setCoverUrl(<nulltype>)
+  位置: 类型为com.example.qimo.entity.Book的变量 existingBook
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[136,50] 找不到符号    
+  符号:   方法 getCoverUrl()
+  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[INFO] 37 errors
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.890 s
-[INFO] Finished at: 2025-11-14T21:49:43+08:00
+[INFO] Total time:  3.160 s
+[INFO] Finished at: 2025-11-15T17:15:17+08:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project qimo: Compilation failure: Compilation failure:
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[21,8] 类 AdminController 是公共的, 应在名为 AdminController.java 的文件中声明
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminController.java:[21,8] 类重复: com.example.qimo.controller.AdminController
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[52,16] 找不到符号
+[ERROR]   符号:   方法 setContent(java.lang.String)
+[ERROR]   位置: 类型为com.example.qimo.entity.Comment的变量 comment
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[53,16] 找不到符号
+[ERROR]   符号:   方法 setBook(com.example.qimo.entity.Book)
+[ERROR]   位置: 类型为com.example.qimo.entity.Comment的变量 comment
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[54,16] 找不到符号
+[ERROR]   符号:   方法 setUser(com.example.qimo.entity.User)
+[ERROR]   位置: 类型为com.example.qimo.entity.Comment的变量 comment
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[80,21] 找不到符号  
+[ERROR]   符号:   方法 getCoverUrl()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[80,51] 找不到符号  
+[ERROR]   符号:   方法 getCoverUrl()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[81,21] 找不到符号  
+[ERROR]   符号:   方法 setCoverUrl(<nulltype>)
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[133,43] 找不到符号 
+[ERROR]   符号:   方法 getTitle()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[134,44] 找不到符号 
+[ERROR]   符号:   方法 getAuthor()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[135,49] 找不到符号 
+[ERROR]   符号:   方法 getDescription()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[138,25] 找不到符号 
+[ERROR]   符号:   方法 getCoverUrl()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[138,59] 找不到符号 
+[ERROR]   符号:   方法 getCoverUrl()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[139,29] 找不到符号 
+[ERROR]   符号:   方法 setCoverUrl(<nulltype>)
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 existingBook
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[141,50] 找不到符号 
+[ERROR]   符号:   方法 getCoverUrl()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[25,18] 找不到符号
+[ERROR]   符号:   方法 setUsername(java.lang.String)
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 admin
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[26,18] 找不到符号
+[ERROR]   符号:   方法 setPassword(java.lang.String)
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 admin
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[27,18] 找不到符号
+[ERROR]   符号:   方法 setEmail(java.lang.String)
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 admin
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[28,18] 找不到符号
+[ERROR]   符号:   方法 setRole(com.example.qimo.entity.User.Role)
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 admin
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[26,13] 找不到符号
+[ERROR]   符号:   方法 setPassword(java.lang.String)
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[39,34] 找不到符号
+[ERROR]   符号:   方法 getEnabled()
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[49,17] 找不到符号
+[ERROR]   符号:   方法 setPassword(java.lang.String)
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[63,32] 找不到符号
+[ERROR]   符号:   方法 getEnabled()
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[60,31] 找不到符号
+[ERROR]   符号:   方法 getUsername()
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[61,31] 找不到符号
+[ERROR]   符号:   方法 getPassword()
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[62,28] 找不到符号
+[ERROR]   符号:   方法 getRole()
+[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[100,17] 找不到符号    
+[ERROR]   符号:   方法 setCreatedAt(java.time.LocalDateTime)
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[103,21] 找不到符号    
+[ERROR]   符号:   方法 getCoverUrl()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[103,51] 找不到符号    
+[ERROR]   符号:   方法 getCoverUrl()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[104,21] 找不到符号    
+[ERROR]   符号:   方法 setCoverUrl(<nulltype>)
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[128,43] 找不到符号    
+[ERROR]   符号:   方法 getTitle()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[129,44] 找不到符号    
+[ERROR]   符号:   方法 getAuthor()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[130,49] 找不到符号    
+[ERROR]   符号:   方法 getDescription()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[133,25] 找不到符号    
+[ERROR]   符号:   方法 getCoverUrl()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[133,59] 找不到符号    
+[ERROR]   符号:   方法 getCoverUrl()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[134,29] 找不到符号    
+[ERROR]   符号:   方法 setCoverUrl(<nulltype>)
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 existingBook
+[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[136,50] 找不到符号    
+[ERROR]   符号:   方法 getCoverUrl()
+[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
