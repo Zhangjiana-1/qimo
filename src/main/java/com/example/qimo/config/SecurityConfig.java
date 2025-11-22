@@ -53,16 +53,19 @@ public class SecurityConfig {
                 .permitAll()
             )
             .logout(logout -> logout
+                .logoutUrl("/logout") // 明确指定登出URL
                 .permitAll()
                 // 设置登出成功后重定向到登录页
                 .logoutSuccessUrl("/login")
                 // 确保会话被销毁
                 .invalidateHttpSession(true)
+                // 清除认证信息
+                .clearAuthentication(true)
             )
             // 配置会话管理，确保会话在重启后不会保留
-            .sessionManagement()
+            .sessionManagement(session -> session
                 .maximumSessions(1)
-                .maxSessionsPreventsLogin(false);
+                .maxSessionsPreventsLogin(false));
 
         return http.build();
     }

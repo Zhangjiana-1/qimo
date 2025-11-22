@@ -1,13 +1,20 @@
 package com.example.qimo.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@ToString(exclude = {"likedBy", "book", "user"})
 @Entity
 @Table(name = "comments", schema = "book_db", catalog = "book_db")
 @EntityListeners(AuditingEntityListener.class)
@@ -30,4 +37,35 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+    
+    @ManyToMany
+    @JoinTable(
+        name = "comment_likes",
+        joinColumns = @JoinColumn(name = "comment_id"),
+        inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> likedBy = new HashSet<>();
+    
+    // 辅助方法，判断当前用户是否已点赞
+    public boolean isLikedBy(User user) {
+        return likedBy.contains(user);
+    }
+    
+    // 获取点赞数量
+    public int getLikeCount() {
+        return likedBy.size();
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Comment comment = (Comment) o;
+        return Objects.equals(id, comment.id);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

@@ -200,11 +200,11 @@
                 <div class="col-md-4 mb-4" th:each="book : ${books}">
                     <div class="card book-card">
                         <div class="book-cover">
-                            <img th:if="${book.coverUrl}" th:src="${book.coverUrl}" 
+                            <img th:src="${book.coverUrl != null ? book.coverUrl : '/images/default-cover.jpg'}" 
                                  alt="书籍封面" class="img-fluid">
-                            <img th:unless="${book.coverUrl}" 
+                            <!-- <img th:unless="${book.coverUrl}" 
                                  src="https://via.placeholder.com/150x200?text=暂无封面" 
-                                 alt="默认封面" class="img-fluid">
+                                 alt="默认封面" class="img-fluid"> -->
                         </div>
                         <div class="card-body">
                             <h5 class="card-title" th:text="${book.title}"></h5>

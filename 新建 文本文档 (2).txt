@@ -1,253 +1,490 @@
-[INFO] Scanning for projects...
 [INFO] 
 [INFO] --------------------------< com.example:qimo >--------------------------
 [INFO] Building qimo 1.0.0
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
-[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.20.0-GA during dependency collection step for project (use -X to see details)
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.20.0-GA during dependency collection step for project (use -X to see details)  
 [INFO] 
 [INFO] --- clean:3.2.0:clean (default-clean) @ qimo ---
 [INFO] Deleting E:\zsc\semester-01\ai\qimo\target
 [INFO] 
+[INFO] >>> spring-boot:2.7.18:run (default-cli) > test-compile @ qimo >>>
+[INFO]
 [INFO] --- resources:3.2.0:resources (default-resources) @ qimo ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Using 'UTF-8' encoding to copy filtered properties files.
 [INFO] Copying 1 resource
-[INFO] Copying 18 resources
+[INFO] Copying 20 resources
 [INFO] 
 [INFO] --- compiler:3.10.1:compile (default-compile) @ qimo ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 20 source files to E:\zsc\semester-01\ai\qimo\target\classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR :
-[INFO] -------------------------------------------------------------
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[21,8] 类 AdminController 是公共的, 应在名为 AdminController.java 的文件中声明
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminController.java:[21,8] 类重复: com.example.qimo.controller.AdminController
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[52,16] 找不到符号
-  符号:   方法 setContent(java.lang.String)
-  位置: 类型为com.example.qimo.entity.Comment的变量 comment
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[53,16] 找不到符号
-  符号:   方法 setBook(com.example.qimo.entity.Book)
-  位置: 类型为com.example.qimo.entity.Comment的变量 comment
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[54,16] 找不到符号
-  符号:   方法 setUser(com.example.qimo.entity.User)
-  位置: 类型为com.example.qimo.entity.Comment的变量 comment
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[80,21] 找不到符号  
-  符号:   方法 getCoverUrl()
-  位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[80,51] 找不到符号  
-  符号:   方法 getCoverUrl()
-  位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[81,21] 找不到符号  
-  符号:   方法 setCoverUrl(<nulltype>)
-  位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[133,43] 找不到符号 
-  符号:   方法 getTitle()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[134,44] 找不到符号 
-  符号:   方法 getAuthor()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[135,49] 找不到符号 
-  符号:   方法 getDescription()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[138,25] 找不到符号 
-  符号:   方法 getCoverUrl()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[138,59] 找不到符号 
-  符号:   方法 getCoverUrl()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[139,29] 找不到符号 
-  符号:   方法 setCoverUrl(<nulltype>)
-  位置: 类型为com.example.qimo.entity.Book的变量 existingBook
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[141,50] 找不到符号 
-  符号:   方法 getCoverUrl()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[25,18] 找不到符号
-  符号:   方法 setUsername(java.lang.String)
-  位置: 类型为com.example.qimo.entity.User的变量 admin
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[26,18] 找不到符号
-  符号:   方法 setPassword(java.lang.String)
-  位置: 类型为com.example.qimo.entity.User的变量 admin
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[27,18] 找不到符号
-  符号:   方法 setEmail(java.lang.String)
-  位置: 类型为com.example.qimo.entity.User的变量 admin
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[28,18] 找不到符号
-  符号:   方法 setRole(com.example.qimo.entity.User.Role)
-  位置: 类型为com.example.qimo.entity.User的变量 admin
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[26,13] 找不到符号
-  符号:   方法 setPassword(java.lang.String)
-  位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[39,34] 找不到符号
-  符号:   方法 getEnabled()
-  位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[49,17] 找不到符号
-  符号:   方法 setPassword(java.lang.String)
-  位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[63,32] 找不到符号
-  符号:   方法 getEnabled()
-  位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[60,31] 找不到符号
-  符号:   方法 getUsername()
-  位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[61,31] 找不到符号
-  符号:   方法 getPassword()
-  位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[62,28] 找不到符号
-  符号:   方法 getRole()
-  位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[100,17] 找不到符号    
-  符号:   方法 setCreatedAt(java.time.LocalDateTime)
-  位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[103,21] 找不到符号    
-  符号:   方法 getCoverUrl()
-  位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[103,51] 找不到符号    
-  符号:   方法 getCoverUrl()
-  位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[104,21] 找不到符号    
-  符号:   方法 setCoverUrl(<nulltype>)
-  位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[128,43] 找不到符号    
-  符号:   方法 getTitle()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[129,44] 找不到符号    
-  符号:   方法 getAuthor()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[130,49] 找不到符号    
-  符号:   方法 getDescription()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[133,25] 找不到符号    
-  符号:   方法 getCoverUrl()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[133,59] 找不到符号    
-  符号:   方法 getCoverUrl()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[134,29] 找不到符号    
-  符号:   方法 setCoverUrl(<nulltype>)
-  位置: 类型为com.example.qimo.entity.Book的变量 existingBook
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[136,50] 找不到符号    
-  符号:   方法 getCoverUrl()
-  位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[INFO] 37 errors
-[INFO] -------------------------------------------------------------
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  3.160 s
-[INFO] Finished at: 2025-11-15T17:15:17+08:00
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project qimo: Compilation failure: Compilation failure:
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[21,8] 类 AdminController 是公共的, 应在名为 AdminController.java 的文件中声明
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminController.java:[21,8] 类重复: com.example.qimo.controller.AdminController
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[52,16] 找不到符号
-[ERROR]   符号:   方法 setContent(java.lang.String)
-[ERROR]   位置: 类型为com.example.qimo.entity.Comment的变量 comment
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[53,16] 找不到符号
-[ERROR]   符号:   方法 setBook(com.example.qimo.entity.Book)
-[ERROR]   位置: 类型为com.example.qimo.entity.Comment的变量 comment
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/CommentService.java:[54,16] 找不到符号
-[ERROR]   符号:   方法 setUser(com.example.qimo.entity.User)
-[ERROR]   位置: 类型为com.example.qimo.entity.Comment的变量 comment
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[80,21] 找不到符号  
-[ERROR]   符号:   方法 getCoverUrl()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[80,51] 找不到符号  
-[ERROR]   符号:   方法 getCoverUrl()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[81,21] 找不到符号  
-[ERROR]   符号:   方法 setCoverUrl(<nulltype>)
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[133,43] 找不到符号 
-[ERROR]   符号:   方法 getTitle()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[134,44] 找不到符号 
-[ERROR]   符号:   方法 getAuthor()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[135,49] 找不到符号 
-[ERROR]   符号:   方法 getDescription()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[138,25] 找不到符号 
-[ERROR]   符号:   方法 getCoverUrl()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[138,59] 找不到符号 
-[ERROR]   符号:   方法 getCoverUrl()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[139,29] 找不到符号 
-[ERROR]   符号:   方法 setCoverUrl(<nulltype>)
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 existingBook
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/GlobalExceptionHandler.java:[141,50] 找不到符号 
-[ERROR]   符号:   方法 getCoverUrl()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[25,18] 找不到符号
-[ERROR]   符号:   方法 setUsername(java.lang.String)
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 admin
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[26,18] 找不到符号
-[ERROR]   符号:   方法 setPassword(java.lang.String)
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 admin
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[27,18] 找不到符号
-[ERROR]   符号:   方法 setEmail(java.lang.String)
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 admin
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/runner/DataInitRunner.java:[28,18] 找不到符号
-[ERROR]   符号:   方法 setRole(com.example.qimo.entity.User.Role)
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 admin
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[26,13] 找不到符号
-[ERROR]   符号:   方法 setPassword(java.lang.String)
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[39,34] 找不到符号
-[ERROR]   符号:   方法 getEnabled()
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[49,17] 找不到符号
-[ERROR]   符号:   方法 setPassword(java.lang.String)
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[63,32] 找不到符号
-[ERROR]   符号:   方法 getEnabled()
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[60,31] 找不到符号
-[ERROR]   符号:   方法 getUsername()
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[61,31] 找不到符号
-[ERROR]   符号:   方法 getPassword()
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/service/UserService.java:[62,28] 找不到符号
-[ERROR]   符号:   方法 getRole()
-[ERROR]   位置: 类型为com.example.qimo.entity.User的变量 user
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[100,17] 找不到符号    
-[ERROR]   符号:   方法 setCreatedAt(java.time.LocalDateTime)
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[103,21] 找不到符号    
-[ERROR]   符号:   方法 getCoverUrl()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[103,51] 找不到符号    
-[ERROR]   符号:   方法 getCoverUrl()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[104,21] 找不到符号    
-[ERROR]   符号:   方法 setCoverUrl(<nulltype>)
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 book
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[128,43] 找不到符号    
-[ERROR]   符号:   方法 getTitle()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[129,44] 找不到符号    
-[ERROR]   符号:   方法 getAuthor()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[130,49] 找不到符号    
-[ERROR]   符号:   方法 getDescription()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[133,25] 找不到符号    
-[ERROR]   符号:   方法 getCoverUrl()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[133,59] 找不到符号    
-[ERROR]   符号:   方法 getCoverUrl()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[134,29] 找不到符号    
-[ERROR]   符号:   方法 setCoverUrl(<nulltype>)
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 existingBook
-[ERROR] /E:/zsc/semester-01/ai/qimo/src/main/java/com/example/qimo/controller/AdminBookController.java:[136,50] 找不到符号    
-[ERROR]   符号:   方法 getCoverUrl()
-[ERROR]   位置: 类型为com.example.qimo.entity.Book的变量 bookForm
-[ERROR] -> [Help 1]
-[ERROR]
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR]
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ qimo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory E:\zsc\semester-01\ai\qimo\src\test\resources    
+[INFO]
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ qimo ---
+[INFO] No sources to compile
+[INFO]
+[INFO] <<< spring-boot:2.7.18:run (default-cli) < test-compile @ qimo <<<
+[INFO]
+[INFO]
+[INFO] --- spring-boot:2.7.18:run (default-cli) @ qimo ---
+[INFO] Attaching agents: []
+20:41:35.195 [Thread-0] DEBUG org.springframework.boot.devtools.restart.classloader.RestartClassLoader - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@39a9b575
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.18)
+
+2025-11-22 20:41:35.720  INFO 33044 --- [  restartedMain] com.example.qimo.QimoApplication         : Starting QimoApplication using Java 17.0.6 on nana with PID 33044 (E:\zsc\semester-01\ai\qimo\target\classes started by 86134 in E:\zsc\semester-01\ai\qimo)
+2025-11-22 20:41:35.720 DEBUG 33044 --- [  restartedMain] com.example.qimo.QimoApplication         : Running with Spring Boot v2.7.18, Spring v5.3.31
+2025-11-22 20:41:35.722  INFO 33044 --- [  restartedMain] com.example.qimo.QimoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-11-22 20:41:35.770  INFO 33044 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-22 20:41:35.770  INFO 33044 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-22 20:41:36.294  INFO 33044 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-22 20:41:36.345  INFO 33044 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 3 JPA repository interfaces.
+2025-11-22 20:41:37.018  INFO 33044 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-11-22 20:41:37.028  INFO 33044 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-22 20:41:37.028  INFO 33044 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-11-22 20:41:37.149  INFO 33044 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-22 20:41:37.149  INFO 33044 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1379 ms
+2025-11-22 20:41:37.374  INFO 33044 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-22 20:41:37.421  INFO 33044 --- [  restartedMain] org.hibernate.Version             
+       : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-11-22 20:41:37.564  INFO 33044 --- [  restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-11-22 20:41:37.649  INFO 33044 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-22 20:41:37.792  INFO 33044 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-22 20:41:37.808  INFO 33044 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-11-22 20:41:38.399  INFO 33044 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-22 20:41:38.409  INFO 33044 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-22 20:41:38.963  INFO 33044 --- [  restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c41b67b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@44ea0f9b, org.springframework.security.web.context.SecurityContextPersistenceFilter@3482fce0, org.springframework.security.web.header.HeaderWriterFilter@3b9ee254, org.springframework.security.web.csrf.CsrfFilter@3ebb7225, org.springframework.security.web.authentication.logout.LogoutFilter@4dcca196, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1de671e4, org.springframework.security.web.session.ConcurrentSessionFilter@48c53a54, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a920238, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4aa6bee1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a2d3fb3, org.springframework.security.web.session.SessionManagementFilter@5ef9fe0a, org.springframework.security.web.access.ExceptionTranslationFilter@742aa908, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@50984b53]
+2025-11-22 20:41:39.008  WARN 33044 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-22 20:41:39.160  INFO 33044 --- [  restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-11-22 20:41:39.389  INFO 33044 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-22 20:41:39.423  INFO 33044 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-11-22 20:41:39.431  INFO 33044 --- [  restartedMain] com.example.qimo.QimoApplication         : Started QimoApplication in 4.227 seconds (JVM running for 4.758)
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        User as generatedAlias0
+    where
+        generatedAlias0.username=:param0 */ select
+            user0_.id as id1_3_,
+            user0_.avatar as avatar2_3_,
+            user0_.created_at as created_3_3_,
+            user0_.email as email4_3_,
+            user0_.enabled as enabled5_3_,
+            user0_.nickname as nickname6_3_,
+            user0_.password as password7_3_,
+            user0_.role as role8_3_,
+            user0_.updated_at as updated_9_3_,
+            user0_.username as usernam10_3_
+        from
+            users user0_
+        where
+            user0_.username=?
+2025-11-22 20:41:45.882  INFO 33044 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-22 20:41:45.882  INFO 33044 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-22 20:41:45.884  INFO 33044 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        User as generatedAlias0
+    where
+        generatedAlias0.username=:param0 */ select
+            user0_.id as id1_3_,
+            user0_.avatar as avatar2_3_,
+            user0_.created_at as created_3_3_,
+            user0_.email as email4_3_,
+            user0_.enabled as enabled5_3_,
+            user0_.nickname as nickname6_3_,
+            user0_.password as password7_3_,
+            user0_.role as role8_3_,
+            user0_.updated_at as updated_9_3_,
+            user0_.username as usernam10_3_
+        from
+            users user0_
+        where
+            user0_.username=?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_0_,
+            book0_.author as author2_0_,
+            book0_.cover_url as cover_ur3_0_,
+            book0_.created_at as created_4_0_,
+            book0_.description as descript5_0_,
+            book0_.title as title6_0_,
+            book0_.updated_at as updated_7_0_
+        from
+            book_db.books book0_
+        order by
+            book0_.created_at desc limit ?
+Hibernate: 
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            book_db.books book0_
+Hibernate: 
+    select
+        book0_.id as id1_0_0_,
+        book0_.author as author2_0_0_,
+        book0_.cover_url as cover_ur3_0_0_,
+        book0_.created_at as created_4_0_0_,
+        book0_.description as descript5_0_0_,
+        book0_.title as title6_0_0_,
+        book0_.updated_at as updated_7_0_0_
+    from
+        book_db.books book0_
+    where
+        book0_.id=?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Comment as generatedAlias0
+    left join
+        generatedAlias0.book as generatedAlias1
+    where
+        generatedAlias1.id=:param0
+    order by
+        generatedAlias0.createdAt desc */ select
+            comment0_.id as id1_1_0_,
+            user2_.id as id1_3_1_,
+            user4_.id as id1_3_2_,
+            comment0_.book_id as book_id4_1_0_,
+            comment0_.content as content2_1_0_,
+            comment0_.created_at as created_3_1_0_,
+            comment0_.user_id as user_id5_1_0_,
+            user2_.avatar as avatar2_3_1_,
+            user2_.created_at as created_3_3_1_,
+            user2_.email as email4_3_1_,
+            user2_.enabled as enabled5_3_1_,
+            user2_.nickname as nickname6_3_1_,
+            user2_.password as password7_3_1_,
+            user2_.role as role8_3_1_,
+            user2_.updated_at as updated_9_3_1_,
+            user2_.username as usernam10_3_1_,
+            user4_.avatar as avatar2_3_2_,
+            user4_.created_at as created_3_3_2_,
+            user4_.email as email4_3_2_,
+            user4_.enabled as enabled5_3_2_,
+            user4_.nickname as nickname6_3_2_,
+            user4_.password as password7_3_2_,
+            user4_.role as role8_3_2_,
+            user4_.updated_at as updated_9_3_2_,
+            user4_.username as usernam10_3_2_,
+            likedby3_.comment_id as comment_1_2_0__,
+            likedby3_.user_id as user_id2_2_0__
+        from
+            book_db.comments comment0_
+        left outer join
+            book_db.books book1_
+                on comment0_.book_id=book1_.id
+        left outer join
+            users user2_
+                on comment0_.user_id=user2_.id
+        left outer join
+            comment_likes likedby3_
+                on comment0_.id=likedby3_.comment_id
+        left outer join
+            users user4_
+                on likedby3_.user_id=user4_.id
+        where
+            book1_.id=?
+        order by
+            comment0_.created_at desc
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        User as generatedAlias0
+    where
+        generatedAlias0.username=:param0 */ select
+            user0_.id as id1_3_,
+            user0_.avatar as avatar2_3_,
+            user0_.created_at as created_3_3_,
+            user0_.email as email4_3_,
+            user0_.enabled as enabled5_3_,
+            user0_.nickname as nickname6_3_,
+            user0_.password as password7_3_,
+            user0_.role as role8_3_,
+            user0_.updated_at as updated_9_3_,
+            user0_.username as usernam10_3_
+        from
+            users user0_
+        where
+            user0_.username=?
+Hibernate: 
+    select
+        comment0_.id as id1_1_0_,
+        comment0_.book_id as book_id4_1_0_,
+        comment0_.content as content2_1_0_,
+        comment0_.created_at as created_3_1_0_,
+        comment0_.user_id as user_id5_1_0_,
+        likedby1_.comment_id as comment_1_2_1_,
+        user2_.id as user_id2_2_1_,
+        user2_.id as id1_3_2_,
+        user2_.avatar as avatar2_3_2_,
+        user2_.created_at as created_3_3_2_,
+        user2_.email as email4_3_2_,
+        user2_.enabled as enabled5_3_2_,
+        user2_.nickname as nickname6_3_2_,
+        user2_.password as password7_3_2_,
+        user2_.role as role8_3_2_,
+        user2_.updated_at as updated_9_3_2_,
+        user2_.username as usernam10_3_2_,
+        user3_.id as id1_3_3_,
+        user3_.avatar as avatar2_3_3_,
+        user3_.created_at as created_3_3_3_,
+        user3_.email as email4_3_3_,
+        user3_.enabled as enabled5_3_3_,
+        user3_.nickname as nickname6_3_3_,
+        user3_.password as password7_3_3_,
+        user3_.role as role8_3_3_,
+        user3_.updated_at as updated_9_3_3_,
+        user3_.username as usernam10_3_3_
+    from
+        book_db.comments comment0_
+    left outer join
+        comment_likes likedby1_
+            on comment0_.id=likedby1_.comment_id
+    left outer join
+        users user2_
+            on likedby1_.user_id=user2_.id
+    inner join
+        users user3_
+            on comment0_.user_id=user3_.id
+    where
+        comment0_.id=?
+Hibernate: 
+    /* insert collection
+        row com.example.qimo.entity.Comment.likedBy */ insert
+        into
+            comment_likes
+            (comment_id, user_id)
+        values
+            (?, ?)
+Hibernate: 
+    select
+        book0_.id as id1_0_0_,
+        book0_.author as author2_0_0_,
+        book0_.cover_url as cover_ur3_0_0_,
+        book0_.created_at as created_4_0_0_,
+        book0_.description as descript5_0_0_,
+        book0_.title as title6_0_0_,
+        book0_.updated_at as updated_7_0_0_
+    from
+        book_db.books book0_
+    where
+        book0_.id=?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Comment as generatedAlias0
+    left join
+        generatedAlias0.book as generatedAlias1
+    where
+        generatedAlias1.id=:param0
+    order by
+        generatedAlias0.createdAt desc */ select
+            comment0_.id as id1_1_0_,
+            user2_.id as id1_3_1_,
+            user4_.id as id1_3_2_,
+            comment0_.book_id as book_id4_1_0_,
+            comment0_.content as content2_1_0_,
+            comment0_.created_at as created_3_1_0_,
+            comment0_.user_id as user_id5_1_0_,
+            user2_.avatar as avatar2_3_1_,
+            user2_.created_at as created_3_3_1_,
+            user2_.email as email4_3_1_,
+            user2_.enabled as enabled5_3_1_,
+            user2_.nickname as nickname6_3_1_,
+            user2_.password as password7_3_1_,
+            user2_.role as role8_3_1_,
+            user2_.updated_at as updated_9_3_1_,
+            user2_.username as usernam10_3_1_,
+            user4_.avatar as avatar2_3_2_,
+            user4_.created_at as created_3_3_2_,
+            user4_.email as email4_3_2_,
+            user4_.enabled as enabled5_3_2_,
+            user4_.nickname as nickname6_3_2_,
+            user4_.password as password7_3_2_,
+            user4_.role as role8_3_2_,
+            user4_.updated_at as updated_9_3_2_,
+            user4_.username as usernam10_3_2_,
+            likedby3_.comment_id as comment_1_2_0__,
+            likedby3_.user_id as user_id2_2_0__
+        from
+            book_db.comments comment0_
+        left outer join
+            book_db.books book1_
+                on comment0_.book_id=book1_.id
+        left outer join
+            users user2_
+                on comment0_.user_id=user2_.id
+        left outer join
+            comment_likes likedby3_
+                on comment0_.id=likedby3_.comment_id
+        left outer join
+            users user4_
+                on likedby3_.user_id=user4_.id
+        where
+            book1_.id=?
+        order by
+            comment0_.created_at desc
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        User as generatedAlias0
+    where
+        generatedAlias0.username=:param0 */ select
+            user0_.id as id1_3_,
+            user0_.avatar as avatar2_3_,
+            user0_.created_at as created_3_3_,
+            user0_.email as email4_3_,
+            user0_.enabled as enabled5_3_,
+            user0_.nickname as nickname6_3_,
+            user0_.password as password7_3_,
+            user0_.role as role8_3_,
+            user0_.updated_at as updated_9_3_,
+            user0_.username as usernam10_3_
+        from
+            users user0_
+        where
+            user0_.username=?
+Hibernate: 
+    select
+        comment0_.id as id1_1_0_,
+        comment0_.book_id as book_id4_1_0_,
+        comment0_.content as content2_1_0_,
+        comment0_.created_at as created_3_1_0_,
+        comment0_.user_id as user_id5_1_0_,
+        likedby1_.comment_id as comment_1_2_1_,
+        user2_.id as user_id2_2_1_,
+        user2_.id as id1_3_2_,
+        user2_.avatar as avatar2_3_2_,
+        user2_.created_at as created_3_3_2_,
+        user2_.email as email4_3_2_,
+        user2_.enabled as enabled5_3_2_,
+        user2_.nickname as nickname6_3_2_,
+        user2_.password as password7_3_2_,
+        user2_.role as role8_3_2_,
+        user2_.updated_at as updated_9_3_2_,
+        user2_.username as usernam10_3_2_,
+        user3_.id as id1_3_3_,
+        user3_.avatar as avatar2_3_3_,
+        user3_.created_at as created_3_3_3_,
+        user3_.email as email4_3_3_,
+        user3_.enabled as enabled5_3_3_,
+        user3_.nickname as nickname6_3_3_,
+        user3_.password as password7_3_3_,
+        user3_.role as role8_3_3_,
+        user3_.updated_at as updated_9_3_3_,
+        user3_.username as usernam10_3_3_
+    from
+        book_db.comments comment0_
+    left outer join
+        comment_likes likedby1_
+            on comment0_.id=likedby1_.comment_id
+    left outer join
+        users user2_
+            on likedby1_.user_id=user2_.id
+    inner join
+        users user3_
+            on comment0_.user_id=user3_.id
+    where
+        comment0_.id=?
+Hibernate:
+    /* delete collection com.example.qimo.entity.Comment.likedBy */ delete
+        from
+            comment_likes
+        where
+            comment_id=?
+Hibernate: 
+    select
+        book0_.id as id1_0_0_,
+        book0_.author as author2_0_0_,
+        book0_.cover_url as cover_ur3_0_0_,
+        book0_.created_at as created_4_0_0_,
+        book0_.description as descript5_0_0_,
+        book0_.title as title6_0_0_,
+        book0_.updated_at as updated_7_0_0_
+    from
+        book_db.books book0_
+    where
+        book0_.id=?
+Hibernate:
+    /* select
+        generatedAlias0
+    from
+        Comment as generatedAlias0
+    left join
+        generatedAlias0.book as generatedAlias1
+    where
+        generatedAlias1.id=:param0
+    order by
+        generatedAlias0.createdAt desc */ select
+            comment0_.id as id1_1_0_,
+            user2_.id as id1_3_1_,
+            user4_.id as id1_3_2_,
+            comment0_.book_id as book_id4_1_0_,
+            comment0_.content as content2_1_0_,
+            comment0_.created_at as created_3_1_0_,
+            comment0_.user_id as user_id5_1_0_,
+            user2_.avatar as avatar2_3_1_,
+            user2_.created_at as created_3_3_1_,
+            user2_.email as email4_3_1_,
+            user2_.enabled as enabled5_3_1_,
+            user2_.nickname as nickname6_3_1_,
+            user2_.password as password7_3_1_,
+            user2_.role as role8_3_1_,
+            user2_.updated_at as updated_9_3_1_,
+            user2_.username as usernam10_3_1_,
+            user4_.avatar as avatar2_3_2_,
+            user4_.created_at as created_3_3_2_,
+            user4_.email as email4_3_2_,
+            user4_.enabled as enabled5_3_2_,
+            user4_.nickname as nickname6_3_2_,
+            user4_.password as password7_3_2_,
+            user4_.role as role8_3_2_,
+            user4_.updated_at as updated_9_3_2_,
+            user4_.username as usernam10_3_2_,
+            likedby3_.comment_id as comment_1_2_0__,
+            likedby3_.user_id as user_id2_2_0__
+        from
+            book_db.comments comment0_
+        left outer join
+            book_db.books book1_
+                on comment0_.book_id=book1_.id
+        left outer join
+            users user2_
+                on comment0_.user_id=user2_.id
+        left outer join
+            comment_likes likedby3_
+                on comment0_.id=likedby3_.comment_id
+        left outer join
+            users user4_
+                on likedby3_.user_id=user4_.id
+        where
+            book1_.id=?
+        order by
+            comment0_.created_at desc

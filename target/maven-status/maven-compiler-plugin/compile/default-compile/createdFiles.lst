@@ -3,6 +3,7 @@ com\example\qimo\QimoApplication.class
 com\example\qimo\config\SecurityConfig.class
 com\example\qimo\entity\User$Role.class
 com\example\qimo\repository\CommentRepository.class
+com\example\qimo\service\impl\CommentServiceImpl.class
 com\example\qimo\service\BookService.class
 com\example\qimo\service\UserService.class
 com\example\qimo\service\CommentService.class
@@ -14,6 +15,7 @@ com\example\qimo\controller\AdminController.class
 com\example\qimo\controller\UserController.class
 com\example\qimo\config\PasswordEncoderConfig.class
 com\example\qimo\runner\DataInitRunner.class
+com\example\qimo\controller\CommentController.class
 com\example\qimo\entity\User.class
 com\example\qimo\repository\BookRepository.class
 com\example\qimo\repository\UserRepository.class

@@ -16,8 +16,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import java.util.HashMap;
+import java.util.Map;
+import com.example.qimo.entity.User;
 
-import java.util.ArrayList;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/books")
@@ -59,15 +63,33 @@ public class BookController {
      * 显示书籍详情页
      */
     @GetMapping("/{id}")
-    public String bookDetail(@PathVariable("id") Long id, Model model) {
+    public String bookDetail(@PathVariable("id") Long id, Model model, @AuthenticationPrincipal UserDetails currentUser) {
         try {
             // 查询书籍
             Book book = bookService.findBookById(id);
             model.addAttribute("book", book);
             
             // 查询书籍的评论列表
-            java.util.List<Comment> comments = commentService.getCommentsByBookId(id);
+            List<Comment> comments = commentService.getCommentsByBookId(id);
             model.addAttribute("comments", comments);
+            
+            // 创建点赞状态映射
+            Map<Long, Boolean> likedByCurrentUserMap = new HashMap<>();
+            if (currentUser != null) {
+                // 构建每个评论的点赞状态
+                for (Comment comment : comments) {
+                    boolean isLiked = false;
+                    // 手动检查用户是否已点赞（避免直接访问可能被驱逐的集合）
+                    for (User likedUser : comment.getLikedBy()) {
+                        if (likedUser.getUsername().equals(currentUser.getUsername())) {
+                            isLiked = true;
+                            break;
+                        }
+                    }
+                    likedByCurrentUserMap.put(comment.getId(), isLiked);
+                }
+            }
+            model.addAttribute("likedByCurrentUserMap", likedByCurrentUserMap);
             
             // 为评论表单提供一个空的Comment对象
             model.addAttribute("newComment", new Comment());
@@ -78,6 +100,7 @@ public class BookController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "书籍不存在", e);
         }
     }
+
 
      /**
      * 添加评论
@@ -95,21 +118,15 @@ public class BookController {
                 return "redirect:/login?redirect=/books/" + id;
             }
             
-            // 验证评论内容
-            if (content == null || content.trim().isEmpty()) {
-                redirectAttributes.addFlashAttribute("error", "评论内容不能为空");
-                return "redirect:/books/" + id;
-            }
-            
-            // 调用服务层添加评论
+            // 调用服务添加评论
             commentService.addComment(id, content, userDetails.getUsername());
             
-            // 添加成功消息
-            redirectAttributes.addFlashAttribute("success", "评论发表成功");
+            return "redirect:/books/" + id;
+        } catch (IllegalArgumentException e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
             return "redirect:/books/" + id;
         } catch (Exception e) {
-            // 添加错误消息
-            redirectAttributes.addFlashAttribute("error", "评论发表失败: " + e.getMessage());
+            redirectAttributes.addFlashAttribute("error", "发表评论失败，请重试");
             return "redirect:/books/" + id;
         }
     }
