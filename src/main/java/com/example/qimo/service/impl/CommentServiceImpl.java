@@ -79,22 +79,93 @@ public class CommentServiceImpl implements CommentService {
     }
     
     @Override
-    public void addComment(Long bookId, String content, String username) {
-        // 验证书籍是否存在
-        Book book = bookRepository.findById(bookId)
-            .orElseThrow(() -> new EntityNotFoundException("书籍不存在: " + bookId));
-        
+    public List<Comment> getCommentsWithRepliesByBookId(Long bookId) {
+        // 先一次性加载该书的所有评论（包含主评论和回复），然后在内存中构建树，避免在递归中反复查询导致 flush/集合替换问题
+        List<Comment> allComments = commentRepository.findByBookIdOrderByCreatedAtDesc(bookId);
+
+        // 构建 parentId -> List<comment> 映射
+        java.util.Map<Long, java.util.List<Comment>> childrenMap = new java.util.HashMap<>();
+        for (Comment c : allComments) {
+            if (c.getParent() != null && c.getParent().getId() != null) {
+                childrenMap.computeIfAbsent(c.getParent().getId(), k -> new java.util.ArrayList<>()).add(c);
+            }
+        }
+
+        // 找到根评论（parent == null）
+        java.util.List<Comment> roots = new java.util.ArrayList<>();
+        for (Comment c : allComments) {
+            if (c.getParent() == null) {
+                roots.add(c);
+            }
+        }
+
+        // 在内存中递归填充 replies 列表（不替换集合实例）
+        for (Comment root : roots) {
+            populateRepliesFromMap(root, childrenMap);
+        }
+
+        return roots;
+    }
+    
+    @Override
+    @Transactional
+    public void addComment(Long bookId, String content, String username, Long parentId) {
         // 验证用户是否存在
         User user = userRepository.findByUsername(username)
             .orElseThrow(() -> new UsernameNotFoundException("用户不存在: " + username));
         
-        // 创建评论
         Comment comment = new Comment();
         comment.setContent(content);
-        comment.setBook(book);
         comment.setUser(user);
         
-        // 保存评论
-        commentRepository.save(comment);
+        if (parentId != null) {
+            // 处理回复评论的情况
+            Comment parentComment = commentRepository.findById(parentId)
+                .orElseThrow(() -> new EntityNotFoundException("父评论不存在: " + parentId));
+            
+            // 验证父评论所属书籍是否与当前书籍一致
+            if (!parentComment.getBook().getId().equals(bookId)) {
+                throw new IllegalArgumentException("不能回复其他书籍的评论");
+            }
+            
+            // 设置父评论关系
+            comment.setParent(parentComment);
+            comment.setBook(parentComment.getBook()); // 确保回复的书籍与父评论一致
+            
+            // 维护双向关系
+            parentComment.getReplies().add(comment);
+        } else {
+            // 处理主评论的情况
+            Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new EntityNotFoundException("书籍不存在: " + bookId));
+            comment.setBook(book);
+        }
+        
+        // 先保存评论，确保ID生成并持久化
+        commentRepository.saveAndFlush(comment);
+
+        // 如果有父评论，确保父对象的replies集合包含该子评论并刷新（有助于事务内一致性）
+        if (parentId != null) {
+            // parentComment 已在方法中加载并为持久化实体
+            // 显式刷新父对象到数据库，以便在随后读取时能看到最新的子集合
+            commentRepository.flush();
+        }
+    }
+
+    /**
+     * 递归加载指定评论的子回复并为每个子回复继续加载其子回复
+     */
+    private void populateRepliesFromMap(Comment parent, java.util.Map<Long, java.util.List<Comment>> childrenMap) {
+        if (parent == null) return;
+
+        java.util.List<Comment> children = childrenMap.get(parent.getId());
+        java.util.List<Comment> existing = parent.getReplies();
+        existing.clear();
+        if (children != null && !children.isEmpty()) {
+            existing.addAll(children);
+            for (Comment child : children) {
+                populateRepliesFromMap(child, childrenMap);
+            }
+        }
     }
 }

@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import com.example.qimo.entity.User;
 
+import javax.persistence.EntityNotFoundException;
 
 import java.util.List;
 
@@ -69,17 +70,17 @@ public class BookController {
             Book book = bookService.findBookById(id);
             model.addAttribute("book", book);
             
-            // 查询书籍的评论列表
-            List<Comment> comments = commentService.getCommentsByBookId(id);
+            // 使用新方法查询书籍的主评论及回复
+            List<Comment> comments = commentService.getCommentsWithRepliesByBookId(id);
             model.addAttribute("comments", comments);
             
             // 创建点赞状态映射
             Map<Long, Boolean> likedByCurrentUserMap = new HashMap<>();
             if (currentUser != null) {
-                // 构建每个评论的点赞状态
+                // 构建每个评论的点赞状态，包括主评论和回复
                 for (Comment comment : comments) {
+                    // 处理主评论
                     boolean isLiked = false;
-                    // 手动检查用户是否已点赞（避免直接访问可能被驱逐的集合）
                     for (User likedUser : comment.getLikedBy()) {
                         if (likedUser.getUsername().equals(currentUser.getUsername())) {
                             isLiked = true;
@@ -87,6 +88,20 @@ public class BookController {
                         }
                     }
                     likedByCurrentUserMap.put(comment.getId(), isLiked);
+                    
+                    // 处理回复
+                    if (comment.getReplies() != null) {
+                        for (Comment reply : comment.getReplies()) {
+                            boolean replyLiked = false;
+                            for (User likedUser : reply.getLikedBy()) {
+                                if (likedUser.getUsername().equals(currentUser.getUsername())) {
+                                    replyLiked = true;
+                                    break;
+                                }
+                            }
+                            likedByCurrentUserMap.put(reply.getId(), replyLiked);
+                        }
+                    }
                 }
             }
             model.addAttribute("likedByCurrentUserMap", likedByCurrentUserMap);
@@ -100,15 +115,15 @@ public class BookController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "书籍不存在", e);
         }
     }
-
-
-     /**
-     * 添加评论
+    
+    /**
+     * 添加评论或回复
      */
     @PostMapping("/{id}/comments")
     public String addComment(
             @PathVariable Long id,
             @RequestParam String content,
+            @RequestParam(required = false) Long parentId,
             @AuthenticationPrincipal UserDetails userDetails,
             RedirectAttributes redirectAttributes) {
         try {
@@ -118,9 +133,12 @@ public class BookController {
                 return "redirect:/login?redirect=/books/" + id;
             }
             
-            // 调用服务添加评论
-            commentService.addComment(id, content, userDetails.getUsername());
+            // 调用服务添加评论或回复
+            commentService.addComment(id, content, userDetails.getUsername(), parentId);
             
+            return "redirect:/books/" + id;
+        } catch (EntityNotFoundException e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
             return "redirect:/books/" + id;
         } catch (IllegalArgumentException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());

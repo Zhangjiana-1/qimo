@@ -30,10 +30,18 @@ public interface CommentService {
     List<Comment> getCommentsByBookId(Long bookId);
     
     /**
-     * 添加评论
+     * 获取书籍的主评论及回复
+     * @param bookId 书籍ID
+     * @return 主评论列表（包含回复）
+     */
+    List<Comment> getCommentsWithRepliesByBookId(Long bookId);
+    
+    /**
+     * 添加评论或回复
      * @param bookId 书籍ID
      * @param content 评论内容
      * @param username 用户名
+     * @param parentId 父评论ID（可为null，表示主评论）
      */
-    void addComment(Long bookId, String content, String username);
+    void addComment(Long bookId, String content, String username, Long parentId);
 }

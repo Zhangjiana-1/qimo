@@ -8,13 +8,15 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 @Getter
 @Setter
-@ToString(exclude = {"likedBy", "book", "user"})
+@ToString(exclude = {"likedBy", "book", "user", "parent", "replies"})
 @Entity
 @Table(name = "comments", schema = "book_db", catalog = "book_db")
 @EntityListeners(AuditingEntityListener.class)
@@ -30,13 +32,20 @@ public class Comment {
     @Column(updatable = false)
     private LocalDateTime createdAt;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id", nullable = false)
     private Book book;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private Comment parent;
+    
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Comment> replies = new ArrayList<>();
     
     @ManyToMany
     @JoinTable(
