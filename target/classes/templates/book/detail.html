@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -210,13 +210,25 @@
                                 <div class="d-flex align-items-center gap-3">
                                     <span class="comment-date" th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}"></span>
                                     
-                                    <!-- 点赞按钮 - 仅对登录用户显示 -->
+                                    <!-- 删除按钮 - 仅对评论作者或管理员显示（使用 th:if 避免 Security 表达式中访问模板变量） -->
+                                    <div th:if="${(comment.user != null and comment.user.username == #authentication.name) or (#authentication.authorities.?[authority=='ROLE_ADMIN'].size() > 0)}">
+                                        <form method="post" th:action="@{/comments/{commentId}(commentId=${comment.id})}" class="d-inline" 
+                                            th:onsubmit="|return confirm('确定删除此评论？此操作不可恢复。');|">
+                                            <input type="hidden" name="_method" value="DELETE" />
+                                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                            <input type="hidden" name="redirectUrl" th:value="@{/books/{id}(id=${book.id})}" />
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    
+                                    <!-- 点赞按钮 -->
                                     <div th:if="${#authentication.name != null}">
                                         <form method="post" th:action="@{/comments/{commentId}/like(commentId=${comment.id})}" class="d-inline">
                                             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                                             <input type="hidden" name="redirectUrl" th:value="@{/books/{id}(id=${book.id})}" />
                                             <button type="submit" class="btn btn-sm p-1 border-0 bg-transparent hover:bg-gray-100 rounded">
-                                                <!-- 根据用户是否已点赞显示不同图标 -->
                                                 <span th:if="${likedByCurrentUserMap != null and likedByCurrentUserMap[comment.id]}">
                                                     <i class="bi bi-hand-thumbs-up-fill text-primary"></i>
                                                     <span class="text-primary">已赞 ([(${comment.likeCount ?: 0})])</span>
@@ -225,13 +237,11 @@
                                                     <i class="bi bi-hand-thumbs-up text-gray-500"></i>
                                                     <span>点赞 ([(${comment.likeCount ?: 0})])</span>
                                                 </span>
-                                                <!-- 备用方案：如果图标无法加载，显示👍 -->
-                                                <span th:if="${false}" style="display:none">👍</span>
                                             </button>
                                         </form>
                                     </div>
                                     
-                                    <!-- 回复按钮 - 仅对登录用户显示 -->
+                                    <!-- 回复按钮 -->
                                     <div th:if="${#authentication.name != null}">
                                         <button type="button" class="btn btn-sm text-primary border-0 bg-transparent" 
                                                 th:onclick="|toggleReplyForm('reply-form-'+${comment.id})|"
@@ -243,7 +253,7 @@
                             </div>
                             <p th:text="${comment.content}"></p>
                             
-                            <!-- 回复表单 - 初始隐藏 -->
+                            <!-- 回复表单 -->
                             <div class="reply-form" th:id="'reply-form-' + ${comment.id}">
                                 <form method="post" th:action="@{/books/{id}/comments(id=${book.id})}">
                                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
@@ -261,11 +271,13 @@
                                 </form>
                             </div>
                             
-                            <!-- 回复列表：使用递归 fragment 渲染任意层级回复 -->
+                            <!-- 回复列表 -->
                             <div th:insert="~{::replyFragment (comment=${comment})}"></div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- 递归片段已移到文档底部，仅保留一份以避免重复渲染 -->
                 
                 <!-- 无评论提示 -->
                 <div th:unless="${not #lists.isEmpty(comments)}" class="no-comments">
@@ -299,13 +311,26 @@
 
     <!-- 递归回复渲染片段 -->
     <div th:fragment="replyFragment (comment)">
-        <div th:if="${comment.replies != null and not #lists.isEmpty(comment.replies)}" class="mt-3">
+        <div th:if="${comment != null and comment.replies != null and not #lists.isEmpty(comment.replies)}" class="mt-3">
             <div th:each="reply : ${comment.replies}">
                 <div class="reply-card">
                     <div class="d-flex justify-content-between align-items-start mb-2">
                         <span class="comment-author" th:text="${reply.user?.username}">匿名用户</span>
                         <div class="d-flex align-items-center gap-3">
                             <span class="comment-date" th:text="${#temporals.format(reply.createdAt, 'yyyy-MM-dd HH:mm')}"></span>
+
+                            <!-- 删除按钮 - 仅对评论作者或管理员显示 -->
+                            <div th:if="${#authentication.name != null and ((reply.user != null and reply.user.username == #authentication.name) or (#authentication.authorities.?[authority=='ROLE_ADMIN'].size() > 0))}">
+                                <form method="post" th:action="@{/comments/{commentId}(commentId=${reply.id})}" class="d-inline" 
+                                      th:onsubmit="|return confirm('确定删除此评论？此操作不可恢复。');|">
+                                    <input type="hidden" name="_method" value="DELETE" />
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                    <input type="hidden" name="redirectUrl" th:value="@{/books/{id}(id=${book.id})}" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
 
                             <div th:if="${#authentication.name != null}">
                                 <button type="button" class="btn btn-sm text-primary border-0 bg-transparent"

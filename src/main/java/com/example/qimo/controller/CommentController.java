@@ -2,6 +2,7 @@ package com.example.qimo.controller;
 
 import com.example.qimo.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -50,4 +51,42 @@ public class CommentController {
         return "redirect:" + fallbackUrl;
     }
 
+    // 修改为@DeleteMapping，以正确处理由HiddenHttpMethodFilter转换后的DELETE请求
+    @DeleteMapping("/comments/{id}")
+    public String deleteComment(
+            @PathVariable Long id,
+            @RequestParam(value = "redirectUrl", required = false) String redirectUrl,
+            Authentication authentication,
+            @RequestHeader(value = "Referer", required = false) String referer,
+            RedirectAttributes redirectAttributes) {
+        try {
+            if (authentication == null || !authentication.isAuthenticated()) {
+                redirectAttributes.addFlashAttribute("error", "请先登录再操作");
+                return "redirect:" + (redirectUrl != null ? redirectUrl : (referer != null ? referer : "/books"));
+            }
+            
+            // 从Authentication获取当前用户名和角色
+            String currentUsername = authentication.getName();
+            boolean isAdmin = authentication.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
+            
+            // 调用service层进行权限校验和删除
+            commentService.deleteCommentById(id, currentUsername, isAdmin);
+            
+            // 重定向回原页面
+            String targetUrl = redirectUrl != null ? redirectUrl : (referer != null ? referer : "/books");
+            return "redirect:" + targetUrl;
+        } catch (EntityNotFoundException e) {
+            redirectAttributes.addFlashAttribute("error", "评论已被删除或不存在");
+        } catch (AccessDeniedException e) {
+            redirectAttributes.addFlashAttribute("error", "无权删除他人评论");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "删除评论失败，请重试");
+            e.printStackTrace();
+        }
+        
+        // 出错时的重定向目标
+        String fallbackUrl = redirectUrl != null ? redirectUrl : (referer != null ? referer : "/books");
+        return "redirect:" + fallbackUrl;
+    }
 }

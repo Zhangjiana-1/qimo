@@ -8,6 +8,7 @@ import com.example.qimo.repository.UserRepository;
 import com.example.qimo.repository.BookRepository;
 import com.example.qimo.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -80,7 +81,7 @@ public class CommentServiceImpl implements CommentService {
     
     @Override
     public List<Comment> getCommentsWithRepliesByBookId(Long bookId) {
-        // 先一次性加载该书的所有评论（包含主评论和回复），然后在内存中构建树，避免在递归中反复查询导致 flush/集合替换问题
+        // 先一次性加载该书的所有评论（包含主评论和回复），用于构建 parentId -> children 映射
         List<Comment> allComments = commentRepository.findByBookIdOrderByCreatedAtDesc(bookId);
 
         // 构建 parentId -> List<comment> 映射
@@ -91,20 +92,25 @@ public class CommentServiceImpl implements CommentService {
             }
         }
 
-        // 找到根评论（parent == null）
-        java.util.List<Comment> roots = new java.util.ArrayList<>();
-        for (Comment c : allComments) {
-            if (c.getParent() == null) {
-                roots.add(c);
+        // 使用专门的查询获取数据库中实际的根评论（parent == null），避免因为内存中对象状态不一致而误判
+        java.util.List<Comment> roots = commentRepository.findByBookIdAndParentIsNullOrderByCreatedAtDesc(bookId);
+
+        // 去重根评论（有时由于左连接或查询原因数据库返回的列表可能包含重复的实体）
+        java.util.Map<Long, Comment> uniqueRoots = new java.util.LinkedHashMap<>();
+        for (Comment root : roots) {
+            if (root != null && root.getId() != null) {
+                uniqueRoots.putIfAbsent(root.getId(), root);
             }
         }
 
+        java.util.List<Comment> dedupedRoots = new java.util.ArrayList<>(uniqueRoots.values());
+
         // 在内存中递归填充 replies 列表（不替换集合实例）
-        for (Comment root : roots) {
+        for (Comment root : dedupedRoots) {
             populateRepliesFromMap(root, childrenMap);
         }
 
-        return roots;
+        return dedupedRoots;
     }
     
     @Override
@@ -150,6 +156,23 @@ public class CommentServiceImpl implements CommentService {
             // 显式刷新父对象到数据库，以便在随后读取时能看到最新的子集合
             commentRepository.flush();
         }
+    }
+
+    @Override
+    @Transactional
+    public void deleteCommentById(Long commentId, String currentUsername, boolean isAdmin) {
+        // 查询评论是否存在
+        Comment comment = commentRepository.findById(commentId)
+            .orElseThrow(() -> new EntityNotFoundException("评论不存在"));
+        
+        // 权限校验：本人 or 管理员
+        if (!isAdmin && !comment.getUser().getUsername().equals(currentUsername)) {
+            throw new AccessDeniedException("无权删除他人评论");
+        }
+        
+        // 执行删除（级联删除子回复）
+        // Comment实体中已配置了orphanRemoval = true和cascade = CascadeType.REMOVE
+        commentRepository.deleteById(commentId);
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.example.qimo.service;
 
 import com.example.qimo.entity.Comment;
+import org.springframework.security.access.AccessDeniedException;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
@@ -44,4 +45,14 @@ public interface CommentService {
      * @param parentId 父评论ID（可为null，表示主评论）
      */
     void addComment(Long bookId, String content, String username, Long parentId);
+    
+    /**
+     * 删除评论
+     * @param commentId 评论ID
+     * @param currentUsername 当前用户名
+     * @param isAdmin 是否为管理员
+     * @throws EntityNotFoundException 当评论不存在时抛出
+     * @throws AccessDeniedException 当无权删除时抛出
+     */
+    void deleteCommentById(Long commentId, String currentUsername, boolean isAdmin);
 }
