@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "books", schema = "book_db", catalog = "book_db")
+@Table(name = "books")
 @EntityListeners(AuditingEntityListener.class)
 public class Book {
     @Id
@@ -37,7 +37,16 @@ public class Book {
     @OneToMany(mappedBy = "book", cascade = CascadeType.REMOVE)
     private List<Comment> comments;
     
-    // 添加反向收藏关系
-    @ManyToMany(mappedBy = "favorites")
+    // 添加收藏者关系
+    @ManyToMany(mappedBy = "favoriteBooks")
     private Set<User> favoritedBy = new HashSet<>();
+
+    /**
+     * 占位方法：模板中会读取 `averageRating`，但当前项目尚未实现评分系统。
+     * 为避免模板在不存在该属性时报错（Thymeleaf 在解析时会尝试读取属性），
+     * 提供一个空实现，返回 null 表示暂无评分。
+     */
+    public Double getAverageRating() {
+        return null;
+    }
 }

@@ -2,16 +2,14 @@ package com.example.qimo.controller;
 
 import com.example.qimo.entity.Book;
 import com.example.qimo.entity.Comment;
-import com.example.qimo.entity.User;
 import com.example.qimo.service.BookService;
 import com.example.qimo.service.CommentService;
-import com.example.qimo.service.FavoriteService;
+import com.example.qimo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -19,11 +17,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import java.util.HashMap;
+import java.util.Map;
+import com.example.qimo.entity.User;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/books")
@@ -31,13 +31,13 @@ public class BookController {
     
     private final BookService bookService;
     private final CommentService commentService;
-    private final FavoriteService favoriteService;
+    private final UserService userService;  // 添加UserService注入
     
     @Autowired
-    public BookController(BookService bookService, CommentService commentService, FavoriteService favoriteService) {
+    public BookController(BookService bookService, CommentService commentService, UserService userService) {
         this.bookService = bookService;
         this.commentService = commentService;
-        this.favoriteService = favoriteService;
+        this.userService = userService;  // 初始化UserService
     }
     
     /**
@@ -67,7 +67,7 @@ public class BookController {
      * 显示书籍详情页
      */
     @GetMapping("/{id}")
-    public String bookDetail(@PathVariable("id") Long id, Model model, Authentication auth, @AuthenticationPrincipal UserDetails currentUser) {
+    public String bookDetail(@PathVariable("id") Long id, Model model, @AuthenticationPrincipal UserDetails currentUser) {
         try {
             // 查询书籍
             Book book = bookService.findBookById(id);
@@ -79,7 +79,13 @@ public class BookController {
             
             // 创建点赞状态映射
             Map<Long, Boolean> likedByCurrentUserMap = new HashMap<>();
+            // 添加收藏状态检查
+            boolean isFavorite = false;
+            
             if (currentUser != null) {
+                // 检查用户是否收藏了当前书籍
+                isFavorite = userService.existsFavoriteByUsernameAndBookId(currentUser.getUsername(), id);
+                
                 // 构建每个评论的点赞状态，包括主评论和回复
                 for (Comment comment : comments) {
                     // 处理主评论
@@ -108,13 +114,7 @@ public class BookController {
                 }
             }
             model.addAttribute("likedByCurrentUserMap", likedByCurrentUserMap);
-            
-            // 添加收藏状态
-            boolean isFavorite = false;
-            if (auth != null) {
-                isFavorite = favoriteService.isBookFavoritedByUser(id, auth.getName());
-            }
-            model.addAttribute("isFavorite", isFavorite);
+            model.addAttribute("isFavorite", isFavorite);  // 将收藏状态添加到Model中
             
             // 为评论表单提供一个空的Comment对象
             model.addAttribute("newComment", new Comment());
@@ -157,17 +157,5 @@ public class BookController {
             redirectAttributes.addFlashAttribute("error", "发表评论失败，请重试");
             return "redirect:/books/" + id;
         }
-    }
-    
-    /**
-     * 切换书籍收藏状态
-     */
-    @PostMapping("/{bookId}/favorite")
-    public String toggleFavorite(
-            @PathVariable Long bookId,
-            Authentication authentication,
-            @RequestHeader(value = "Referer", required = false) String referer) {
-        favoriteService.toggleFavorite(bookId, authentication.getName());
-        return "redirect:" + (referer != null ? referer : "/books/" + bookId);
     }
 }

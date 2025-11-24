@@ -2,12 +2,13 @@ package com.example.qimo.controller;
 
 import com.example.qimo.entity.User;
 import com.example.qimo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -15,6 +16,7 @@ public class UserController {
 
     private final UserService userService;
 
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -143,5 +145,52 @@ public class UserController {
             redirectAttributes.addAttribute("error", e.getMessage());
             return "redirect:/user/change-password";
         }
+    }
+    
+    // 查看我的收藏
+    @GetMapping("/user/favorites")
+    public String showFavorites(Authentication authentication, 
+                            @RequestParam(defaultValue = "0") int page,
+                            @RequestParam(defaultValue = "6") int size,
+                            Model model) {
+        String username = authentication.getName();
+        // 构造分页参数，默认按创建时间降序排序
+        var pageRequest = PageRequest.of(page, size, Sort.by("createdAt").descending());
+        // 获取用户收藏的书籍列表
+        var favoriteBooksPage = userService.getFavoriteBooks(username, pageRequest);
+        
+        model.addAttribute("favoritesPage", favoriteBooksPage);
+        return "user/favorites";
+    }
+    
+    // 添加到收藏
+    @PostMapping("/books/{id}/favorite")
+    public String addToFavorite(@PathVariable Long id, 
+                              Authentication authentication, 
+                              RedirectAttributes redirectAttributes) {
+        try {
+            String username = authentication.getName();
+            userService.addToFavorite(username, id);
+            redirectAttributes.addFlashAttribute("success", "已添加到收藏");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "添加收藏失败: " + e.getMessage());
+        }
+        return "redirect:/books/" + id;
+    }
+    
+    // 从收藏中移除
+    @PostMapping("/books/{id}/unfavorite")
+    public String removeFromFavorite(@PathVariable Long id, 
+                                  Authentication authentication, 
+                                  RedirectAttributes redirectAttributes) {
+        try {
+            String username = authentication.getName();
+            userService.removeFromFavorite(username, id);
+            redirectAttributes.addFlashAttribute("success", "已从收藏中移除");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "移除收藏失败: " + e.getMessage());
+        }
+        // 修改为重定向回收藏页面
+        return "redirect:/user/favorites";
     }
 }

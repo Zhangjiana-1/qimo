@@ -28,10 +28,11 @@
                         <span sec:authentication="name"></span>
                         <span class="dropdown-arrow">▼</span>
                     </span>
-                    <div class="dropdown-menu">
+                   <div class="dropdown-menu">
                         <a href="/user/profile" class="dropdown-item">个人资料</a>
                         <a href="/user/edit" class="dropdown-item">编辑资料</a>
                         <a href="/user/password" class="dropdown-item">修改密码</a>
+                        <a href="/user/favorites" class="dropdown-item">我的收藏</a>
                         <form th:action="@{/logout}" method="post" style="display: inline;">
                             <button type="submit" class="dropdown-item logout-btn">退出登录</button>
                         </form>

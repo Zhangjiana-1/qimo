@@ -1,14 +1,12 @@
 package com.example.qimo.service;
 
-import com.example.qimo.entity.Book;
 import com.example.qimo.entity.User;
-import com.example.qimo.repository.BookRepository;
+import com.example.qimo.entity.Book;
 import com.example.qimo.repository.UserRepository;
+import com.example.qimo.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.EntityNotFoundException;
 
 @Service
 public class FavoriteService {
@@ -22,37 +20,37 @@ public class FavoriteService {
         this.bookRepository = bookRepository;
     }
     
-    /**
-     * 切换书籍收藏状态
-     * @param bookId 书籍ID
-     * @param currentUsername 当前用户名
-     */
+    // 检查用户是否已收藏指定书籍（根据用户ID和书籍ID）
+    @Transactional(readOnly = true)
+    public boolean existsFavoriteByUserIdAndBookId(Long userId, Long bookId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("用户不存在"));
+        
+        return user.getFavoriteBooks().stream()
+                .anyMatch(book -> book.getId().equals(bookId));
+    }
+    
+    // 添加书籍到收藏
     @Transactional
-    public void toggleFavorite(Long bookId, String currentUsername) {
-        User user = userRepository.findByUsername(currentUsername)
-                .orElseThrow(() -> new EntityNotFoundException("用户不存在: " + currentUsername));
-        
+    public void addToFavorite(Long userId, Long bookId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("用户不存在"));
         Book book = bookRepository.findById(bookId)
-                .orElseThrow(() -> new EntityNotFoundException("书籍不存在: " + bookId));
+                .orElseThrow(() -> new IllegalArgumentException("书籍不存在"));
         
-        if (user.getFavorites().contains(book)) {
-            user.getFavorites().remove(book); // 取消收藏
-        } else {
-            user.getFavorites().add(book);    // 添加收藏
-        }
-        
+        user.getFavoriteBooks().add(book);
         userRepository.save(user);
     }
     
-    /**
-     * 检查书籍是否被用户收藏
-     * @param bookId 书籍ID
-     * @param username 用户名
-     * @return 是否已收藏
-     */
-    public boolean isBookFavoritedByUser(Long bookId, String username) {
-        User user = userRepository.findByUsername(username).orElse(null);
-        return user != null && 
-               userRepository.existsFavoriteByUserIdAndBookId(user.getId(), bookId);
+    // 从收藏中移除书籍
+    @Transactional
+    public void removeFromFavorite(Long userId, Long bookId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("用户不存在"));
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new IllegalArgumentException("书籍不存在"));
+        
+        user.getFavoriteBooks().remove(book);
+        userRepository.save(user);
     }
 }

@@ -1,12 +1,18 @@
 package com.example.qimo.service;
 
 import com.example.qimo.entity.User;
+import com.example.qimo.entity.Book;
 import com.example.qimo.repository.UserRepository;
+import com.example.qimo.repository.BookRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,10 +21,13 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
+    private final BookRepository bookRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    @Autowired
+    public UserService(UserRepository userRepository, BookRepository bookRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.bookRepository = bookRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -76,6 +85,39 @@ public class UserService implements UserDetailsService {
     public User getUserByUsername(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("用户不存在: " + username));
+    }
+    
+    // 检查用户是否已收藏指定书籍
+    public boolean existsFavoriteByUsernameAndBookId(String username, Long bookId) {
+        return userRepository.existsByUsernameAndFavoriteBooksId(username, bookId);
+    }
+    
+    // 获取用户收藏的书籍列表（分页）
+    @Transactional
+    public Page<Book> getFavoriteBooks(String username, Pageable pageable) {
+        return userRepository.findFavoriteBooksByUsername(username, pageable);
+    }
+    
+    // 添加书籍到收藏
+    @Transactional
+    public void addToFavorite(String username, Long bookId) {
+        User user = getUserByUsername(username);
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new IllegalArgumentException("书籍不存在"));
+        
+        user.getFavoriteBooks().add(book);
+        userRepository.save(user);
+    }
+    
+    // 从收藏中移除书籍
+    @Transactional
+    public void removeFromFavorite(String username, Long bookId) {
+        User user = getUserByUsername(username);
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new IllegalArgumentException("书籍不存在"));
+        
+        user.getFavoriteBooks().remove(book);
+        userRepository.save(user);
     }
 
     @Override

@@ -15,7 +15,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString(exclude = {"likedComments", "favorites"})
+@ToString(exclude = {"likedComments", "favoriteBooks"})
 @Entity
 @Table(name = "users", uniqueConstraints = {
     @UniqueConstraint(columnNames = "username"),
@@ -59,14 +59,14 @@ public class User {
     @ManyToMany(mappedBy = "likedBy")
     private Set<Comment> likedComments = new HashSet<>();
     
-    // 添加多对多收藏关系
+    // 添加收藏书籍的多对多关系
     @ManyToMany
     @JoinTable(
-        name = "user_favorites",
+        name = "user_favorite_books",
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "book_id")
     )
-    private Set<Book> favorites = new HashSet<>();
+    private Set<Book> favoriteBooks = new HashSet<>();
 
     public enum Role {
         USER, ADMIN
