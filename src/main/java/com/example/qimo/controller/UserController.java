@@ -76,4 +76,72 @@ public class UserController {
         redirectAttributes.addFlashAttribute("error", "用户名或密码错误");
         return "redirect:/login" + (redirect != null ? "?redirect=" + redirect : "");
     }
+
+    // 查看个人资料
+    @GetMapping("/user/profile")
+    public String showProfile(Authentication authentication, Model model) {
+        String username = authentication.getName();
+        User user = userService.getUserByUsername(username);
+        model.addAttribute("user", user);
+        return "user/profile";
+    }
+
+    // 编辑个人资料
+    @GetMapping("/user/edit-profile")
+    public String showEditProfile(Authentication authentication, Model model) {
+        String username = authentication.getName();
+        User user = userService.getUserByUsername(username);
+        model.addAttribute("user", user);
+        return "user/edit-profile";
+    }
+
+    // 提交个人资料修改
+    @PostMapping("/user/profile")
+    @org.springframework.transaction.annotation.Transactional
+    public String updateProfile(
+            Authentication authentication,
+            @RequestParam("nickname") String nickname,
+            @RequestParam("email") String email,
+            RedirectAttributes redirectAttributes) {
+        try {
+            String username = authentication.getName();
+            userService.updateProfile(username, nickname, email);
+            return "redirect:/user/profile?success";
+        } catch (IllegalArgumentException e) {
+            redirectAttributes.addAttribute("error", e.getMessage());
+            return "redirect:/user/edit-profile";
+        }
+    }
+
+    // 显示修改密码页面
+    @GetMapping("/user/change-password")
+    public String showChangePassword() {
+        return "user/change-password";
+    }
+
+    // 提交密码修改
+    @PostMapping("/user/change-password")
+    @org.springframework.transaction.annotation.Transactional
+    public String changePassword(
+            Authentication authentication,
+            @RequestParam("oldPassword") String oldPassword,
+            @RequestParam("newPassword") String newPassword,
+            @RequestParam("confirmPassword") String confirmPassword,
+            RedirectAttributes redirectAttributes) {
+        
+        // 验证新密码和确认密码是否一致
+        if (!newPassword.equals(confirmPassword)) {
+            redirectAttributes.addAttribute("error", "新密码和确认密码不一致");
+            return "redirect:/user/change-password";
+        }
+        
+        try {
+            String username = authentication.getName();
+            userService.changePassword(username, oldPassword, newPassword);
+            return "redirect:/user/profile?success";
+        } catch (IllegalArgumentException e) {
+            redirectAttributes.addAttribute("error", e.getMessage());
+            return "redirect:/user/change-password";
+        }
+    }
 }

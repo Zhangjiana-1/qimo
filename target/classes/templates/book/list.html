@@ -124,7 +124,7 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏直接嵌入页面 -->
+    <!-- 导航栏直接嵌入页面，并添加个人资料入口 -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="/">📚 书籍管理系统</a>
@@ -160,16 +160,22 @@
                         <a class="nav-link" href="/register">注册</a>
                     </li>
                     
-                    <!-- 已登录时显示用户信息和注销 -->
+                    <!-- 已登录时显示用户信息和个人资料入口 -->
                     <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" 
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span sec:authentication="name"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <!-- <li>
-                                <a class="dropdown-item" href="#">个人中心</a>
-                            </li> -->
+                            <li>
+                                <a class="dropdown-item" href="/user/profile">个人资料</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/user/edit">编辑资料</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/user/password">修改密码</a>
+                            </li>
                             <li>
                                 <form th:action="@{/logout}" method="post" style="margin: 0;">
                                     <button type="submit" class="dropdown-item">退出登录</button>
@@ -202,9 +208,6 @@
                         <div class="book-cover">
                             <img th:src="${book.coverUrl != null ? book.coverUrl : '/images/default-cover.jpg'}" 
                                  alt="书籍封面" class="img-fluid">
-                            <!-- <img th:unless="${book.coverUrl}" 
-                                 src="https://via.placeholder.com/150x200?text=暂无封面" 
-                                 alt="默认封面" class="img-fluid"> -->
                         </div>
                         <div class="card-body">
                             <h5 class="card-title" th:text="${book.title}"></h5>
