@@ -1,6 +1,7 @@
 com\example\qimo\service\impl\BookServiceImpl.class
 com\example\qimo\QimoApplication.class
 com\example\qimo\config\SecurityConfig.class
+com\example\qimo\service\FavoriteService.class
 com\example\qimo\entity\User$Role.class
 com\example\qimo\repository\CommentRepository.class
 com\example\qimo\service\impl\CommentServiceImpl.class

@@ -17,4 +17,5 @@ E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\config\SecurityConfig.
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\repository\UserRepository.java
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\service\BookService.java
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\config\PasswordEncoderConfig.java
+E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\service\FavoriteService.java
 E:\zsc\semester-01\ai\qimo\src\main\java\com\example\qimo\controller\GlobalExceptionHandler.java

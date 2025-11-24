@@ -2,13 +2,16 @@ package com.example.qimo.controller;
 
 import com.example.qimo.entity.Book;
 import com.example.qimo.entity.Comment;
+import com.example.qimo.entity.User;
 import com.example.qimo.service.BookService;
 import com.example.qimo.service.CommentService;
+import com.example.qimo.service.FavoriteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -16,25 +19,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import java.util.HashMap;
-import java.util.Map;
-import com.example.qimo.entity.User;
 
 import javax.persistence.EntityNotFoundException;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/books")
 public class BookController {
     
     private final BookService bookService;
-    private final CommentService commentService;  // 添加这一行来声明CommentService字段
+    private final CommentService commentService;
+    private final FavoriteService favoriteService;
     
     @Autowired
-    public BookController(BookService bookService, CommentService commentService) {
+    public BookController(BookService bookService, CommentService commentService, FavoriteService favoriteService) {
         this.bookService = bookService;
         this.commentService = commentService;
+        this.favoriteService = favoriteService;
     }
     
     /**
@@ -64,7 +67,7 @@ public class BookController {
      * 显示书籍详情页
      */
     @GetMapping("/{id}")
-    public String bookDetail(@PathVariable("id") Long id, Model model, @AuthenticationPrincipal UserDetails currentUser) {
+    public String bookDetail(@PathVariable("id") Long id, Model model, Authentication auth, @AuthenticationPrincipal UserDetails currentUser) {
         try {
             // 查询书籍
             Book book = bookService.findBookById(id);
@@ -105,6 +108,13 @@ public class BookController {
                 }
             }
             model.addAttribute("likedByCurrentUserMap", likedByCurrentUserMap);
+            
+            // 添加收藏状态
+            boolean isFavorite = false;
+            if (auth != null) {
+                isFavorite = favoriteService.isBookFavoritedByUser(id, auth.getName());
+            }
+            model.addAttribute("isFavorite", isFavorite);
             
             // 为评论表单提供一个空的Comment对象
             model.addAttribute("newComment", new Comment());
@@ -147,5 +157,17 @@ public class BookController {
             redirectAttributes.addFlashAttribute("error", "发表评论失败，请重试");
             return "redirect:/books/" + id;
         }
+    }
+    
+    /**
+     * 切换书籍收藏状态
+     */
+    @PostMapping("/{bookId}/favorite")
+    public String toggleFavorite(
+            @PathVariable Long bookId,
+            Authentication authentication,
+            @RequestHeader(value = "Referer", required = false) String referer) {
+        favoriteService.toggleFavorite(bookId, authentication.getName());
+        return "redirect:" + (referer != null ? referer : "/books/" + bookId);
     }
 }

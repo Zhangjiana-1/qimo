@@ -7,7 +7,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -34,4 +36,8 @@ public class Book {
     
     @OneToMany(mappedBy = "book", cascade = CascadeType.REMOVE)
     private List<Comment> comments;
+    
+    // 添加反向收藏关系
+    @ManyToMany(mappedBy = "favorites")
+    private Set<User> favoritedBy = new HashSet<>();
 }
