@@ -164,4 +164,23 @@ public class BookServiceImpl implements BookService {
         }
         return bookRepository.findByCategoryId(categoryId, pageable);
     }
+    
+    @Override
+    public Page<Book> findBooksByCategory(Long categoryId, Pageable pageable) {
+        if (categoryId == null) {
+            return bookRepository.findAll(pageable);
+        }
+        return bookRepository.findByCategoryId(categoryId, pageable);
+    }
+
+    @Override
+    public Page<Book> searchBooksByCategory(String keyword, Long categoryId, Pageable pageable) {
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return findBooksByCategory(categoryId, pageable);
+        }
+        if (categoryId == null) {
+            return bookRepository.findByTitleContainingOrAuthorContaining(keyword, pageable);
+        }
+        return bookRepository.findByTitleContainingOrAuthorContainingAndCategoryId(keyword, categoryId, pageable);
+    }
 }

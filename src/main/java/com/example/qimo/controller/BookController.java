@@ -9,16 +9,16 @@ import com.example.qimo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @Controller
@@ -41,12 +41,25 @@ public class BookController {
     }
 
     @GetMapping
-        public String listBooks(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "6") int size,
+    public String listBooks(
+            @RequestParam(required = false) String query,
+            @RequestParam(required = false) Long categoryId,
+            @PageableDefault(size = 6, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable,
             Model model) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
-        model.addAttribute("books", bookService.getBooks(pageable));
+
+        // 获取所有分类（用于下拉框）
+        model.addAttribute("allCategories", categoryService.getAllCategories());
+        model.addAttribute("selectedCategoryId", categoryId);
+
+        Page<Book> books;
+        if (query != null && !query.trim().isEmpty()) {
+            books = bookService.searchBooksByCategory(query.trim(), categoryId, pageable);
+            model.addAttribute("query", query.trim());
+        } else {
+            books = bookService.findBooksByCategory(categoryId, pageable);
+        }
+
+        model.addAttribute("books", books);
         return "book/list";
     }
 
@@ -56,84 +69,42 @@ public class BookController {
                 .map(book -> {
                     model.addAttribute("book", book);
                     
-                    // 修改：使用getCommentsWithRepliesByBookId获取带有回复结构的评论列表
-                    List<Comment> comments = commentService.getCommentsWithRepliesByBookId(id);
-                    logger.debug("Book {} loaded with {} root comments", id, comments != null ? comments.size() : 0);
-                    logger.debug("BookController: loaded {} comments (roots) for bookId={}", comments == null ? 0 : comments.size(), id);
-                    model.addAttribute("comments", comments);
+                    // 加载评论，这里应该使用CommentService获取评论
+                    model.addAttribute("comments", commentService.getCommentsWithRepliesByBookId(id));
                     
-                    // 添加用户收藏状态
+                    // 检查当前用户是否已登录
                     if (authentication != null && authentication.isAuthenticated()) {
                         String username = authentication.getName();
-                        boolean isFavorite = userService.existsFavoriteByUsernameAndBookId(username, id);
-                        model.addAttribute("isFavorite", isFavorite);
-                    } else {
-                        model.addAttribute("isFavorite", false);
+                        model.addAttribute("isFavorite", userService.existsFavoriteByUsernameAndBookId(username, id));
+                        model.addAttribute("username", username);
                     }
                     
                     return "book/detail";
                 })
                 .orElse("redirect:/books");
     }
-    
-    @PostMapping("/{id}/comments")
-    public String addComment(@PathVariable Long id, @RequestParam("content") String content, 
-                            Authentication authentication, RedirectAttributes redirectAttributes) {
-        if (authentication == null || !authentication.isAuthenticated()) {
-            redirectAttributes.addFlashAttribute("error", "请先登录再发表评论");
-            return "redirect:/books/" + id;
-        }
-        
-        try {
-            String username = authentication.getName();
-            commentService.addComment(id, content, username, null);
-            return "redirect:/books/" + id;
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "发表评论失败: " + e.getMessage());
-            return "redirect:/books/" + id;
-        }
-    }
-    
-    @PostMapping("/{bookId}/comments/{parentId}/reply")
-    public String replyToComment(@PathVariable Long bookId, @PathVariable Long parentId, 
-                                @RequestParam("content") String content, 
-                                Authentication authentication, RedirectAttributes redirectAttributes) {
-        if (authentication == null || !authentication.isAuthenticated()) {
-            redirectAttributes.addFlashAttribute("error", "请先登录再回复评论");
-            return "redirect:/books/" + bookId;
-        }
-        
-        try {
-            String username = authentication.getName();
-            commentService.addComment(bookId, content, username, parentId);
-            return "redirect:/books/" + bookId;
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "回复评论失败: " + e.getMessage());
-            return "redirect:/books/" + bookId;
-        }
-    }
 
-    @GetMapping("/create")
-    public String showCreateForm(Model model) {
+    @GetMapping("/add")
+    public String showAddBookForm(Model model) {
         model.addAttribute("book", new Book());
         model.addAttribute("categories", categoryService.getAllCategories());
-        return "book/create";
+        return "book/add";
     }
 
-    @PostMapping
-    public String saveBook(Book book, @RequestParam("categoryId") Long categoryId, RedirectAttributes redirectAttributes) {
+    @PostMapping("/add")
+    public String addBook(@ModelAttribute Book book, @RequestParam(required = false) Long categoryId, RedirectAttributes redirectAttributes) {
         try {
             bookService.saveBook(book, categoryId);
-            redirectAttributes.addFlashAttribute("success", "书籍保存成功");
+            redirectAttributes.addFlashAttribute("success", "书籍添加成功");
             return "redirect:/books";
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "书籍保存失败: " + e.getMessage());
-            return "redirect:/books/create";
+            redirectAttributes.addFlashAttribute("error", "书籍添加失败: " + e.getMessage());
+            return "redirect:/books/add";
         }
     }
 
     @GetMapping("/{id}/edit")
-    public String showUpdateForm(@PathVariable Long id, Model model) {
+    public String showEditBookForm(@PathVariable Long id, Model model) {
         return bookService.getBookById(id)
                 .map(book -> {
                     model.addAttribute("book", book);
@@ -143,8 +114,8 @@ public class BookController {
                 .orElse("redirect:/books");
     }
 
-    @PostMapping("/{id}")
-    public String updateBook(@PathVariable Long id, Book book, @RequestParam("categoryId") Long categoryId, RedirectAttributes redirectAttributes) {
+    @PostMapping("/{id}/update")
+    public String updateBook(@PathVariable Long id, @ModelAttribute Book book, @RequestParam(required = false) Long categoryId, RedirectAttributes redirectAttributes) {
         book.setId(id);
         try {
             bookService.saveBook(book, categoryId);
@@ -169,13 +140,15 @@ public class BookController {
 
     // 按分类筛选书籍
     @GetMapping("/category/{categoryId}")
-        public String listBooksByCategory(
+    public String listBooksByCategory(
             @PathVariable Long categoryId,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "6") int size,
             Model model) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
         model.addAttribute("books", bookService.getBooksByCategoryId(categoryId, pageable));
+        model.addAttribute("selectedCategoryId", categoryId);
+        model.addAttribute("allCategories", categoryService.getAllCategories());
         return "book/list";
     }
 }

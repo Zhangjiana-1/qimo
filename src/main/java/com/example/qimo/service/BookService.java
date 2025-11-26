@@ -11,10 +11,27 @@ public interface BookService {
     List<Book> getAllBooks();
     Page<Book> getBooks(Pageable pageable);
     Optional<Book> getBookById(Long id);
-    Book saveBook(Book book, Long categoryId); // 修改此处，添加categoryId参数
+    Book saveBook(Book book, Long categoryId);
     void deleteBook(Long id);
     boolean existsByIsbn(String isbn);
     boolean existsByIsbnAndIdNot(String isbn, Long id);
     List<Book> getBooksByCategory(Category category);
     Page<Book> getBooksByCategoryId(Long categoryId, Pageable pageable);
+    
+    /**
+     * 按分类筛选书籍
+     * @param categoryId 分类ID，为null时返回所有书籍
+     * @param pageable 分页参数
+     * @return 符合条件的书籍分页对象
+     */
+    Page<Book> findBooksByCategory(Long categoryId, Pageable pageable);
+    
+    /**
+     * 按关键词和分类筛选书籍
+     * @param keyword 搜索关键词
+     * @param categoryId 分类ID
+     * @param pageable 分页参数
+     * @return 符合条件的书籍分页对象
+     */
+    Page<Book> searchBooksByCategory(String keyword, Long categoryId, Pageable pageable);
 }

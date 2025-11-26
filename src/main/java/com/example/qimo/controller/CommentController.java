@@ -89,4 +89,65 @@ public class CommentController {
         String fallbackUrl = redirectUrl != null ? redirectUrl : (referer != null ? referer : "/books");
         return "redirect:" + fallbackUrl;
     }
+
+    // 新增：处理书籍页发表评论（顶级评论）
+    @PostMapping("/books/{bookId}/comments")
+    public String addCommentToBook(
+            @PathVariable Long bookId,
+            @RequestParam("content") String content,
+            Authentication authentication,
+            @RequestParam(value = "redirectUrl", required = false) String redirectUrl,
+            @RequestHeader(value = "Referer", required = false) String referer,
+            RedirectAttributes redirectAttributes) {
+        try {
+            if (authentication == null || !authentication.isAuthenticated()) {
+                redirectAttributes.addFlashAttribute("error", "请先登录再发表评论");
+                return "redirect:" + (redirectUrl != null ? redirectUrl : (referer != null ? referer : "/books"));
+            }
+
+            String username = authentication.getName();
+            commentService.addComment(bookId, content, username, null);
+
+            String target = redirectUrl != null ? redirectUrl : (referer != null ? referer : "/books");
+            return "redirect:" + target;
+        } catch (IllegalArgumentException | EntityNotFoundException e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "发表评论失败，请重试");
+            e.printStackTrace();
+        }
+        String fallbackUrl = redirectUrl != null ? redirectUrl : (referer != null ? referer : "/books");
+        return "redirect:" + fallbackUrl;
+    }
+
+    // 新增：处理对评论的回复（子评论）
+    @PostMapping("/books/{bookId}/comments/{parentId}/reply")
+    public String replyToComment(
+            @PathVariable Long bookId,
+            @PathVariable Long parentId,
+            @RequestParam("content") String content,
+            Authentication authentication,
+            @RequestParam(value = "redirectUrl", required = false) String redirectUrl,
+            @RequestHeader(value = "Referer", required = false) String referer,
+            RedirectAttributes redirectAttributes) {
+        try {
+            if (authentication == null || !authentication.isAuthenticated()) {
+                redirectAttributes.addFlashAttribute("error", "请先登录再回复评论");
+                return "redirect:" + (redirectUrl != null ? redirectUrl : (referer != null ? referer : "/books"));
+            }
+
+            String username = authentication.getName();
+            commentService.addComment(bookId, content, username, parentId);
+
+            String target = redirectUrl != null ? redirectUrl : (referer != null ? referer : "/books");
+            return "redirect:" + target;
+        } catch (IllegalArgumentException | EntityNotFoundException e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "回复评论失败，请重试");
+            e.printStackTrace();
+        }
+        String fallbackUrl = redirectUrl != null ? redirectUrl : (referer != null ? referer : "/books");
+        return "redirect:" + fallbackUrl;
+    }
 }

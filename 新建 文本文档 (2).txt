@@ -1,111 +1,106 @@
- at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2025-11-26 19:57:16.033 ERROR 33800 --- [nio-8080-exec-9] s.e.ErrorMvcAutoConfiguration$StaticView : Cannot render error page for request [/books/23] and exception [An error happened during template parsing (template: "class path resource [templates/book/detail.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+ id=?
+Hibernate:
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        order by
+            book0_.created_at desc limit ?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            books book0_
 Hibernate: 
     /* select
         generatedAlias0
     from
-        User as generatedAlias0
-    where
-        generatedAlias0.username=:param0 */ select
-            user0_.id as id1_5_,
-            user0_.avatar as avatar2_5_,
-            user0_.created_at as created_3_5_,
-            user0_.email as email4_5_,
-            user0_.enabled as enabled5_5_,
-            user0_.nickname as nickname6_5_,
-            user0_.password as password7_5_,
-            user0_.role as role8_5_,
-            user0_.updated_at as updated_9_5_,
-            user0_.username as usernam10_5_
+        Book as generatedAlias0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
         from
-            users user0_
-        where
-            user0_.username=?
+            books book0_
+        order by
+            book0_.created_at desc limit ?,
+            ?
 Hibernate: 
     select
-        book0_.id as id1_1_0_,
-        book0_.author as author2_1_0_,
-        book0_.category_id as categor11_1_0_,
-        book0_.cover_image as cover_im3_1_0_,
-        book0_.created_at as created_4_1_0_,
-        book0_.description as descript5_1_0_,
-        book0_.isbn as isbn6_1_0_,
-        book0_.publisher as publishe7_1_0_,
-        book0_.title as title8_1_0_,
-        book0_.updated_at as updated_9_1_0_,
-        book0_.year as year10_1_0_,
-        category1_.id as id1_2_1_,
-        category1_.name as name2_2_1_
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
     from
-        books book0_
-    left outer join
-        categories category1_
-            on book0_.category_id=category1_.id
+        categories category0_
     where
-        book0_.id=?
-Hibernate: 
-    /* insert com.example.qimo.entity.Comment
-        */ insert
-        into
-            book_db.comments
-            (book_id, content, created_at, parent_id, user_id)
-        values
-            (?, ?, ?, ?, ?)
+        category0_.id=?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            books book0_
+2025-11-26 22:21:43.636  INFO 31436 --- [nio-8080-exec-2] c.e.qimo.controller.AdminController      : 尝试编辑书籍ID: 17
 Hibernate: 
     select
         book0_.id as id1_1_0_,
@@ -129,6 +124,654 @@ Hibernate:
     where
         book0_.id=?
 Hibernate:
+    /* select
+        generatedAlias0
+    from
+        Category as generatedAlias0
+    order by
+        generatedAlias0.name asc */ select
+            category0_.id as id1_2_,
+            category0_.name as name2_2_
+        from
+            categories category0_
+        order by
+            category0_.name asc
+Hibernate: 
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate: 
+    select
+        book0_.id as id1_1_0_,
+        book0_.author as author2_1_0_,
+        book0_.category_id as categor11_1_0_,
+        book0_.cover_image as cover_im3_1_0_,
+        book0_.created_at as created_4_1_0_,
+        book0_.description as descript5_1_0_,
+        book0_.isbn as isbn6_1_0_,
+        book0_.publisher as publishe7_1_0_,
+        book0_.title as title8_1_0_,
+        book0_.updated_at as updated_9_1_0_,
+        book0_.year as year10_1_0_,
+        category1_.id as id1_2_1_,
+        category1_.name as name2_2_1_
+    from
+        books book0_
+    left outer join
+        categories category1_
+            on book0_.category_id=category1_.id
+    where
+        book0_.id=?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        order by
+            book0_.created_at desc limit ?,
+            ?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            books book0_
+2025-11-26 22:21:47.220  INFO 31436 --- [nio-8080-exec-6] c.e.qimo.controller.AdminController      : 尝试编辑书籍ID: 18
+Hibernate: 
+    select
+        book0_.id as id1_1_0_,
+        book0_.author as author2_1_0_,
+        book0_.category_id as categor11_1_0_,
+        book0_.cover_image as cover_im3_1_0_,
+        book0_.created_at as created_4_1_0_,
+        book0_.description as descript5_1_0_,
+        book0_.isbn as isbn6_1_0_,
+        book0_.publisher as publishe7_1_0_,
+        book0_.title as title8_1_0_,
+        book0_.updated_at as updated_9_1_0_,
+        book0_.year as year10_1_0_,
+        category1_.id as id1_2_1_,
+        category1_.name as name2_2_1_
+    from
+        books book0_
+    left outer join
+        categories category1_
+            on book0_.category_id=category1_.id
+    where
+        book0_.id=?
+Hibernate:
+    /* select
+        generatedAlias0
+    from
+        Category as generatedAlias0
+    order by
+        generatedAlias0.name asc */ select
+            category0_.id as id1_2_,
+            category0_.name as name2_2_
+        from
+            categories category0_
+        order by
+            category0_.name asc
+Hibernate: 
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate: 
+    select
+        book0_.id as id1_1_0_,
+        book0_.author as author2_1_0_,
+        book0_.category_id as categor11_1_0_,
+        book0_.cover_image as cover_im3_1_0_,
+        book0_.created_at as created_4_1_0_,
+        book0_.description as descript5_1_0_,
+        book0_.isbn as isbn6_1_0_,
+        book0_.publisher as publishe7_1_0_,
+        book0_.title as title8_1_0_,
+        book0_.updated_at as updated_9_1_0_,
+        book0_.year as year10_1_0_,
+        category1_.id as id1_2_1_,
+        category1_.name as name2_2_1_
+    from
+        books book0_
+    left outer join
+        categories category1_
+            on book0_.category_id=category1_.id
+    where
+        book0_.id=?
+Hibernate:
+    /* update
+        com.example.qimo.entity.Book */ update
+            books
+        set
+            author=?,
+            category_id=?,
+            cover_image=?,
+            description=?,
+            isbn=?,
+            publisher=?,
+            title=?,
+            updated_at=?,
+            year=?
+        where
+            id=?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        order by
+            book0_.created_at desc limit ?,
+            ?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            books book0_
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        order by
+            book0_.created_at desc limit ?
+Hibernate: 
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            books book0_
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Category as generatedAlias0
+    order by
+        generatedAlias0.name asc */ select
+            category0_.id as id1_2_,
+            category0_.name as name2_2_
+        from
+            categories category0_
+        order by
+            category0_.name asc
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        order by
+            book0_.created_at desc limit ?
+Hibernate:
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            books book0_
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Category as generatedAlias0
+    order by
+        generatedAlias0.name asc */ select
+            category0_.id as id1_2_,
+            category0_.name as name2_2_
+        from
+            categories category0_
+        order by
+            category0_.name asc
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    left join
+        generatedAlias0.category as generatedAlias1
+    where
+        generatedAlias1.id=:param0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        left outer join
+            categories category1_
+                on book0_.category_id=category1_.id
+        where
+            category1_.id=?
+        order by
+            book0_.created_at desc limit ?
+Hibernate:
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0
+    left join
+        generatedAlias0.category as generatedAlias1
+    where
+        generatedAlias1.id=:param0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            books book0_
+        left outer join
+            categories category1_
+                on book0_.category_id=category1_.id
+        where
+            category1_.id=?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Category as generatedAlias0
+    order by
+        generatedAlias0.name asc */ select
+            category0_.id as id1_2_,
+            category0_.name as name2_2_
+        from
+            categories category0_
+        order by
+            category0_.name asc
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    left join
+        generatedAlias0.category as generatedAlias1
+    where
+        generatedAlias1.id=:param0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        left outer join
+            categories category1_
+                on book0_.category_id=category1_.id
+        where
+            category1_.id=?
+        order by
+            book0_.created_at desc limit ?,
+            ?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Category as generatedAlias0
+    order by
+        generatedAlias0.name asc */ select
+            category0_.id as id1_2_,
+            category0_.name as name2_2_
+        from
+            categories category0_
+        order by
+            category0_.name asc
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    left join
+        generatedAlias0.category as generatedAlias1
+    where
+        generatedAlias1.id=:param0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        left outer join
+            categories category1_
+                on book0_.category_id=category1_.id
+        where
+            category1_.id=?
+        order by
+            book0_.created_at desc limit ?
+Hibernate:
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0
+    left join
+        generatedAlias0.category as generatedAlias1
+    where
+        generatedAlias1.id=:param0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            books book0_
+        left outer join
+            categories category1_
+                on book0_.category_id=category1_.id
+        where
+            category1_.id=?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Category as generatedAlias0
+    order by
+        generatedAlias0.name asc */ select
+            category0_.id as id1_2_,
+            category0_.name as name2_2_
+        from
+            categories category0_
+        order by
+            category0_.name asc
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    left join
+        generatedAlias0.category as generatedAlias1
+    where
+        generatedAlias1.id=:param0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        left outer join
+            categories category1_
+                on book0_.category_id=category1_.id
+        where
+            category1_.id=?
+        order by
+            book0_.created_at desc limit ?,
+            ?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Category as generatedAlias0
+    order by
+        generatedAlias0.name asc */ select
+            category0_.id as id1_2_,
+            category0_.name as name2_2_
+        from
+            categories category0_
+        order by
+            category0_.name asc
+Hibernate: 
+    /* SELECT
+        b
+    FROM
+        Book b
+    WHERE
+        (
+            b.title LIKE CONCAT('%',:keyword,'%')
+            OR b.author LIKE CONCAT('%',:keyword,'%')
+        )
+        AND b.category.id = :categoryId
+    order by
+        b.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        where
+            (
+                book0_.title like concat('%', ?, '%')
+                or book0_.author like concat('%', ?, '%')
+            )
+            and book0_.category_id=?
+        order by
+            book0_.created_at desc limit ?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Category as generatedAlias0
+    order by
+        generatedAlias0.name asc */ select
+            category0_.id as id1_2_,
+            category0_.name as name2_2_
+        from
+            categories category0_
+        order by
+            category0_.name asc
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        order by
+            book0_.created_at desc limit ?
+Hibernate:
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            books book0_
+Hibernate: 
+    select
+        book0_.id as id1_1_0_,
+        book0_.author as author2_1_0_,
+        book0_.category_id as categor11_1_0_,
+        book0_.cover_image as cover_im3_1_0_,
+        book0_.created_at as created_4_1_0_,
+        book0_.description as descript5_1_0_,
+        book0_.isbn as isbn6_1_0_,
+        book0_.publisher as publishe7_1_0_,
+        book0_.title as title8_1_0_,
+        book0_.updated_at as updated_9_1_0_,
+        book0_.year as year10_1_0_,
+        category1_.id as id1_2_1_,
+        category1_.name as name2_2_1_
+    from
+        books book0_
+    left outer join
+        categories category1_
+            on book0_.category_id=category1_.id
+    where
+        book0_.id=?
+Hibernate: 
     /* select
         generatedAlias0
     from
@@ -185,7 +828,8 @@ Hibernate:
             book1_.id=?
         order by
             comment0_.created_at desc
-Hibernate: 
+2025-11-26 22:22:39.918 DEBUG 31436 --- [nio-8080-exec-1] c.e.q.service.impl.CommentServiceImpl    : Loaded 14 comments for book 23 (allComments)
+Hibernate:
     /* select
         generatedAlias0
     from
@@ -292,7 +936,50 @@ Hibernate:
             )
         order by
             comment0_.created_at desc
+2025-11-26 22:22:39.925 DEBUG 31436 --- [nio-8080-exec-1] c.e.q.service.impl.CommentServiceImpl    : Root comments (deduped) loaded: 11 for book 23
 Hibernate:
+    select
+        replies0_.parent_id as parent_i5_0_0_,
+        replies0_.id as id1_0_0_,
+        replies0_.id as id1_0_1_,
+        replies0_.book_id as book_id4_0_1_,
+        replies0_.content as content2_0_1_,
+        replies0_.created_at as created_3_0_1_,
+        replies0_.parent_id as parent_i5_0_1_,
+        replies0_.user_id as user_id6_0_1_
+    from
+        book_db.comments replies0_
+    where
+        replies0_.parent_id=?
+Hibernate:
+    select
+        replies0_.parent_id as parent_i5_0_0_,
+        replies0_.id as id1_0_0_,
+        replies0_.id as id1_0_1_,
+        replies0_.book_id as book_id4_0_1_,
+        replies0_.content as content2_0_1_,
+        replies0_.created_at as created_3_0_1_,
+        replies0_.parent_id as parent_i5_0_1_,
+        replies0_.user_id as user_id6_0_1_
+    from
+        book_db.comments replies0_
+    where
+        replies0_.parent_id=?
+Hibernate:
+    select
+        replies0_.parent_id as parent_i5_0_0_,
+        replies0_.id as id1_0_0_,
+        replies0_.id as id1_0_1_,
+        replies0_.book_id as book_id4_0_1_,
+        replies0_.content as content2_0_1_,
+        replies0_.created_at as created_3_0_1_,
+        replies0_.parent_id as parent_i5_0_1_,
+        replies0_.user_id as user_id6_0_1_
+    from
+        book_db.comments replies0_
+    where
+        replies0_.parent_id=?
+Hibernate: 
     /* select
         generatedAlias0.id
     from
@@ -318,293 +1005,3 @@ Hibernate:
         where
             user0_.username=?
             and book2_.id=? limit ?
-2025-11-26 19:57:24.854 ERROR 33800 --- [nio-8080-exec-2] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-2] Exception processing template "book/detail": An error happened during template parsing (template: "class path resource [templates/book/detail.html]")
-
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/book/detail.html]")
-        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:529) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
-        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at com.example.qimo.config.WebConfig$1.doFilterInternal(WebConfig.java:41) ~[classes/:na]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.11.jar:5.7.11]     
-        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]      
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.11.jar:5.7.11] 
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147) ~[spring-security-web-5.7.11.jar:5.7.11]     
-        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125) ~[spring-security-web-5.7.11.jar:5.7.11]     
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "comment.user != null ? comment.user.username : '匿名用户'" (template: "book/detail" - line 444, col 62)
-        at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        ... 103 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "comment.user != null ? comment.user.username : '匿名用户'" (template: "book/detail" - line 444, col 62)
-        at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]  
-        at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]       
-        at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]      
-        at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        ... 105 common frames omitted
-Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'user' cannot be found on null
-        at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:219) ~[spring-expression-5.3.31.jar:5.3.31]  
-        at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:53) ~[spring-expression-5.3.31.jar:5.3.31]     
-        at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:412) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:93) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.OpNE.getValueInternal(OpNE.java:43) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.OpNE.getValueInternal(OpNE.java:33) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:212) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.Ternary.getValueInternal(Ternary.java:54) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        ... 124 common frames omitted
-
-2025-11-26 19:57:24.859 ERROR 33800 --- [nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/book/detail.html]")] with root cause 
-
-org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'user' cannot be found on null
-        at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:219) ~[spring-expression-5.3.31.jar:5.3.31]  
-        at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:53) ~[spring-expression-5.3.31.jar:5.3.31]     
-        at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:412) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:93) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.OpNE.getValueInternal(OpNE.java:43) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.OpNE.getValueInternal(OpNE.java:33) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:212) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.Ternary.getValueInternal(Ternary.java:54) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338) ~[spring-expression-5.3.31.jar:5.3.31]
-        at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]  
-        at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]       
-        at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]      
-        at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
-        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-        at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:529) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
-        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.31.jar:5.3.31]
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at com.example.qimo.config.WebConfig$1.doFilterInternal(WebConfig.java:41) ~[classes/:na]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.11.jar:5.7.11]     
-        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]      
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.11.jar:5.7.11] 
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147) ~[spring-security-web-5.7.11.jar:5.7.11]     
-        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125) ~[spring-security-web-5.7.11.jar:5.7.11]     
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
-        at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
-        at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
-        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2025-11-26 19:57:24.877 ERROR 33800 --- [nio-8080-exec-2] s.e.ErrorMvcAutoConfiguration$StaticView : Cannot render error page for request [/books/23] and exception [An error happened during template parsing (template: "class path resource [templates/book/detail.html]")] as the response has already been committed. As a result, the response may have the wrong status code.

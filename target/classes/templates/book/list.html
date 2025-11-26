@@ -196,11 +196,31 @@
         <div class="content-container">
             <h1 class="mb-5">📚 所有书籍</h1>
             
+            <!-- 分类筛选表单 -->
+            <form th:action="@{/books}" method="get" class="mb-3">
+                <div class="mb-3">
+                    <label for="categoryId" class="form-label">按分类筛选：</label>
+                    <select id="categoryId" name="categoryId" class="form-select" 
+                            onchange="this.form.submit()" 
+                            th:value="${selectedCategoryId != null ? selectedCategoryId : ''}">
+                        <option value="">— 全部分类 —</option>
+                        <option th:each="cat : ${allCategories}" 
+                                th:value="${cat.id}" 
+                                th:text="${cat.name}" 
+                                th:selected="${selectedCategoryId != null && cat.id == selectedCategoryId}">
+                            分类名称
+                        </option>
+                    </select>
+                </div>
+            </form>
+            
             <!-- 搜索表单 -->
             <form th:action="@{/books}" method="get" class="mb-4">
                 <div class="input-group">
                     <input type="text" name="query" class="form-control" placeholder="搜索书名" 
                            th:value="${param.query != null ? param.query[0] : ''}">
+                    <!-- 隐藏字段：保留当前分类筛选 -->
+                    <input type="hidden" name="categoryId" th:value="${selectedCategoryId != null ? selectedCategoryId : ''}">
                     <button class="btn btn-primary" type="submit">搜索</button>
                 </div>
             </form>
@@ -230,7 +250,7 @@
                         <!-- 上一页按钮 -->
                         <li class="page-item" th:classappend="${books.first} ? 'disabled'">
                             <a class="page-link" 
-                               th:href="@{/books(page=${books.number-1},size=6,query=${param.query != null ? param.query[0] : ''})}" 
+                               th:href="@{/books(page=${books.number-1},size=6,query=${param.query != null ? param.query[0] : ''},categoryId=${selectedCategoryId != null ? selectedCategoryId : ''})}" 
                                th:aria-disabled="${books.first}">
                                 上一页
                             </a>
@@ -242,7 +262,7 @@
                             <th:block th:if="${i >= books.number - 2 && i <= books.number + 2}">
                                 <li class="page-item" th:classappend="${i == books.number} ? 'active'">
                                     <a class="page-link" 
-                                       th:href="@{/books(page=${i},size=6,query=${param.query != null ? param.query[0] : ''})}" 
+                                       th:href="@{/books(page=${i},size=6,query=${param.query != null ? param.query[0] : ''},categoryId=${selectedCategoryId != null ? selectedCategoryId : ''})}" 
                                        th:text="${i + 1}">
                                         页码
                                     </a>
@@ -260,7 +280,7 @@
                         <!-- 下一页按钮 -->
                         <li class="page-item" th:classappend="${books.last} ? 'disabled'">
                             <a class="page-link" 
-                               th:href="@{/books(page=${books.number+1},size=6,query=${param.query != null ? param.query[0] : ''})}" 
+                               th:href="@{/books(page=${books.number+1},size=6,query=${param.query != null ? param.query[0] : ''},categoryId=${selectedCategoryId != null ? selectedCategoryId : ''})}" 
                                th:aria-disabled="${books.last}">
                                 下一页
                             </a>
