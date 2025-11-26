@@ -59,6 +59,12 @@ public class Comment {
     public boolean isLikedBy(User user) {
         return likedBy.contains(user);
     }
+
+    // 辅助方法，判断用户名对应的用户是否已点赞（用于模板中通过用户名判断）
+    public boolean isLikedByUsername(String username) {
+        if (username == null) return false;
+        return likedBy.stream().anyMatch(u -> username.equals(u.getUsername()));
+    }
     
     // 获取点赞数量
     public int getLikeCount() {
@@ -77,4 +83,18 @@ public class Comment {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    // 保留一组显式 getter/setter 以确保在某些构建环境中 Lombok 注解处理器失败时，仍然能编译
+    public Long getId() { return this.id; }
+    public String getContent() { return this.content; }
+    public void setContent(String content) { this.content = content; }
+    public java.time.LocalDateTime getCreatedAt() { return this.createdAt; }
+    public Book getBook() { return this.book; }
+    public void setBook(Book book) { this.book = book; }
+    public User getUser() { return this.user; }
+    public void setUser(User user) { this.user = user; }
+    public Comment getParent() { return this.parent; }
+    public void setParent(Comment parent) { this.parent = parent; }
+    public List<Comment> getReplies() { return this.replies; }
+    public Set<User> getLikedBy() { return this.likedBy; }
 }

@@ -51,8 +51,7 @@
                         <tbody>
                             <tr th:each="book : ${books.content}">
                                 <td>
-                                    <img th:if="${book.coverUrl}" th:src="@{${book.coverUrl}}" class="cover-thumbnail rounded" alt="书籍封面">
-                                    <img th:unless="${book.coverUrl}" th:src="@{/images/default-cover.jpg}" class="cover-thumbnail rounded" alt="默认封面">
+                                    <img th:src="${book.coverUrl != null ? book.coverUrl : '/images/default-cover.jpg'}" class="cover-thumbnail rounded" alt="书籍封面">
                                 </td>
                                 <td>
                                     <strong th:text="${book.title}"></strong>

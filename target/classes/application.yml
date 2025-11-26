@@ -7,7 +7,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update  # 从validate改为update，自动更新表结构
+      ddl-auto: update  # 禁用自动更新表结构（避免因数据库中缺失表结构或脏数据导致启动异常）
     show-sql: true
     properties:
       hibernate:

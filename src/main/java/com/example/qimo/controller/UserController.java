@@ -160,6 +160,8 @@ public class UserController {
         var favoriteBooksPage = userService.getFavoriteBooks(username, pageRequest);
         
         model.addAttribute("favoritesPage", favoriteBooksPage);
+        // 兼容模板使用 favorites 列表的情况
+        model.addAttribute("favorites", favoriteBooksPage.getContent());
         return "user/favorites";
     }
     

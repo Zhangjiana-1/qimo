@@ -1,25 +1,60 @@
-User as generatedAlias0
-    left join
-        generatedAlias0.favoriteBooks as generatedAlias1
-    where
-        (
-            generatedAlias0.username=:param0
-        )
-        and (
-            generatedAlias1.id=:param1
-        ) */ select
-            user0_.id as col_0_0_
-        from
-            users user0_
-        left outer join
-            user_favorite_books favoritebo1_
-                on user0_.id=favoritebo1_.user_id
-        left outer join
-            books book2_
-                on favoritebo1_.book_id=book2_.id
-        where
-            user0_.username=?
-            and book2_.id=? limit ?
+ at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2025-11-26 19:57:16.033 ERROR 33800 --- [nio-8080-exec-9] s.e.ErrorMvcAutoConfiguration$StaticView : Cannot render error page for request [/books/23] and exception [An error happened during template parsing (template: "class path resource [templates/book/detail.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
 Hibernate: 
     /* select
         generatedAlias0
@@ -27,16 +62,16 @@ Hibernate:
         User as generatedAlias0
     where
         generatedAlias0.username=:param0 */ select
-            user0_.id as id1_4_,
-            user0_.avatar as avatar2_4_,
-            user0_.created_at as created_3_4_,
-            user0_.email as email4_4_,
-            user0_.enabled as enabled5_4_,
-            user0_.nickname as nickname6_4_,
-            user0_.password as password7_4_,
-            user0_.role as role8_4_,
-            user0_.updated_at as updated_9_4_,
-            user0_.username as usernam10_4_
+            user0_.id as id1_5_,
+            user0_.avatar as avatar2_5_,
+            user0_.created_at as created_3_5_,
+            user0_.email as email4_5_,
+            user0_.enabled as enabled5_5_,
+            user0_.nickname as nickname6_5_,
+            user0_.password as password7_5_,
+            user0_.role as role8_5_,
+            user0_.updated_at as updated_9_5_,
+            user0_.username as usernam10_5_
         from
             users user0_
         where
@@ -45,181 +80,55 @@ Hibernate:
     select
         book0_.id as id1_1_0_,
         book0_.author as author2_1_0_,
-        book0_.cover_url as cover_ur3_1_0_,
+        book0_.category_id as categor11_1_0_,
+        book0_.cover_image as cover_im3_1_0_,
         book0_.created_at as created_4_1_0_,
         book0_.description as descript5_1_0_,
-        book0_.title as title6_1_0_,
-        book0_.updated_at as updated_7_1_0_
+        book0_.isbn as isbn6_1_0_,
+        book0_.publisher as publishe7_1_0_,
+        book0_.title as title8_1_0_,
+        book0_.updated_at as updated_9_1_0_,
+        book0_.year as year10_1_0_,
+        category1_.id as id1_2_1_,
+        category1_.name as name2_2_1_
     from
         books book0_
+    left outer join
+        categories category1_
+            on book0_.category_id=category1_.id
     where
         book0_.id=?
-Hibernate:
-    select
-        favoritebo0_.user_id as user_id1_3_0_,
-        favoritebo0_.book_id as book_id2_3_0_,
-        book1_.id as id1_1_1_,
-        book1_.author as author2_1_1_,
-        book1_.cover_url as cover_ur3_1_1_,
-        book1_.created_at as created_4_1_1_,
-        book1_.description as descript5_1_1_,
-        book1_.title as title6_1_1_,
-        book1_.updated_at as updated_7_1_1_
-    from
-        user_favorite_books favoritebo0_
-    inner join
-        books book1_
-            on favoritebo0_.book_id=book1_.id
-    where
-        favoritebo0_.user_id=?
-Hibernate:
-    select
-        favoritedb0_.book_id as book_id2_3_0_,
-        favoritedb0_.user_id as user_id1_3_0_,
-        user1_.id as id1_4_1_,
-        user1_.avatar as avatar2_4_1_,
-        user1_.created_at as created_3_4_1_,
-        user1_.email as email4_4_1_,
-        user1_.enabled as enabled5_4_1_,
-        user1_.nickname as nickname6_4_1_,
-        user1_.password as password7_4_1_,
-        user1_.role as role8_4_1_,
-        user1_.updated_at as updated_9_4_1_,
-        user1_.username as usernam10_4_1_
-    from
-        user_favorite_books favoritedb0_
-    inner join
-        users user1_
-            on favoritedb0_.user_id=user1_.id
-    where
-        favoritedb0_.book_id=?
-Hibernate:
-    select
-        favoritedb0_.book_id as book_id2_3_0_,
-        favoritedb0_.user_id as user_id1_3_0_,
-        user1_.id as id1_4_1_,
-        user1_.avatar as avatar2_4_1_,
-        user1_.created_at as created_3_4_1_,
-        user1_.email as email4_4_1_,
-        user1_.enabled as enabled5_4_1_,
-        user1_.nickname as nickname6_4_1_,
-        user1_.password as password7_4_1_,
-        user1_.role as role8_4_1_,
-        user1_.updated_at as updated_9_4_1_,
-        user1_.username as usernam10_4_1_
-    from
-        user_favorite_books favoritedb0_
-    inner join
-        users user1_
-            on favoritedb0_.user_id=user1_.id
-    where
-        favoritedb0_.book_id=?
-Hibernate:
-    select
-        favoritedb0_.book_id as book_id2_3_0_,
-        favoritedb0_.user_id as user_id1_3_0_,
-        user1_.id as id1_4_1_,
-        user1_.avatar as avatar2_4_1_,
-        user1_.created_at as created_3_4_1_,
-        user1_.email as email4_4_1_,
-        user1_.enabled as enabled5_4_1_,
-        user1_.nickname as nickname6_4_1_,
-        user1_.password as password7_4_1_,
-        user1_.role as role8_4_1_,
-        user1_.updated_at as updated_9_4_1_,
-        user1_.username as usernam10_4_1_
-    from
-        user_favorite_books favoritedb0_
-    inner join
-        users user1_
-            on favoritedb0_.user_id=user1_.id
-    where
-        favoritedb0_.book_id=?
-Hibernate:
-    select
-        favoritedb0_.book_id as book_id2_3_0_,
-        favoritedb0_.user_id as user_id1_3_0_,
-        user1_.id as id1_4_1_,
-        user1_.avatar as avatar2_4_1_,
-        user1_.created_at as created_3_4_1_,
-        user1_.email as email4_4_1_,
-        user1_.enabled as enabled5_4_1_,
-        user1_.nickname as nickname6_4_1_,
-        user1_.password as password7_4_1_,
-        user1_.role as role8_4_1_,
-        user1_.updated_at as updated_9_4_1_,
-        user1_.username as usernam10_4_1_
-    from
-        user_favorite_books favoritedb0_
-    inner join
-        users user1_
-            on favoritedb0_.user_id=user1_.id
-    where
-        favoritedb0_.book_id=?
-Hibernate:
-    select
-        favoritedb0_.book_id as book_id2_3_0_,
-        favoritedb0_.user_id as user_id1_3_0_,
-        user1_.id as id1_4_1_,
-        user1_.avatar as avatar2_4_1_,
-        user1_.created_at as created_3_4_1_,
-        user1_.email as email4_4_1_,
-        user1_.enabled as enabled5_4_1_,
-        user1_.nickname as nickname6_4_1_,
-        user1_.password as password7_4_1_,
-        user1_.role as role8_4_1_,
-        user1_.updated_at as updated_9_4_1_,
-        user1_.username as usernam10_4_1_
-    from
-        user_favorite_books favoritedb0_
-    inner join
-        users user1_
-            on favoritedb0_.user_id=user1_.id
-    where
-        favoritedb0_.book_id=?
-Hibernate:
-    select
-        favoritedb0_.book_id as book_id2_3_0_,
-        favoritedb0_.user_id as user_id1_3_0_,
-        user1_.id as id1_4_1_,
-        user1_.avatar as avatar2_4_1_,
-        user1_.created_at as created_3_4_1_,
-        user1_.email as email4_4_1_,
-        user1_.enabled as enabled5_4_1_,
-        user1_.nickname as nickname6_4_1_,
-        user1_.password as password7_4_1_,
-        user1_.role as role8_4_1_,
-        user1_.updated_at as updated_9_4_1_,
-        user1_.username as usernam10_4_1_
-    from
-        user_favorite_books favoritedb0_
-    inner join
-        users user1_
-            on favoritedb0_.user_id=user1_.id
-    where
-        favoritedb0_.book_id=?
-Hibernate:
-    /* insert collection
-        row com.example.qimo.entity.User.favoriteBooks */ insert
+Hibernate: 
+    /* insert com.example.qimo.entity.Comment
+        */ insert
         into
-            user_favorite_books
-            (user_id, book_id)
+            book_db.comments
+            (book_id, content, created_at, parent_id, user_id)
         values
-            (?, ?)
+            (?, ?, ?, ?, ?)
 Hibernate: 
     select
         book0_.id as id1_1_0_,
         book0_.author as author2_1_0_,
-        book0_.cover_url as cover_ur3_1_0_,
+        book0_.category_id as categor11_1_0_,
+        book0_.cover_image as cover_im3_1_0_,
         book0_.created_at as created_4_1_0_,
         book0_.description as descript5_1_0_,
-        book0_.title as title6_1_0_,
-        book0_.updated_at as updated_7_1_0_
+        book0_.isbn as isbn6_1_0_,
+        book0_.publisher as publishe7_1_0_,
+        book0_.title as title8_1_0_,
+        book0_.updated_at as updated_9_1_0_,
+        book0_.year as year10_1_0_,
+        category1_.id as id1_2_1_,
+        category1_.name as name2_2_1_
     from
         books book0_
+    left outer join
+        categories category1_
+            on book0_.category_id=category1_.id
     where
         book0_.id=?
-Hibernate: 
+Hibernate:
     /* select
         generatedAlias0
     from
@@ -231,52 +140,52 @@ Hibernate:
     order by
         generatedAlias0.createdAt desc */ select
             comment0_.id as id1_0_0_,
-            user3_.id as id1_4_1_,
-            user4_.id as id1_4_2_,
+            user2_.id as id1_5_1_,
+            user4_.id as id1_5_2_,
             comment0_.book_id as book_id4_0_0_,
             comment0_.content as content2_0_0_,
             comment0_.created_at as created_3_0_0_,
             comment0_.parent_id as parent_i5_0_0_,
             comment0_.user_id as user_id6_0_0_,
-            user3_.avatar as avatar2_4_1_,
-            user3_.created_at as created_3_4_1_,
-            user3_.email as email4_4_1_,
-            user3_.enabled as enabled5_4_1_,
-            user3_.nickname as nickname6_4_1_,
-            user3_.password as password7_4_1_,
-            user3_.role as role8_4_1_,
-            user3_.updated_at as updated_9_4_1_,
-            user3_.username as usernam10_4_1_,
-            likedby2_.comment_id as comment_1_2_0__,
-            likedby2_.user_id as user_id2_2_0__,
-            user4_.avatar as avatar2_4_2_,
-            user4_.created_at as created_3_4_2_,
-            user4_.email as email4_4_2_,
-            user4_.enabled as enabled5_4_2_,
-            user4_.nickname as nickname6_4_2_,
-            user4_.password as password7_4_2_,
-            user4_.role as role8_4_2_,
-            user4_.updated_at as updated_9_4_2_,
-            user4_.username as usernam10_4_2_
+            user2_.avatar as avatar2_5_1_,
+            user2_.created_at as created_3_5_1_,
+            user2_.email as email4_5_1_,
+            user2_.enabled as enabled5_5_1_,
+            user2_.nickname as nickname6_5_1_,
+            user2_.password as password7_5_1_,
+            user2_.role as role8_5_1_,
+            user2_.updated_at as updated_9_5_1_,
+            user2_.username as usernam10_5_1_,
+            user4_.avatar as avatar2_5_2_,
+            user4_.created_at as created_3_5_2_,
+            user4_.email as email4_5_2_,
+            user4_.enabled as enabled5_5_2_,
+            user4_.nickname as nickname6_5_2_,
+            user4_.password as password7_5_2_,
+            user4_.role as role8_5_2_,
+            user4_.updated_at as updated_9_5_2_,
+            user4_.username as usernam10_5_2_,
+            likedby3_.comment_id as comment_1_3_0__,
+            likedby3_.user_id as user_id2_3_0__
         from
             book_db.comments comment0_
         left outer join
             books book1_
                 on comment0_.book_id=book1_.id
         left outer join
-            comment_likes likedby2_
-                on comment0_.id=likedby2_.comment_id
+            users user2_
+                on comment0_.user_id=user2_.id
         left outer join
-            users user3_
-                on likedby2_.user_id=user3_.id
+            comment_likes likedby3_
+                on comment0_.id=likedby3_.comment_id
         left outer join
             users user4_
-                on comment0_.user_id=user4_.id
+                on likedby3_.user_id=user4_.id
         where
             book1_.id=?
         order by
             comment0_.created_at desc
-Hibernate:
+Hibernate: 
     /* select
         generatedAlias0
     from
@@ -293,89 +202,89 @@ Hibernate:
     order by
         generatedAlias0.createdAt desc */ select
             comment0_.id as id1_0_0_,
-            user3_.id as id1_4_1_,
-            replies4_.id as id1_0_2_,
-            user6_.id as id1_4_3_,
-            user7_.id as id1_4_4_,
-            user8_.id as id1_4_5_,
+            user2_.id as id1_5_1_,
+            user4_.id as id1_5_2_,
+            replies5_.id as id1_0_3_,
+            user6_.id as id1_5_4_,
+            user8_.id as id1_5_5_,
             comment0_.book_id as book_id4_0_0_,
             comment0_.content as content2_0_0_,
             comment0_.created_at as created_3_0_0_,
             comment0_.parent_id as parent_i5_0_0_,
             comment0_.user_id as user_id6_0_0_,
-            user3_.avatar as avatar2_4_1_,
-            user3_.created_at as created_3_4_1_,
-            user3_.email as email4_4_1_,
-            user3_.enabled as enabled5_4_1_,
-            user3_.nickname as nickname6_4_1_,
-            user3_.password as password7_4_1_,
-            user3_.role as role8_4_1_,
-            user3_.updated_at as updated_9_4_1_,
-            user3_.username as usernam10_4_1_,
-            likedby2_.comment_id as comment_1_2_0__,
-            likedby2_.user_id as user_id2_2_0__,
-            replies4_.book_id as book_id4_0_2_,
-            replies4_.content as content2_0_2_,
-            replies4_.created_at as created_3_0_2_,
-            replies4_.parent_id as parent_i5_0_2_,
-            replies4_.user_id as user_id6_0_2_,
-            replies4_.parent_id as parent_i5_0_1__,
-            replies4_.id as id1_0_1__,
-            user6_.avatar as avatar2_4_3_,
-            user6_.created_at as created_3_4_3_,
-            user6_.email as email4_4_3_,
-            user6_.enabled as enabled5_4_3_,
-            user6_.nickname as nickname6_4_3_,
-            user6_.password as password7_4_3_,
-            user6_.role as role8_4_3_,
-            user6_.updated_at as updated_9_4_3_,
-            user6_.username as usernam10_4_3_,
-            likedby5_.comment_id as comment_1_2_2__,
-            likedby5_.user_id as user_id2_2_2__,
-            user7_.avatar as avatar2_4_4_,
-            user7_.created_at as created_3_4_4_,
-            user7_.email as email4_4_4_,
-            user7_.enabled as enabled5_4_4_,
-            user7_.nickname as nickname6_4_4_,
-            user7_.password as password7_4_4_,
-            user7_.role as role8_4_4_,
-            user7_.updated_at as updated_9_4_4_,
-            user7_.username as usernam10_4_4_,
-            user8_.avatar as avatar2_4_5_,
-            user8_.created_at as created_3_4_5_,
-            user8_.email as email4_4_5_,
-            user8_.enabled as enabled5_4_5_,
-            user8_.nickname as nickname6_4_5_,
-            user8_.password as password7_4_5_,
-            user8_.role as role8_4_5_,
-            user8_.updated_at as updated_9_4_5_,
-            user8_.username as usernam10_4_5_
+            user2_.avatar as avatar2_5_1_,
+            user2_.created_at as created_3_5_1_,
+            user2_.email as email4_5_1_,
+            user2_.enabled as enabled5_5_1_,
+            user2_.nickname as nickname6_5_1_,
+            user2_.password as password7_5_1_,
+            user2_.role as role8_5_1_,
+            user2_.updated_at as updated_9_5_1_,
+            user2_.username as usernam10_5_1_,
+            user4_.avatar as avatar2_5_2_,
+            user4_.created_at as created_3_5_2_,
+            user4_.email as email4_5_2_,
+            user4_.enabled as enabled5_5_2_,
+            user4_.nickname as nickname6_5_2_,
+            user4_.password as password7_5_2_,
+            user4_.role as role8_5_2_,
+            user4_.updated_at as updated_9_5_2_,
+            user4_.username as usernam10_5_2_,
+            likedby3_.comment_id as comment_1_3_0__,
+            likedby3_.user_id as user_id2_3_0__,
+            replies5_.book_id as book_id4_0_3_,
+            replies5_.content as content2_0_3_,
+            replies5_.created_at as created_3_0_3_,
+            replies5_.parent_id as parent_i5_0_3_,
+            replies5_.user_id as user_id6_0_3_,
+            replies5_.parent_id as parent_i5_0_1__,
+            replies5_.id as id1_0_1__,
+            user6_.avatar as avatar2_5_4_,
+            user6_.created_at as created_3_5_4_,
+            user6_.email as email4_5_4_,
+            user6_.enabled as enabled5_5_4_,
+            user6_.nickname as nickname6_5_4_,
+            user6_.password as password7_5_4_,
+            user6_.role as role8_5_4_,
+            user6_.updated_at as updated_9_5_4_,
+            user6_.username as usernam10_5_4_,
+            user8_.avatar as avatar2_5_5_,
+            user8_.created_at as created_3_5_5_,
+            user8_.email as email4_5_5_,
+            user8_.enabled as enabled5_5_5_,
+            user8_.nickname as nickname6_5_5_,
+            user8_.password as password7_5_5_,
+            user8_.role as role8_5_5_,
+            user8_.updated_at as updated_9_5_5_,
+            user8_.username as usernam10_5_5_,
+            likedby7_.comment_id as comment_1_3_2__,
+            likedby7_.user_id as user_id2_3_2__
         from
             book_db.comments comment0_
         left outer join
             books book1_
                 on comment0_.book_id=book1_.id
         left outer join
-            comment_likes likedby2_
-                on comment0_.id=likedby2_.comment_id
+            users user2_
+                on comment0_.user_id=user2_.id
         left outer join
-            users user3_
-                on likedby2_.user_id=user3_.id
+            comment_likes likedby3_
+                on comment0_.id=likedby3_.comment_id
         left outer join
-            book_db.comments replies4_
-                on comment0_.id=replies4_.parent_id
+            users user4_
+                on likedby3_.user_id=user4_.id
         left outer join
-            comment_likes likedby5_
-                on replies4_.id=likedby5_.comment_id
+            book_db.comments replies5_
+                on comment0_.id=replies5_.parent_id
         left outer join
             users user6_
-                on likedby5_.user_id=user6_.id
+                on replies5_.user_id=user6_.id
         left outer join
-            users user7_
-                on replies4_.user_id=user7_.id
+            comment_likes likedby7_
+                on replies5_.id=likedby7_.comment_id
         left outer join
             users user8_
-                on comment0_.user_id=user8_.id
+                on likedby7_.user_id=user8_.id
         where
             book1_.id=?
             and (
@@ -409,495 +318,293 @@ Hibernate:
         where
             user0_.username=?
             and book2_.id=? limit ?
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Book as generatedAlias0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.cover_url as cover_ur3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.title as title6_1_,
-            book0_.updated_at as updated_7_1_
-        from
-            books book0_
-        order by
-            book0_.created_at desc limit ?
-Hibernate: 
-    /* select
-        count(generatedAlias0)
-    from
-        Book as generatedAlias0 */ select
-            count(book0_.id) as col_0_0_
-        from
-            books book0_
-Hibernate: 
-    /* SELECT
-        u.favoriteBooks
-    FROM
-        User u
-    WHERE
-        u.username = :username
-    order by
-        u.createdAt desc */ select
-            book2_.id as id1_1_,
-            book2_.author as author2_1_,
-            book2_.cover_url as cover_ur3_1_,
-            book2_.created_at as created_4_1_,
-            book2_.description as descript5_1_,
-            book2_.title as title6_1_,
-            book2_.updated_at as updated_7_1_
-        from
-            users user0_
-        inner join
-            user_favorite_books favoritebo1_
-                on user0_.id=favoritebo1_.user_id
-        inner join
-            books book2_
-                on favoritebo1_.book_id=book2_.id
-        where
-            user0_.username=?
-        order by
-            user0_.created_at desc limit ?
-Hibernate: 
-    /* select
-        count(u.favoriteBooks)
-    FROM
-        User u
-    WHERE
-        u.username = :username */ select
-            count(.) as col_0_0_
-        from
-            users user0_ cross
-        join
-            user_favorite_books favoritebo1_, books book2_
-        where
-            user0_.id=favoritebo1_.user_id
-            and favoritebo1_.book_id=book2_.id
-            and user0_.username=?
-2025-11-24 22:58:20.531  WARN 14496 --- [nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1064, SQLState: 42000
-2025-11-24 22:58:20.531 ERROR 14496 --- [nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.) as col_0_0_ from users user0_ cross join user_favorite_books favoritebo1_, bo' at line 1
-org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
-        at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259)
-        at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:233)
-        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:551)
-        at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
-        at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:243)
-        at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:145)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:241)
-        at jdk.proxy4/jdk.proxy4.$Proxy132.findFavoriteBooksByUsername(Unknown Source)
-        at com.example.qimo.service.UserService.getFavoriteBooks(UserService.java:98)
-        at com.example.qimo.service.UserService$$FastClassBySpringCGLIB$$e9cb4b2e.invoke(<generated>)
-        at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:792)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) 
-        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:762)     
-        at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-        at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-        at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:762)     
-        at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:707)
-        at com.example.qimo.service.UserService$$EnhancerBySpringCGLIB$$bc0a2f3d.getFavoriteBooks(<generated>)       
-        at com.example.qimo.controller.UserController.showFavorites(UserController.java:160)
-        at com.example.qimo.controller.UserController$$FastClassBySpringCGLIB$$3e96b956.invoke(<generated>)
-        at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-        at org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386)
-        at org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85)
-        at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
-        at com.example.qimo.controller.UserController$$EnhancerBySpringCGLIB$$764e92b5.showFavorites(<generated>)    
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)  
-        at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-        at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)   
-        at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-        at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-        at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
-        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
-        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
-        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)  
-        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
-        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
-        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147)
-        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
-        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)       
-        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)        
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117)
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)     
-        at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)   
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
-        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
-        at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
-        at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)       
-        at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)       
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94)    
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) 
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
-        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
-        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
-        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
-        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
-        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
-        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
-        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-        at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
-        at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63)       
-        at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37)
-        at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
-        at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
-        at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:67)
-        at org.hibernate.loader.Loader.getResultSet(Loader.java:2322)
-        at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2075)
-        at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2037)
-        at org.hibernate.loader.Loader.doQuery(Loader.java:956)
-        at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:357)
-        at org.hibernate.loader.Loader.doList(Loader.java:2868)
-        at org.hibernate.loader.Loader.doList(Loader.java:2850)
-        at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2682)
-        at org.hibernate.loader.Loader.list(Loader.java:2677)
-        at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:540)
-        at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:400)
-        at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:218)
-        at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1459)
-        at org.hibernate.query.internal.AbstractProducedQuery.doList(AbstractProducedQuery.java:1649)
-        at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1617)
-        at org.hibernate.query.Query.getResultList(Query.java:165)
-        at org.springframework.data.jpa.repository.query.JpaQueryExecution$PagedExecution.count(JpaQueryExecution.java:185)
-        at org.springframework.data.jpa.repository.query.JpaQueryExecution$PagedExecution.lambda$doExecute$0(JpaQueryExecution.java:180)
-        at org.springframework.data.support.PageableExecutionUtils.getPage(PageableExecutionUtils.java:63)
-        at org.springframework.data.jpa.repository.query.JpaQueryExecution$PagedExecution.doExecute(JpaQueryExecution.java:179)
-        at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:90)        
-        at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:156)       
-        at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:144)
-        at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
-        at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
-        at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:160)
-        at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:76)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-        at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-        at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
-        ... 128 more
-Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.) as col_0_0_ from users user0_ cross join user_favorite_books favoritebo1_, bo' at line 1
-        at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
-        at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)       
-        at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
-        at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:972)
-        at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
-        at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)       
-        at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:57)
-        ... 163 more
-2025-11-24 22:58:20.548  WARN 14496 --- [nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet]
-Hibernate: 
-    /* SELECT
-        u.favoriteBooks
-    FROM
-        User u
-    WHERE
-        u.username = :username
-    order by
-        u.createdAt desc */ select
-            book2_.id as id1_1_,
-            book2_.author as author2_1_,
-            book2_.cover_url as cover_ur3_1_,
-            book2_.created_at as created_4_1_,
-            book2_.description as descript5_1_,
-            book2_.title as title6_1_,
-            book2_.updated_at as updated_7_1_
-        from
-            users user0_
-        inner join
-            user_favorite_books favoritebo1_
-                on user0_.id=favoritebo1_.user_id
-        inner join
-            books book2_
-                on favoritebo1_.book_id=book2_.id
-        where
-            user0_.username=?
-        order by
-            user0_.created_at desc limit ?
-Hibernate: 
-    /* select
-        count(u.favoriteBooks)
-    FROM
-        User u
-    WHERE
-        u.username = :username */ select
-            count(.) as col_0_0_
-        from
-            users user0_ cross
-        join
-            user_favorite_books favoritebo1_, books book2_
-        where
-            user0_.id=favoritebo1_.user_id
-            and favoritebo1_.book_id=book2_.id
-            and user0_.username=?
-2025-11-24 22:58:25.423  WARN 14496 --- [nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1064, SQLState: 42000
-2025-11-24 22:58:25.423 ERROR 14496 --- [nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.) as col_0_0_ from users user0_ cross join user_favorite_books favoritebo1_, bo' at line 1
-org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
-        at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259)
-        at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:233)
-        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:551)
-        at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
-        at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:243)
-        at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:145)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:241)
-        at jdk.proxy4/jdk.proxy4.$Proxy132.findFavoriteBooksByUsername(Unknown Source)
-        at com.example.qimo.service.UserService.getFavoriteBooks(UserService.java:98)
-        at com.example.qimo.service.UserService$$FastClassBySpringCGLIB$$e9cb4b2e.invoke(<generated>)
-        at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:792)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) 
-        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:762)     
-        at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-        at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-        at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:762)     
-        at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:707)
-        at com.example.qimo.service.UserService$$EnhancerBySpringCGLIB$$bc0a2f3d.getFavoriteBooks(<generated>)       
-        at com.example.qimo.controller.UserController.showFavorites(UserController.java:160)
-        at com.example.qimo.controller.UserController$$FastClassBySpringCGLIB$$3e96b956.invoke(<generated>)
-        at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-        at org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386)
-        at org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85)
-        at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
-        at com.example.qimo.controller.UserController$$EnhancerBySpringCGLIB$$764e92b5.showFavorites(<generated>)    
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)  
-        at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-        at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)   
-        at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-        at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-        at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
-        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
-        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
-        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)  
-        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
-        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
-        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147)
-        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
-        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)       
-        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)        
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117)
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)     
-        at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)   
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
-        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)  
-        at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
-        at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
-        at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)       
-        at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)       
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94)    
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) 
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
-        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
-        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
-        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
-        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
-        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
-        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
-        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-        at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
-        at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63)       
-        at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37)
-        at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
-        at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
-        at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:67)
-        at org.hibernate.loader.Loader.getResultSet(Loader.java:2322)
-        at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2075)
-        at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2037)
-        at org.hibernate.loader.Loader.doQuery(Loader.java:956)
-        at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:357)
-        at org.hibernate.loader.Loader.doList(Loader.java:2868)
-        at org.hibernate.loader.Loader.doList(Loader.java:2850)
-        at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2682)
-        at org.hibernate.loader.Loader.list(Loader.java:2677)
-        at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:540)
-        at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:400)
-        at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:218)
-        at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1459)
-        at org.hibernate.query.internal.AbstractProducedQuery.doList(AbstractProducedQuery.java:1649)
-        at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1617)
-        at org.hibernate.query.Query.getResultList(Query.java:165)
-        at org.springframework.data.jpa.repository.query.JpaQueryExecution$PagedExecution.count(JpaQueryExecution.java:185)
-        at org.springframework.data.jpa.repository.query.JpaQueryExecution$PagedExecution.lambda$doExecute$0(JpaQueryExecution.java:180)
-        at org.springframework.data.support.PageableExecutionUtils.getPage(PageableExecutionUtils.java:63)
-        at org.springframework.data.jpa.repository.query.JpaQueryExecution$PagedExecution.doExecute(JpaQueryExecution.java:179)
-        at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:90)        
-        at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:156)       
-        at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:144)
-        at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
-        at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
-        at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:160)
-        at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:76)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-        at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-        at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) 
-        at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
-        ... 128 more
-Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.) as col_0_0_ from users user0_ cross join user_favorite_books favoritebo1_, bo' at line 1
-        at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
-        at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)       
-        at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
-        at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:972)
-        at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
-        at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)       
-        at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:57)
-        ... 163 more
-2025-11-24 22:58:25.434  WARN 14496 --- [nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet]
+2025-11-26 19:57:24.854 ERROR 33800 --- [nio-8080-exec-2] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-2] Exception processing template "book/detail": An error happened during template parsing (template: "class path resource [templates/book/detail.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/book/detail.html]")
+        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:529) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at com.example.qimo.config.WebConfig$1.doFilterInternal(WebConfig.java:41) ~[classes/:na]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.11.jar:5.7.11]     
+        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]      
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.11.jar:5.7.11] 
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147) ~[spring-security-web-5.7.11.jar:5.7.11]     
+        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125) ~[spring-security-web-5.7.11.jar:5.7.11]     
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "comment.user != null ? comment.user.username : '匿名用户'" (template: "book/detail" - line 444, col 62)
+        at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        ... 103 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "comment.user != null ? comment.user.username : '匿名用户'" (template: "book/detail" - line 444, col 62)
+        at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]  
+        at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]       
+        at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]      
+        at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        ... 105 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'user' cannot be found on null
+        at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:219) ~[spring-expression-5.3.31.jar:5.3.31]  
+        at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:53) ~[spring-expression-5.3.31.jar:5.3.31]     
+        at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:412) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:93) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.OpNE.getValueInternal(OpNE.java:43) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.OpNE.getValueInternal(OpNE.java:33) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:212) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.Ternary.getValueInternal(Ternary.java:54) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        ... 124 common frames omitted
+
+2025-11-26 19:57:24.859 ERROR 33800 --- [nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/book/detail.html]")] with root cause 
+
+org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'user' cannot be found on null
+        at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:219) ~[spring-expression-5.3.31.jar:5.3.31]  
+        at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:53) ~[spring-expression-5.3.31.jar:5.3.31]     
+        at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:412) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:93) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.OpNE.getValueInternal(OpNE.java:43) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.OpNE.getValueInternal(OpNE.java:33) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:212) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.Ternary.getValueInternal(Ternary.java:54) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338) ~[spring-expression-5.3.31.jar:5.3.31]
+        at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]  
+        at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]       
+        at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]      
+        at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+        at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:529) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.31.jar:5.3.31]
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at com.example.qimo.config.WebConfig$1.doFilterInternal(WebConfig.java:41) ~[classes/:na]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.11.jar:5.7.11]     
+        at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]      
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.11.jar:5.7.11] 
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147) ~[spring-security-web-5.7.11.jar:5.7.11]     
+        at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125) ~[spring-security-web-5.7.11.jar:5.7.11]     
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]        
+        at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
+        at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2025-11-26 19:57:24.877 ERROR 33800 --- [nio-8080-exec-2] s.e.ErrorMvcAutoConfiguration$StaticView : Cannot render error page for request [/books/23] and exception [An error happened during template parsing (template: "class path resource [templates/book/detail.html]")] as the response has already been committed. As a result, the response may have the wrong status code.

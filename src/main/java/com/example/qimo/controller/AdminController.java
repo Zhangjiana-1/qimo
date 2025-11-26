@@ -2,6 +2,7 @@ package com.example.qimo.controller;
 
 import com.example.qimo.entity.Book;
 import com.example.qimo.service.BookService;
+import com.example.qimo.service.CategoryService;
 import com.example.qimo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,11 +27,13 @@ public class AdminController {
     private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
     private final BookService bookService;
     private final UserService userService;
+    private final CategoryService categoryService;
 
     @Autowired
-    public AdminController(BookService bookService, UserService userService) {
+    public AdminController(BookService bookService, UserService userService, CategoryService categoryService) {
         this.bookService = bookService;
         this.userService = userService;
+        this.categoryService = categoryService;
     }
 
     /**
@@ -82,15 +85,15 @@ public class AdminController {
     @GetMapping("/books")
     public String listBooks(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "6") int size,
             Model model) {
         try {
             // 构造分页参数，按创建时间倒序排序
             PageRequest pageRequest = PageRequest.of(page, size, 
                     Sort.by("createdAt").descending());
             
-            // 调用bookService.findAll(Pageable)获取分页结果
-            Page<Book> books = bookService.findAll(pageRequest);
+            // 调用bookService.getBooks(Pageable)获取分页结果
+            Page<Book> books = bookService.getBooks(pageRequest);
             
             // 添加到model
             model.addAttribute("books", books);
@@ -111,6 +114,9 @@ public class AdminController {
         try {
             Book book = new Book();
             model.addAttribute("book", book);
+            model.addAttribute("categories", categoryService.getAllCategories()); // 添加分类列表
+            model.addAttribute("page", 0); // 添加默认分页参数
+            model.addAttribute("size", 6);
             return "admin/book-form";
         } catch (Exception e) {
             logger.error("显示新增书籍表单失败", e);
@@ -122,16 +128,16 @@ public class AdminController {
      * 保存新书
      */
     @PostMapping("/books")
-    public String saveBook(@ModelAttribute Book book) {
+    public String saveBook(@ModelAttribute Book book, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "6") int size) {
         try {
             // 处理空字符串
-            if (book.getCoverUrl() != null && book.getCoverUrl().trim().isEmpty()) {
-                book.setCoverUrl(null);
+            if (book.getCoverImage() != null && book.getCoverImage().trim().isEmpty()) {
+                book.setCoverImage(null);
             }
             
             // 移除手动设置createdAt，让JPA审计自动处理
-            bookService.save(book);
-            return "redirect:/admin/books?page=0&size=10&success=" + urlEncode("书籍添加成功");
+            bookService.saveBook(book, book.getCategory() != null ? book.getCategory().getId() : null);
+            return "redirect:/admin/books?page=0&size=6&success=" + urlEncode("书籍添加成功");
         } catch (Exception e) {
             logger.error("保存书籍失败", e);
             return "redirect:/admin/books?error=" + urlEncode("保存书籍失败: " + e.getMessage());
@@ -145,13 +151,15 @@ public class AdminController {
     public String showEditBookForm(
             @PathVariable Long id, 
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "6") int size,
             Model model) {
         try {
             logger.info("尝试编辑书籍ID: {}", id);
-            // 使用findById方法，可能抛出EntityNotFoundException
-            Book book = bookService.findById(id);
+            // 使用getBookById方法，可能抛出EntityNotFoundException
+            Book book = bookService.getBookById(id).orElseThrow(() -> 
+                new EntityNotFoundException("找不到书籍ID: " + id));
             model.addAttribute("book", book);
+            model.addAttribute("categories", categoryService.getAllCategories()); // 添加分类列表
             model.addAttribute("page", page);
             model.addAttribute("size", size);
             return "admin/book-form";
@@ -173,25 +181,27 @@ public class AdminController {
             @PathVariable Long id, 
             @ModelAttribute Book bookForm,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
+            @RequestParam(defaultValue = "6") int size) {
         try {
             // 查找现有书籍
-            Book existingBook = bookService.findById(id);
+            Book existingBook = bookService.getBookById(id).orElseThrow(() -> 
+                new EntityNotFoundException("找不到书籍ID: " + id));
             
             // 更新字段
             existingBook.setTitle(bookForm.getTitle());
             existingBook.setAuthor(bookForm.getAuthor());
             existingBook.setDescription(bookForm.getDescription());
+            existingBook.setCategory(bookForm.getCategory());
             
-            // 处理封面URL
-            if (bookForm.getCoverUrl() != null && bookForm.getCoverUrl().trim().isEmpty()) {
-                existingBook.setCoverUrl(null);
+            // 处理封面图片
+            if (bookForm.getCoverImage() != null && bookForm.getCoverImage().trim().isEmpty()) {
+                existingBook.setCoverImage(null);
             } else {
-                existingBook.setCoverUrl(bookForm.getCoverUrl());
+                existingBook.setCoverImage(bookForm.getCoverImage());
             }
             
             // 移除手动设置updatedAt，让JPA审计自动处理
-            bookService.save(existingBook);
+            bookService.saveBook(existingBook, existingBook.getCategory() != null ? existingBook.getCategory().getId() : null);
             
             // 更新成功后重定向回原分页位置
             return "redirect:/admin/books?page=" + page + "&size=" + size + "&success=" + urlEncode("书籍更新成功");
@@ -212,9 +222,9 @@ public class AdminController {
     public String deleteBook(
             @PathVariable Long id,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
+            @RequestParam(defaultValue = "6") int size) {
         try {
-            bookService.deleteById(id);
+            bookService.deleteBook(id);
             // 删除成功后重定向回原分页位置（对中文做 URL 编码，避免 Location header 编码异常）
             return "redirect:/admin/books?page=" + page + "&size=" + size + "&success=" + urlEncode("书籍删除成功");
         } catch (EntityNotFoundException e) {
@@ -224,7 +234,7 @@ public class AdminController {
             logger.error("删除书籍失败，ID: {}", id, e);
             return "redirect:/admin/books?page=" + page + "&size=" + size + "&error=" + urlEncode("删除书籍失败: " + e.getMessage());
         }
-        }
+    }
 
     /**
      * 兼容性删除（POST）：有些环境中 HiddenHttpMethodFilter/DELETE 可能不可用，提供 POST 版本的删除接口
@@ -233,7 +243,7 @@ public class AdminController {
     public String deleteBookPost(
             @PathVariable Long id,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
+            @RequestParam(defaultValue = "6") int size) {
         return deleteBook(id, page, size);
     }
 

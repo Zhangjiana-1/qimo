@@ -1,20 +1,13 @@
 package com.example.qimo.entity;
 
-import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "books")
-@EntityListeners(AuditingEntityListener.class)
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,17 +15,22 @@ public class Book {
     
     private String title;
     private String author;
-    private String coverUrl;
-    
-    @Column(columnDefinition = "TEXT")
+    private String isbn;
+    private String publisher;
     private String description;
+    private String coverImage;
+    private Integer year;
     
-    @CreatedDate
-    @Column(updatable = false)
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
     
-    @LastModifiedDate
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+    
+    // 修改为可选关联，允许category为null
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
+    @JoinColumn(name = "category_id", nullable = true)
+    private Category category;
     
     @OneToMany(mappedBy = "book", cascade = CascadeType.REMOVE)
     private List<Comment> comments;
@@ -48,5 +46,115 @@ public class Book {
      */
     public Double getAverageRating() {
         return null;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+    
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
+    
+    // getter和setter方法
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public String getTitle() {
+        return title;
+    }
+    
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    
+    public String getAuthor() {
+        return author;
+    }
+    
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+    
+    public String getIsbn() {
+        return isbn;
+    }
+    
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+    
+    public String getPublisher() {
+        return publisher;
+    }
+    
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    public String getCoverImage() {
+        return coverImage;
+    }
+    
+    public void setCoverImage(String coverImage) {
+        this.coverImage = coverImage;
+    }
+
+    // 兼容旧模板使用的 coverUrl 属性
+    public String getCoverUrl() {
+        return this.coverImage;
+    }
+
+    public void setCoverUrl(String coverUrl) {
+        this.coverImage = coverUrl;
+    }
+    
+    public Integer getYear() {
+        return year;
+    }
+    
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+    
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+    
+    // Category getter和setter
+    public Category getCategory() {
+        return category;
+    }
+    
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

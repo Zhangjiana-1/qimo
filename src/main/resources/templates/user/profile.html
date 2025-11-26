@@ -193,7 +193,7 @@
                     
                     <div class="mb-3">
                         <strong>注册时间：</strong>
-                        <span th:text="${#temporals.format(user.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></span>
+                        <span th:text="${user.createdAt != null ? #temporals.format(user.createdAt, 'yyyy-MM-dd HH:mm:ss') : ''}"></span>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,8 @@ import com.example.qimo.repository.UserRepository;
 import com.example.qimo.repository.BookRepository;
 import com.example.qimo.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,7 @@ import java.util.Set;
 @Service
 @Transactional
 public class CommentServiceImpl implements CommentService {
+    private static final Logger logger = LoggerFactory.getLogger(CommentServiceImpl.class);
     
     private final CommentRepository commentRepository;
     private final UserRepository userRepository;
@@ -83,6 +86,7 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> getCommentsWithRepliesByBookId(Long bookId) {
         // 先一次性加载该书的所有评论（包含主评论和回复），用于构建 parentId -> children 映射
         List<Comment> allComments = commentRepository.findByBookIdOrderByCreatedAtDesc(bookId);
+        logger.debug("Loaded {} comments for book {} (allComments)", allComments.size(), bookId);
 
         // 构建 parentId -> List<comment> 映射
         java.util.Map<Long, java.util.List<Comment>> childrenMap = new java.util.HashMap<>();
@@ -104,6 +108,36 @@ public class CommentServiceImpl implements CommentService {
         }
 
         java.util.List<Comment> dedupedRoots = new java.util.ArrayList<>(uniqueRoots.values());
+        // 如果有 orphan replies（子评论没有可追溯到的根），将其提升为根评论以避免在页面隐藏
+        java.util.Map<Long, Comment> allById = new java.util.HashMap<>();
+        for (Comment c : allComments) {
+            if (c != null && c.getId() != null) allById.put(c.getId(), c);
+        }
+
+        int promoted = 0;
+        for (Comment c : allComments) {
+            if (c == null) continue;
+            if (c.getParent() == null || c.getParent().getId() == null) continue;
+
+            Long ancestorId = c.getParent().getId();
+            java.util.Set<Long> visited = new java.util.HashSet<>();
+            boolean foundRoot = false;
+            while (ancestorId != null && !visited.contains(ancestorId)) {
+                visited.add(ancestorId);
+                if (uniqueRoots.containsKey(ancestorId)) { foundRoot = true; break; }
+                Comment parent = allById.get(ancestorId);
+                if (parent == null) break;
+                ancestorId = (parent.getParent() == null) ? null : parent.getParent().getId();
+            }
+
+            if (!foundRoot) {
+                // 没有找到根：将当前评论提升为根，以便显示为独立的主评论
+                uniqueRoots.putIfAbsent(c.getId(), c);
+                promoted++;
+            }
+        }
+        if (promoted > 0) logger.info("Promoted {} orphan comments to roots for book {}", promoted, bookId);
+        logger.debug("Root comments (deduped) loaded: {} for book {}", dedupedRoots.size(), bookId);
 
         // 在内存中递归填充 replies 列表（不替换集合实例）
         for (Comment root : dedupedRoots) {
@@ -148,7 +182,8 @@ public class CommentServiceImpl implements CommentService {
         }
         
         // 先保存评论，确保ID生成并持久化
-        commentRepository.saveAndFlush(comment);
+        Comment saved = commentRepository.saveAndFlush(comment);
+        logger.info("Saved new comment id={} for bookId={}, parentId={}, user={}", saved.getId(), bookId, parentId, username);
 
         // 如果有父评论，确保父对象的replies集合包含该子评论并刷新（有助于事务内一致性）
         if (parentId != null) {

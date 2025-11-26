@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,6 @@
           rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
           crossorigin="anonymous">
-    <!-- Bootstrap 5 图标 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -26,11 +25,6 @@
             padding-top: 70px; /* 为固定导航栏留出空间 */
         }
 
-        .navbar {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
-            margin-bottom: 0 !important;
-        }
-
         .content-container {
             background-color: rgba(255, 255, 255, 0.95);
             margin-top: 20px;
@@ -40,28 +34,55 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .book-detail-cover {
-            max-width: 100%;
-            max-height: 300px; /* 添加最大高度限制 */
-            object-fit: cover; /* 保持图片比例 */
+        .book-cover-large {
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .section-title {
-            color: #6a11cb;
+        .book-cover-large img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .book-info {
+            margin-top: 20px;
+        }
+
+        .book-detail-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .book-meta {
             margin-bottom: 20px;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
 
         .action-btn {
             background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             border: none;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 8px;
+            font-size: 1.1rem;
             transition: opacity 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
         }
 
         .action-btn:hover {
@@ -69,319 +90,461 @@
             color: white;
         }
 
+        .comment-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
         .comment-card {
+            border: 1px solid rgba(16,24,40,0.06);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 18px;
             background-color: #ffffff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e9ecef;
+            box-shadow: 0 6px 18px rgba(16,24,40,0.03);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
         }
 
         .comment-author {
-            font-weight: 600;
+            font-weight: bold;
+        }
+
+        .comment-time {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .comment-content {
+            line-height: 1.6;
+        }
+        
+        /* 导航栏样式 */
+        .navbar {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        .nav-link.active {
+            color: white !important;
+            font-weight: bold;
+            border-bottom: 2px solid white;
+        }
+        
+        /* 下拉菜单样式 */
+        .dropdown-menu {
+            background-color: white;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dropdown-item {
+            color: #333;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        /* 评论交互样式 */
+        .comment-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .comment-action {
+            margin-right: 8px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        
+        .comment-action:hover {
             color: #6a11cb;
         }
-
-        .comment-date {
-            font-size: 0.85rem;
-            color: #6c757d;
-        }
-
-        .no-comments {
-            text-align: center;
-            padding: 40px;
-            color: #6c757d;
-            font-style: italic;
-        }
         
-        /* 回复评论样式 */
-        .reply-card {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 2px solid #eee;
-            margin-left: 2rem;
-        }
+        /* `.liked` will be styled below to match bootstrap primary for selected likes */
         
-        /* 回复表单样式 */
-        .reply-form {
-            display: none;
+        /* 回复样式 */
+        .replies-container {
+            margin-left: 30px;
             margin-top: 15px;
-            padding: 15px;
-            background-color: #f8f9fa;
+            padding-left: 15px;
+            border-left: 2px solid #e0e0e0;
+        }
+        
+        .reply-card {
+            background-color: #fafafb;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(16,24,40,0.02);
+        }
+
+        /* Indent nested comment cards by level classes */
+        .comment-card.reply-level-1 { margin-left: 30px; }
+        .comment-card.reply-level-2 { margin-left: 48px; }
+        .comment-card.reply-level-3 { margin-left: 64px; }
+        .comment-card.reply-level-4 { margin-left: 80px; }
+        
+        .reply-form {
+            margin-top: 10px;
+            display: none;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid rgba(16,24,40,0.04);
+            max-width: 720px;
+            transition: box-shadow 0.15s ease, transform 0.12s ease, max-height 0.12s ease;
+            overflow: hidden;
+        }
+
+        .reply-form.show {
+            display: block;
+            box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+            transform: translateY(0px);
+            max-height: 500px;
+        }
+
+        .comment-actions .btn {
+            padding: 4px 10px;
+            font-size: 0.9rem;
+            border-radius: 6px;
+        }
+
+        .reply-form .form-control {
             border-radius: 8px;
+            min-height: 48px;
+            resize: vertical;
+        }
+
+        .reply-form .btn.action-btn {
+            padding: 8px 22px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            border: none;
+            color: #fff;
+        }
+
+        .reply-form .cancel-reply {
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+        }
+
+        /* 新增：点赞与删除样式补充 */
+        .liked {
+            color: white !important;
+            background-color: #0d6efd !important; /* bootstrap primary */
+            border-color: #0d6efd !important;
+        }
+        .like-btn.liked {
+            background-color: #0d6efd !important;
+            color: #fff !important;
+            border-color: #0d6efd !important;
+        }
+        .like-btn .badge {
+            background: rgba(255,255,255,0.95) !important;
+            color: #0d6efd !important;
+        }
+        /* reply form alignment: main comment's reply form full width, reply's form indented */
+        .comment-card > .reply-form {
+            margin-left: 0;
+            max-width: 100%;
+        }
+
+        .reply-card > .reply-form {
+            margin-left: 64px;
+            max-width: calc(100% - 64px);
         }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- 导航栏直接嵌入页面，并添加个人资料入口 -->
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="/">书籍管理系统</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="/">📚 书籍管理系统</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="切换导航">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/books">书籍列表</a>
                     </li>
-                    <!-- 其他导航链接 -->
+                    
+                    <!-- 管理员用户管理链接 - 仅管理员可见，使用下拉菜单 -->
+                    <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
+                        <a class="nav-link dropdown-toggle" href="#" id="adminDropdown"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            admin ▼
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                            <li>
+                                <a class="dropdown-item" href="/admin/users">👥 用户管理</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/admin/books">📚 书籍管理</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/admin/categories">🏷️ 分类管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- 未登录时显示登录/注册 -->
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link" href="/login">登录</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link" href="/register">注册</a>
+                    </li>
+                    
+                    <!-- 已登录时显示用户信息和个人资料入口 -->
+                    <li class="nav-item dropdown" sec:authorize="isAuthenticated() and !hasRole('ADMIN')">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span sec:authentication="name"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li>
+                                <a class="dropdown-item" href="/user/profile">个人资料</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/user/edit">编辑资料</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/user/password">修改密码</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/user/favorites">我的收藏</a>
+                            </li>
+                            <li>
+                                <form th:action="@{/logout}" method="post" style="margin: 0;">
+                                    <button type="submit" class="dropdown-item">退出登录</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
-                <!-- 登录/注册按钮 -->
-                <div class="ms-auto">
-                    <div th:if="${#authentication.name == null}">
-                        <a href="/login" class="btn btn-outline-light me-2">登录</a>
-                        <a href="/register" class="btn btn-light">注册</a>
-                    </div>
-                    <div th:if="${#authentication.name != null}">
-                        <span class="text-white me-3">欢迎, <span th:text="${#authentication.name}"></span></span>
-                        <form th:action="@{/logout}" method="post" class="d-inline">
-                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                            <button type="submit" class="btn btn-outline-light">退出</button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </nav>
 
     <div class="container">
         <div class="content-container">
-            <!-- 书籍详情部分 -->
             <div class="row">
+                <!-- 书籍封面 -->
                 <div class="col-md-4">
-                    <img th:src="${book.coverUrl != null ? book.coverUrl : '/images/default-cover.jpg'}" 
-                         alt="书籍封面" class="book-detail-cover">
-                </div>
-                <div class="col-md-8">
-                    <h1 th:text="${book.title}"></h1>
-                    <p><strong>作者：</strong><span th:text="${book.author}"></span></p>
-                    <p><strong>创建时间：</strong><span th:text="${#temporals.format(book.createdAt, 'yyyy-MM-dd HH:mm')}"></span></p>
-                    <p><strong>更新时间：</strong><span th:text="${#temporals.format(book.updatedAt, 'yyyy-MM-dd HH:mm')}"></span></p>
-                    
-                    <!-- 书籍简介 - 移动到更新时间下方 -->
-                    <div class="mt-4">
-                        <h3 class="section-title">书籍简介</h3>
-                        <div th:if="${book.description != null}">
-                            <p th:text="${book.description}"></p>
-                        </div>
-                        <div th:unless="${book.description != null}">
-                            <p class="text-muted">暂无简介</p>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4">
-                        <!-- 收藏按钮 - 仅对登录用户显示 -->
-                        <div th:if="${#authentication.name != null}" class="d-inline-block me-2">
-                            <form method="post" th:action="@{/books/{id}/favorite(id=${book.id})}" class="d-inline">
-                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                                <input type="hidden" name="redirectUrl" th:value="@{/books/{id}(id=${book.id})}" />
-                                <button type="submit" th:class="${isFavorite ? 'btn btn-sm btn-warning' : 'btn btn-sm btn-outline-secondary'}">
-                                    <span th:if="${isFavorite}">
-                                        <i class="bi bi-bookmark-star-fill"></i> 已收藏
-                                    </span>
-                                    <span th:unless="${isFavorite}">
-                                        <i class="bi bi-bookmark-star"></i> 收藏
-                                    </span>
-                                </button>
-                            </form>
-                        </div>
-                        <!-- 返回列表按钮 -->
-                        <a th:href="@{/books}" class="btn action-btn">返回列表</a>
+                    <div class="book-cover-large">
+                        <img th:src="${book.coverImage != null ? book.coverImage : '/images/default-cover.jpg'}"
+                             alt="书籍封面" class="img-fluid">
                     </div>
                 </div>
-            </div>
-
-            <!-- 评论区域 -->
-            <div class="mt-8">
-                <h2 class="section-title">用户评论</h2>
                 
-                <!-- 发表评论表单 -->
-                <div th:if="${#authentication.name != null}">
-                    <div class="mb-4">
-                        <form method="post" th:action="@{/books/{id}/comments(id=${book.id})}" th:object="${newComment}">
-                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                            <div class="mb-3">
-                                <label for="content" class="form-label">写下你的书评...</label>
-                                <textarea id="content" th:field="*{content}" class="form-control" rows="3" placeholder="写下你的书评..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">发表评论</button>
+                <!-- 书籍信息 -->
+                <div class="col-md-8 book-info">
+                    <h1 class="book-detail-title" th:text="${book.title}"></h1>
+                    
+                    <div class="book-meta">
+                        <p><strong>作者：</strong><span th:text="${book.author}"></span></p>
+                        <!-- <p><strong>ISBN：</strong><span th:text="${book.isbn != null ? book.isbn : ''}"></span></p>
+                        <p><strong>出版社：</strong><span th:text="${book.publisher != null ? book.publisher : ''}"></span></p>
+                        <p><strong>出版年份：</strong><span th:text="${book.year != null ? book.year : ''}"></span></p> -->
+                        <p><strong>分类：</strong><span th:text="${book.category != null ? book.category.name : ''}"></span></p>
+                    </div>
+                    
+                    <div class="book-description">
+                        <p th:text="${book.description}"></p>
+                    </div>
+                    
+                    <!-- 操作按钮 -->
+                    <div>
+                        <a href="/books" class="btn action-btn">返回列表</a>
+                        
+                        <!-- 仅管理员可见的编辑按钮 -->
+                        <a th:href="@{/admin/books/{id}/edit(id=${book.id})}"
+                           class="btn action-btn"
+                           sec:authorize="hasRole('ADMIN')">
+                            编辑书籍
+                        </a>
+                        
+                        <!-- 收藏/取消收藏按钮，仅登录用户可见 -->
+                        <form th:action="@{${isFavorite ? '/books/' + book.id + '/unfavorite' : '/books/' + book.id + '/favorite'}}" method="post"
+                            class="d-inline-block"
+                            sec:authorize="isAuthenticated()">
+                            <button type="submit" class="btn action-btn"
+                                    th:classappend="${isFavorite ? 'btn-secondary' : ''}">
+                                <span th:text="${isFavorite ? '取消收藏' : '加入收藏'}"></span>
+                            </button>
                         </form>
                     </div>
                 </div>
-                <div th:unless="${#authentication.name != null}">
-                    <p>请先<a href="/login">登录</a>后再发表评论</p>
+            </div>
+            
+            <!-- 评论区域 -->
+            <div class="comment-section">
+                <h2 class="mb-4">💬 读者评论</h2>
+                
+                <!-- 发表评论表单，仅登录用户可见 -->
+                <div sec:authorize="isAuthenticated()" class="mb-4">
+                    <form th:action="@{/books/{id}/comments(id=${book.id})}" method="post">
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">发表评论：</label>
+                            <textarea id="comment" name="content" class="form-control"
+                                      rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn action-btn">提交评论</button>
+                    </form>
                 </div>
                 
                 <!-- 评论列表 -->
-                <div th:if="${not #lists.isEmpty(comments)}">
-                    <div th:each="comment : ${comments}">
-                        <!-- 主评论 -->
-                        <div class="comment-card" th:id="'comment-' + ${comment.id}">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <span class="comment-author" th:text="${comment.user?.username}">匿名用户</span>
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="comment-date" th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}"></span>
-                                    
-                                    <!-- 删除按钮 - 仅对评论作者或管理员显示（使用 th:if 避免 Security 表达式中访问模板变量） -->
-                                    <div th:if="${(comment.user != null and comment.user.username == #authentication.name) or (#authentication.authorities.?[authority=='ROLE_ADMIN'].size() > 0)}">
-                                        <form method="post" th:action="@{/comments/{commentId}(commentId=${comment.id})}" class="d-inline" 
-                                            th:onsubmit="|return confirm('确定删除此评论？此操作不可恢复。');|">
-                                            <input type="hidden" name="_method" value="DELETE" />
-                                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                                            <input type="hidden" name="redirectUrl" th:value="@{/books/{id}(id=${book.id})}" />
-                                            <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                    
-                                    <!-- 点赞按钮 -->
-                                    <div th:if="${#authentication.name != null}">
-                                        <form method="post" th:action="@{/comments/{commentId}/like(commentId=${comment.id})}" class="d-inline">
-                                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                                            <input type="hidden" name="redirectUrl" th:value="@{/books/{id}(id=${book.id})}" />
-                                            <button type="submit" class="btn btn-sm p-1 border-0 bg-transparent hover:bg-gray-100 rounded">
-                                                <span th:if="${likedByCurrentUserMap != null and likedByCurrentUserMap[comment.id]}">
-                                                    <i class="bi bi-hand-thumbs-up-fill text-primary"></i>
-                                                    <span class="text-primary">已赞 ([(${comment.likeCount ?: 0})])</span>
-                                                </span>
-                                                <span th:unless="${likedByCurrentUserMap != null and likedByCurrentUserMap[comment.id]}">
-                                                    <i class="bi bi-hand-thumbs-up text-gray-500"></i>
-                                                    <span>点赞 ([(${comment.likeCount ?: 0})])</span>
-                                                </span>
-                                            </button>
-                                        </form>
-                                    </div>
-                                    
-                                    <!-- 回复按钮 -->
-                                    <div th:if="${#authentication.name != null}">
-                                        <button type="button" class="btn btn-sm text-primary border-0 bg-transparent" 
-                                                th:onclick="|toggleReplyForm('reply-form-'+${comment.id})|"
-                                                th:aria-controls="'reply-form-' + ${comment.id}">
-                                            回复
-                                        </button>
-                                    </div>
-                                </div>
+                <div th:if="${comments != null and !comments.isEmpty()}">
+                    <!-- 递归渲染注释节点 -->
+                    <th:block th:fragment="commentNode (comment, level)">
+                        <div class="comment-card" th:if="${comment != null}" th:classappend="${level > 0} ? ' reply-level-' + ${level} : ''">
+                            <div class="comment-header">
+                                <span class="comment-author" th:text="${comment != null and comment.user != null ? comment.user.username : '匿名用户'}"></span>
+                                <span class="comment-time" th:text="${comment.createdAt != null ? #temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm:ss') : ''}"></span>
                             </div>
-                            <p th:text="${comment.content}"></p>
-                            
-                            <!-- 回复表单 -->
-                            <div class="reply-form" th:id="'reply-form-' + ${comment.id}">
-                                <form method="post" th:action="@{/books/{id}/comments(id=${book.id})}">
-                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                                    <input type="hidden" name="parentId" th:value="${comment.id}" />
-                                    <div class="mb-3">
-                                        <textarea name="content" class="form-control" rows="2" placeholder="写下你的回复..." required></textarea>
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <button type="submit" class="btn btn-sm btn-primary">发送</button>
-                                        <button type="button" class="btn btn-sm btn-secondary" 
-                                                th:onclick="|toggleReplyForm('reply-form-'+${comment.id})|">
-                                            取消
-                                        </button>
-                                    </div>
+                            <div class="comment-content" th:text="${comment.content}"></div>
+                            <div class="comment-actions">
+                                <form th:action="@{/comments/{commentId}/like(commentId=${comment.id})}" method="post" class="d-inline">
+                                    <input type="hidden" name="redirectUrl" th:value="@{/books/{id}(id=${book.id})}">
+                                    <button type="submit" class="btn btn-sm btn-outline-primary like-btn me-1" th:classappend="${comment.isLikedByUsername(#authentication != null ? #authentication.name : null) ? ' liked' : ''}">
+                                        <span>👍</span>
+                                        <span class="badge bg-light text-dark ms-1 rounded-pill" th:text="${comment.likeCount}">0</span>
+                                    </button>
+                                </form>
+
+                                <button type="button" class="btn btn-sm btn-outline-secondary reply-btn" th:attr="data-comment-id=${comment.id}" sec:authorize="isAuthenticated()">回复</button>
+
+                                <form th:action="@{/comments/{id}(id=${comment.id})}" method="post" class="d-inline" 
+                                      th:if="${#authentication != null and (#authentication.name == (comment != null and comment.user != null ? comment.user.username : '') or #authorization.expression('hasRole(''ADMIN'')'))}">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="redirectUrl" th:value="@{/books/{id}(id=${book.id})}">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">删除</button>
                                 </form>
                             </div>
-                            
-                            <!-- 回复列表 -->
-                            <div th:insert="~{::replyFragment (comment=${comment})}"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 递归片段已移到文档底部，仅保留一份以避免重复渲染 -->
-                
-                <!-- 无评论提示 -->
-                <div th:unless="${not #lists.isEmpty(comments)}" class="no-comments">
-                    <p>暂无评论，快来抢沙发吧！</p>
-                </div>
-            </div>
 
-            <!-- 返回按钮 -->
-            <div class="mt-8 text-center">
-                <a th:href="@{/books}" class="btn action-btn">返回列表</a>
+                            <!-- 回复表单 -->
+                            <div class="reply-form" th:id="'reply-form-' + ${comment.id}">
+                                <form th:action="@{/books/{bookId}/comments/{parentId}/reply(bookId=${book.id}, parentId=${comment.id})}" method="post">
+                                    <div class="mb-2">
+                                        <textarea name="content" class="form-control" rows="2" required placeholder="写下你的回复..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-sm action-btn">回复</button>
+                                    <button type="button" class="btn btn-sm cancel-reply" th:attr="data-comment-id=${comment.id}">取消</button>
+                                </form>
+                            </div>
+
+                            <!-- 子回复 -->
+                            <div class="replies-container" th:if="${comment.replies != null and !comment.replies.empty}">
+                                <div th:each="reply : ${comment.replies}">
+                                    <th:block th:insert="~{this :: commentNode(comment=${reply}, level=${level + 1})}"></th:block>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+
+                    <!-- 渲染所有根评论：CommentService 已返回 root 列表并填充 replies -->
+                        <div th:each="comment : ${comments}">
+                            <th:block th:insert="~{this :: commentNode(comment=${comment}, level=${0})}"></th:block>
+                        </div>
+                </div>
+                
+                <!-- 无评论时的提示 -->
+                <div th:if="${comments == null or comments.isEmpty()}" class="text-center py-5">
+                    <p class="text-muted">暂无评论，来发表第一条评论吧！</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
-    
-    <!-- 内联 JavaScript 用于控制回复表单的显示/隐藏 -->
+            
+    <!-- 评论交互脚本 -->
     <script>
-        function toggleReplyForm(formId) {
-            const form = document.getElementById(formId);
-            if (form.style.display === 'none' || form.style.display === '') {
-                form.style.display = 'block';
-            } else {
-                form.style.display = 'none';
+        // 事件委托：在评论区容器上监听点击，处理回复与取消按钮，支持动态添加的元素
+        document.querySelectorAll('.comment-section').forEach(container => {
+            container.addEventListener('click', function(event) {
+                const target = event.target;
+                const replyBtn = target.closest('.reply-btn');
+                if (replyBtn) {
+                    const commentId = replyBtn.getAttribute('data-comment-id');
+                    const replyForm = document.getElementById(`reply-form-${commentId}`);
+                    if (replyForm) {
+                        replyForm.classList.toggle('show');
+                        const ta = replyForm.querySelector('textarea');
+                        if (ta) ta.focus();
+                    }
+                    return;
+                }
+
+                const cancelBtn = target.closest('.cancel-reply');
+                if (cancelBtn) {
+                    const commentId = cancelBtn.getAttribute('data-comment-id');
+                    const replyForm = document.getElementById(`reply-form-${commentId}`);
+                    if (replyForm) replyForm.classList.remove('show');
+                    return;
+                }
+            });
+        });
+        
+        // 使用Bootstrap内置的Dropdown组件初始化下拉菜单（避免自定义事件阻断Bootstrap行为）
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof bootstrap !== 'undefined' && bootstrap.Dropdown) {
+                const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+                dropdownToggles.forEach(function(toggleEl) {
+                    try {
+                        new bootstrap.Dropdown(toggleEl);
+                    } catch (e) {
+                        // 忽略初始化异常，保持页面可用性
+                        console.error('Dropdown init failed', e);
+                    }
+                });
             }
-        }
+        });
     </script>
-
-    <!-- 递归回复渲染片段 -->
-    <div th:fragment="replyFragment (comment)">
-        <div th:if="${comment != null and comment.replies != null and not #lists.isEmpty(comment.replies)}" class="mt-3">
-            <div th:each="reply : ${comment.replies}">
-                <div class="reply-card">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <span class="comment-author" th:text="${reply.user?.username}">匿名用户</span>
-                        <div class="d-flex align-items-center gap-3">
-                            <span class="comment-date" th:text="${#temporals.format(reply.createdAt, 'yyyy-MM-dd HH:mm')}"></span>
-
-                            <!-- 删除按钮 - 仅对评论作者或管理员显示 -->
-                            <div th:if="${#authentication.name != null and ((reply.user != null and reply.user.username == #authentication.name) or (#authentication.authorities.?[authority=='ROLE_ADMIN'].size() > 0))}">
-                                <form method="post" th:action="@{/comments/{commentId}(commentId=${reply.id})}" class="d-inline" 
-                                      th:onsubmit="|return confirm('确定删除此评论？此操作不可恢复。');|">
-                                    <input type="hidden" name="_method" value="DELETE" />
-                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                                    <input type="hidden" name="redirectUrl" th:value="@{/books/{id}(id=${book.id})}" />
-                                    <button type="submit" class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div th:if="${#authentication.name != null}">
-                                <button type="button" class="btn btn-sm text-primary border-0 bg-transparent"
-                                        th:onclick="|toggleReplyForm('reply-form-'+${reply.id})|"
-                                        th:aria-controls="'reply-form-' + ${reply.id}">回复</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p>
-                        <span class="text-muted">回复 @<span th:text="${reply.parent != null ? reply.parent.user?.username : ''}"></span>：</span>
-                        <span th:text="${reply.content}"></span>
-                    </p>
-
-                    <!-- 回复的回复表单 -->
-                    <div class="reply-form" th:id="'reply-form-' + ${reply.id}">
-                        <form method="post" th:action="@{/books/{id}/comments(id=${book.id})}">
-                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                            <input type="hidden" name="parentId" th:value="${reply.id}" />
-                            <div class="mb-3">
-                                <textarea name="content" class="form-control" rows="2" placeholder="写下你的回复..." required></textarea>
-                            </div>
-                            <div class="d-flex gap-2">
-                                <button type="submit" class="btn btn-sm btn-primary">发送</button>
-                                <button type="button" class="btn btn-sm btn-secondary" 
-                                        th:onclick="|toggleReplyForm('reply-form-'+${reply.id})|">取消</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- 递归渲染子回复 -->
-                    <div th:insert="~{::replyFragment (comment=${reply})}"></div>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

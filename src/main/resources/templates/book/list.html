@@ -210,7 +210,7 @@
                 <div class="col-md-4 mb-4" th:each="book : ${books}">
                     <div class="card book-card">
                         <div class="book-cover">
-                            <img th:src="${book.coverUrl != null ? book.coverUrl : '/images/default-cover.jpg'}" 
+                            <img th:src="${book.coverImage != null ? book.coverImage : '/images/default-cover.jpg'}" 
                                  alt="书籍封面" class="img-fluid">
                         </div>
                         <div class="card-body">
