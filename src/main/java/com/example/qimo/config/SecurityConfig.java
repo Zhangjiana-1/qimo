@@ -49,7 +49,7 @@ public class SecurityConfig {
             )
             .formLogin(form -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/books")
+                .defaultSuccessUrl("/")
                 .permitAll()
             )
             .logout(logout -> logout

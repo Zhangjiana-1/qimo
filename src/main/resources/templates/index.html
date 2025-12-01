@@ -171,7 +171,7 @@
             border-bottom: 2px solid white;
         }
         
-        /* 分类导航样式 */
+        /* 分类导航样式 - 保留样式但移除对应模块 */
         .category-nav {
             display: flex;
             flex-wrap: wrap;
@@ -278,70 +278,6 @@
             <h1 class="hero-title">发现你的下一本好书</h1>
             <p class="hero-subtitle">探索海量书籍，找到最适合你的阅读体验</p>
             <a href="/books" class="hero-btn">开始探索</a>
-        </div>
-        
-        <!-- 分类导航 -->
-        <div class="content-container">
-            <h2 class="section-title text-center mb-4">浏览分类</h2>
-            <div class="category-nav">
-                <a href="/books" class="category-btn" th:classappend="${param.categoryId == null ? 'active' : ''}">全部书籍</a>
-                <a th:each="category : ${categories}" 
-                   th:href="@{/books(categoryId=${category.id})}" 
-                   th:text="${category.name}" 
-                   class="category-btn"
-                   th:classappend="${param.categoryId != null && param.categoryId == category.id ? 'active' : ''}">
-                </a>
-            </div>
-        </div>
-        
-        <!-- 热门书籍 -->
-        <div class="content-container">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="section-title">热门书籍</h2>
-                <a href="/books" class="text-primary">查看全部 →</a>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-4 mb-4" th:each="book : ${popularBooks}">
-                    <div class="card book-card">
-                        <div class="book-cover">
-                            <img th:src="${book.coverImage != null ? book.coverImage : '/images/default-cover.jpg'}" 
-                                 alt="书籍封面" class="img-fluid">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${book.title}"></h5>
-                            <p class="card-subtitle mb-2 text-muted" th:text="${book.author}"></p>
-                            <p class="book-description" th:text="${book.description}"></p>
-                            <a th:href="@{/books/{id}(id=${book.id})}" class="action-btn">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 最新书籍 -->
-        <div class="content-container">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="section-title">最新上架</h2>
-                <a href="/books" class="text-primary">查看全部 →</a>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-4 mb-4" th:each="book : ${latestBooks}">
-                    <div class="card book-card">
-                        <div class="book-cover">
-                            <img th:src="${book.coverImage != null ? book.coverImage : '/images/default-cover.jpg'}" 
-                                 alt="书籍封面" class="img-fluid">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${book.title}"></h5>
-                            <p class="card-subtitle mb-2 text-muted" th:text="${book.author}"></p>
-                            <p class="book-description" th:text="${book.description}"></p>
-                            <a th:href="@{/books/{id}(id=${book.id})}" class="action-btn">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
