@@ -1,1007 +1,254 @@
- id=?
-Hibernate:
-    /* select
-        generatedAlias0
-    from
-        Book as generatedAlias0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        order by
-            book0_.created_at desc limit ?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    /* select
-        count(generatedAlias0)
-    from
-        Book as generatedAlias0 */ select
-            count(book0_.id) as col_0_0_
-        from
-            books book0_
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< com.example:qimo >--------------------------
+[INFO] Building qimo 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:2.7.18:run (default-cli) > test-compile @ qimo >>>
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.20.0-GA during dependency collection step for project (use -X to see details)
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ qimo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 24 resources
+[INFO]
+[INFO] --- compiler:3.10.1:compile (default-compile) @ qimo ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ qimo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory E:\zsc\semester-01\ai\qimo\src\test\resources
+[INFO]
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ qimo ---
+[INFO] No sources to compile
+[INFO]
+[INFO] <<< spring-boot:2.7.18:run (default-cli) < test-compile @ qimo <<<
+[INFO]
+[INFO]
+[INFO] --- spring-boot:2.7.18:run (default-cli) @ qimo ---
+[INFO] Attaching agents: []
+16:37:32.016 [Thread-0] DEBUG org.springframework.boot.devtools.restart.classloader.RestartClassLoader - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@66adab79
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.18)
+
+2025-12-07 16:37:32.430  INFO 3776 --- [  restartedMain] com.example.qimo.QimoApplication         : Starting QimoApplication using Java 17.0.6 on nana with PID 3776 (E:\zsc\semester-01\ai\qimo\target\classes started by 86134 in E:\zsc\semester-01\ai\qimo)
+2025-12-07 16:37:32.430 DEBUG 3776 --- [  restartedMain] com.example.qimo.QimoApplication         : Running with Spring Boot v2.7.18, Spring v5.3.31
+2025-12-07 16:37:32.431  INFO 3776 --- [  restartedMain] com.example.qimo.QimoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-07 16:37:32.488  INFO 3776 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-07 16:37:32.488  INFO 3776 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-07 16:37:33.073  INFO 3776 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-07 16:37:33.131  INFO 3776 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 4 JPA repository interfaces.
+2025-12-07 16:37:33.918  INFO 3776 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-12-07 16:37:33.932  INFO 3776 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-07 16:37:33.933  INFO 3776 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-12-07 16:37:34.073  INFO 3776 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-07 16:37:34.074  INFO 3776 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1586 ms
+2025-12-07 16:37:34.186 DEBUG 3776 --- [  restartedMain] com.example.qimo.config.WebConfig$1      : Filter 'methodOverrideFilter' configured for use
+2025-12-07 16:37:34.337  INFO 3776 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-07 16:37:34.408  INFO 3776 --- [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-12-07 16:37:34.599  INFO 3776 --- [  restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-12-07 16:37:34.706  INFO 3776 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-07 16:37:34.896  INFO 3776 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-07 16:37:34.923  INFO 3776 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+Hibernate: 
+
+    alter table books
+       add constraint FKleqa3hhc0uhfvurq6mil47xk0
+       foreign key (category_id)
+       references categories (id)
+2025-12-07 16:37:35.747  INFO 3776 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-12-07 16:37:35.757  INFO 3776 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 Hibernate: 
     /* select
-        generatedAlias0
+        count(*)
     from
-        Book as generatedAlias0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        order by
-            book0_.created_at desc limit ?,
-            ?
-Hibernate: 
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    /* select
-        count(generatedAlias0)
-    from
-        Book as generatedAlias0 */ select
-            count(book0_.id) as col_0_0_
-        from
-            books book0_
-2025-11-26 22:21:43.636  INFO 31436 --- [nio-8080-exec-2] c.e.qimo.controller.AdminController      : 尝试编辑书籍ID: 17
-Hibernate: 
-    select
-        book0_.id as id1_1_0_,
-        book0_.author as author2_1_0_,
-        book0_.category_id as categor11_1_0_,
-        book0_.cover_image as cover_im3_1_0_,
-        book0_.created_at as created_4_1_0_,
-        book0_.description as descript5_1_0_,
-        book0_.isbn as isbn6_1_0_,
-        book0_.publisher as publishe7_1_0_,
-        book0_.title as title8_1_0_,
-        book0_.updated_at as updated_9_1_0_,
-        book0_.year as year10_1_0_,
-        category1_.id as id1_2_1_,
-        category1_.name as name2_2_1_
-    from
-        books book0_
-    left outer join
-        categories category1_
-            on book0_.category_id=category1_.id
-    where
-        book0_.id=?
-Hibernate:
-    /* select
-        generatedAlias0
-    from
-        Category as generatedAlias0
-    order by
-        generatedAlias0.name asc */ select
-            category0_.id as id1_2_,
-            category0_.name as name2_2_
+        Category x */ select
+            count(*) as col_0_0_
         from
             categories category0_
-        order by
-            category0_.name asc
-Hibernate: 
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate: 
-    select
-        book0_.id as id1_1_0_,
-        book0_.author as author2_1_0_,
-        book0_.category_id as categor11_1_0_,
-        book0_.cover_image as cover_im3_1_0_,
-        book0_.created_at as created_4_1_0_,
-        book0_.description as descript5_1_0_,
-        book0_.isbn as isbn6_1_0_,
-        book0_.publisher as publishe7_1_0_,
-        book0_.title as title8_1_0_,
-        book0_.updated_at as updated_9_1_0_,
-        book0_.year as year10_1_0_,
-        category1_.id as id1_2_1_,
-        category1_.name as name2_2_1_
-    from
-        books book0_
-    left outer join
-        categories category1_
-            on book0_.category_id=category1_.id
-    where
-        book0_.id=?
+2025-12-07 16:37:36.542  INFO 3776 --- [  restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4357e57d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75db0ab5, org.springframework.security.web.context.SecurityContextPersistenceFilter@37da5d91, org.springframework.security.web.header.HeaderWriterFilter@364248, org.springframework.security.web.csrf.CsrfFilter@2303643e, org.springframework.security.web.authentication.logout.LogoutFilter@72f58e3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@50968785, org.springframework.security.web.session.ConcurrentSessionFilter@187b93bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28779766, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34cd7e38, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11950124, org.springframework.security.web.session.SessionManagementFilter@78721e1b, org.springframework.security.web.access.ExceptionTranslationFilter@2cb4a510, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e211701]
+2025-12-07 16:37:36.586  WARN 3776 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-07 16:37:36.728  INFO 3776 --- [  restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-12-07 16:37:36.928  INFO 3776 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-07 16:37:36.972  INFO 3776 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-07 16:37:36.981  INFO 3776 --- [  restartedMain] com.example.qimo.QimoApplication         : Started QimoApplication in 4.954 seconds (JVM running for 5.587)
 Hibernate: 
     /* select
         generatedAlias0
     from
-        Book as generatedAlias0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
+        User as generatedAlias0
+    where
+        generatedAlias0.username=:param0 */ select
+            user0_.id as id1_5_,
+            user0_.avatar as avatar2_5_,
+            user0_.created_at as created_3_5_,
+            user0_.email as email4_5_,
+            user0_.enabled as enabled5_5_,
+            user0_.nickname as nickname6_5_,
+            user0_.password as password7_5_,
+            user0_.role as role8_5_,
+            user0_.updated_at as updated_9_5_,
+            user0_.username as usernam10_5_
         from
-            books book0_
-        order by
-            book0_.created_at desc limit ?,
-            ?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    /* select
-        count(generatedAlias0)
-    from
-        Book as generatedAlias0 */ select
-            count(book0_.id) as col_0_0_
-        from
-            books book0_
-2025-11-26 22:21:47.220  INFO 31436 --- [nio-8080-exec-6] c.e.qimo.controller.AdminController      : 尝试编辑书籍ID: 18
-Hibernate: 
-    select
-        book0_.id as id1_1_0_,
-        book0_.author as author2_1_0_,
-        book0_.category_id as categor11_1_0_,
-        book0_.cover_image as cover_im3_1_0_,
-        book0_.created_at as created_4_1_0_,
-        book0_.description as descript5_1_0_,
-        book0_.isbn as isbn6_1_0_,
-        book0_.publisher as publishe7_1_0_,
-        book0_.title as title8_1_0_,
-        book0_.updated_at as updated_9_1_0_,
-        book0_.year as year10_1_0_,
-        category1_.id as id1_2_1_,
-        category1_.name as name2_2_1_
-    from
-        books book0_
-    left outer join
-        categories category1_
-            on book0_.category_id=category1_.id
-    where
-        book0_.id=?
-Hibernate:
-    /* select
-        generatedAlias0
-    from
-        Category as generatedAlias0
-    order by
-        generatedAlias0.name asc */ select
-            category0_.id as id1_2_,
-            category0_.name as name2_2_
-        from
-            categories category0_
-        order by
-            category0_.name asc
-Hibernate: 
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate: 
-    select
-        book0_.id as id1_1_0_,
-        book0_.author as author2_1_0_,
-        book0_.category_id as categor11_1_0_,
-        book0_.cover_image as cover_im3_1_0_,
-        book0_.created_at as created_4_1_0_,
-        book0_.description as descript5_1_0_,
-        book0_.isbn as isbn6_1_0_,
-        book0_.publisher as publishe7_1_0_,
-        book0_.title as title8_1_0_,
-        book0_.updated_at as updated_9_1_0_,
-        book0_.year as year10_1_0_,
-        category1_.id as id1_2_1_,
-        category1_.name as name2_2_1_
-    from
-        books book0_
-    left outer join
-        categories category1_
-            on book0_.category_id=category1_.id
-    where
-        book0_.id=?
-Hibernate:
-    /* update
-        com.example.qimo.entity.Book */ update
-            books
-        set
-            author=?,
-            category_id=?,
-            cover_image=?,
-            description=?,
-            isbn=?,
-            publisher=?,
-            title=?,
-            updated_at=?,
-            year=?
+            users user0_
         where
-            id=?
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Book as generatedAlias0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        order by
-            book0_.created_at desc limit ?,
-            ?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    /* select
-        count(generatedAlias0)
-    from
-        Book as generatedAlias0 */ select
-            count(book0_.id) as col_0_0_
-        from
-            books book0_
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Book as generatedAlias0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        order by
-            book0_.created_at desc limit ?
-Hibernate: 
-    select
-        category0_.id as id1_2_0_,
-        category0_.name as name2_2_0_
-    from
-        categories category0_
-    where
-        category0_.id=?
-Hibernate:
-    /* select
-        count(generatedAlias0)
-    from
-        Book as generatedAlias0 */ select
-            count(book0_.id) as col_0_0_
-        from
-            books book0_
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Category as generatedAlias0
-    order by
-        generatedAlias0.name asc */ select
-            category0_.id as id1_2_,
-            category0_.name as name2_2_
-        from
-            categories category0_
-        order by
-            category0_.name asc
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Book as generatedAlias0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        order by
-            book0_.created_at desc limit ?
-Hibernate:
-    /* select
-        count(generatedAlias0)
-    from
-        Book as generatedAlias0 */ select
-            count(book0_.id) as col_0_0_
-        from
-            books book0_
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Category as generatedAlias0
-    order by
-        generatedAlias0.name asc */ select
-            category0_.id as id1_2_,
-            category0_.name as name2_2_
-        from
-            categories category0_
-        order by
-            category0_.name asc
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Book as generatedAlias0
-    left join
-        generatedAlias0.category as generatedAlias1
-    where
-        generatedAlias1.id=:param0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        left outer join
-            categories category1_
-                on book0_.category_id=category1_.id
-        where
-            category1_.id=?
-        order by
-            book0_.created_at desc limit ?
-Hibernate:
-    /* select
-        count(generatedAlias0)
-    from
-        Book as generatedAlias0
-    left join
-        generatedAlias0.category as generatedAlias1
-    where
-        generatedAlias1.id=:param0 */ select
-            count(book0_.id) as col_0_0_
-        from
-            books book0_
-        left outer join
-            categories category1_
-                on book0_.category_id=category1_.id
-        where
-            category1_.id=?
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Category as generatedAlias0
-    order by
-        generatedAlias0.name asc */ select
-            category0_.id as id1_2_,
-            category0_.name as name2_2_
-        from
-            categories category0_
-        order by
-            category0_.name asc
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Book as generatedAlias0
-    left join
-        generatedAlias0.category as generatedAlias1
-    where
-        generatedAlias1.id=:param0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        left outer join
-            categories category1_
-                on book0_.category_id=category1_.id
-        where
-            category1_.id=?
-        order by
-            book0_.created_at desc limit ?,
-            ?
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Category as generatedAlias0
-    order by
-        generatedAlias0.name asc */ select
-            category0_.id as id1_2_,
-            category0_.name as name2_2_
-        from
-            categories category0_
-        order by
-            category0_.name asc
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Book as generatedAlias0
-    left join
-        generatedAlias0.category as generatedAlias1
-    where
-        generatedAlias1.id=:param0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        left outer join
-            categories category1_
-                on book0_.category_id=category1_.id
-        where
-            category1_.id=?
-        order by
-            book0_.created_at desc limit ?
-Hibernate:
-    /* select
-        count(generatedAlias0)
-    from
-        Book as generatedAlias0
-    left join
-        generatedAlias0.category as generatedAlias1
-    where
-        generatedAlias1.id=:param0 */ select
-            count(book0_.id) as col_0_0_
-        from
-            books book0_
-        left outer join
-            categories category1_
-                on book0_.category_id=category1_.id
-        where
-            category1_.id=?
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Category as generatedAlias0
-    order by
-        generatedAlias0.name asc */ select
-            category0_.id as id1_2_,
-            category0_.name as name2_2_
-        from
-            categories category0_
-        order by
-            category0_.name asc
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Book as generatedAlias0
-    left join
-        generatedAlias0.category as generatedAlias1
-    where
-        generatedAlias1.id=:param0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        left outer join
-            categories category1_
-                on book0_.category_id=category1_.id
-        where
-            category1_.id=?
-        order by
-            book0_.created_at desc limit ?,
-            ?
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Category as generatedAlias0
-    order by
-        generatedAlias0.name asc */ select
-            category0_.id as id1_2_,
-            category0_.name as name2_2_
-        from
-            categories category0_
-        order by
-            category0_.name asc
-Hibernate: 
-    /* SELECT
-        b
-    FROM
-        Book b
-    WHERE
-        (
-            b.title LIKE CONCAT('%',:keyword,'%')
-            OR b.author LIKE CONCAT('%',:keyword,'%')
-        )
-        AND b.category.id = :categoryId
-    order by
-        b.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        where
-            (
-                book0_.title like concat('%', ?, '%')
-                or book0_.author like concat('%', ?, '%')
-            )
-            and book0_.category_id=?
-        order by
-            book0_.created_at desc limit ?
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Category as generatedAlias0
-    order by
-        generatedAlias0.name asc */ select
-            category0_.id as id1_2_,
-            category0_.name as name2_2_
-        from
-            categories category0_
-        order by
-            category0_.name asc
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Book as generatedAlias0
-    order by
-        generatedAlias0.createdAt desc */ select
-            book0_.id as id1_1_,
-            book0_.author as author2_1_,
-            book0_.category_id as categor11_1_,
-            book0_.cover_image as cover_im3_1_,
-            book0_.created_at as created_4_1_,
-            book0_.description as descript5_1_,
-            book0_.isbn as isbn6_1_,
-            book0_.publisher as publishe7_1_,
-            book0_.title as title8_1_,
-            book0_.updated_at as updated_9_1_,
-            book0_.year as year10_1_
-        from
-            books book0_
-        order by
-            book0_.created_at desc limit ?
-Hibernate:
-    /* select
-        count(generatedAlias0)
-    from
-        Book as generatedAlias0 */ select
-            count(book0_.id) as col_0_0_
-        from
-            books book0_
-Hibernate: 
-    select
-        book0_.id as id1_1_0_,
-        book0_.author as author2_1_0_,
-        book0_.category_id as categor11_1_0_,
-        book0_.cover_image as cover_im3_1_0_,
-        book0_.created_at as created_4_1_0_,
-        book0_.description as descript5_1_0_,
-        book0_.isbn as isbn6_1_0_,
-        book0_.publisher as publishe7_1_0_,
-        book0_.title as title8_1_0_,
-        book0_.updated_at as updated_9_1_0_,
-        book0_.year as year10_1_0_,
-        category1_.id as id1_2_1_,
-        category1_.name as name2_2_1_
-    from
-        books book0_
-    left outer join
-        categories category1_
-            on book0_.category_id=category1_.id
-    where
-        book0_.id=?
-Hibernate: 
-    /* select
-        generatedAlias0
-    from
-        Comment as generatedAlias0
-    left join
-        generatedAlias0.book as generatedAlias1
-    where
-        generatedAlias1.id=:param0
-    order by
-        generatedAlias0.createdAt desc */ select
-            comment0_.id as id1_0_0_,
-            user2_.id as id1_5_1_,
-            user4_.id as id1_5_2_,
-            comment0_.book_id as book_id4_0_0_,
-            comment0_.content as content2_0_0_,
-            comment0_.created_at as created_3_0_0_,
-            comment0_.parent_id as parent_i5_0_0_,
-            comment0_.user_id as user_id6_0_0_,
-            user2_.avatar as avatar2_5_1_,
-            user2_.created_at as created_3_5_1_,
-            user2_.email as email4_5_1_,
-            user2_.enabled as enabled5_5_1_,
-            user2_.nickname as nickname6_5_1_,
-            user2_.password as password7_5_1_,
-            user2_.role as role8_5_1_,
-            user2_.updated_at as updated_9_5_1_,
-            user2_.username as usernam10_5_1_,
-            user4_.avatar as avatar2_5_2_,
-            user4_.created_at as created_3_5_2_,
-            user4_.email as email4_5_2_,
-            user4_.enabled as enabled5_5_2_,
-            user4_.nickname as nickname6_5_2_,
-            user4_.password as password7_5_2_,
-            user4_.role as role8_5_2_,
-            user4_.updated_at as updated_9_5_2_,
-            user4_.username as usernam10_5_2_,
-            likedby3_.comment_id as comment_1_3_0__,
-            likedby3_.user_id as user_id2_3_0__
-        from
-            book_db.comments comment0_
-        left outer join
-            books book1_
-                on comment0_.book_id=book1_.id
-        left outer join
-            users user2_
-                on comment0_.user_id=user2_.id
-        left outer join
-            comment_likes likedby3_
-                on comment0_.id=likedby3_.comment_id
-        left outer join
-            users user4_
-                on likedby3_.user_id=user4_.id
-        where
-            book1_.id=?
-        order by
-            comment0_.created_at desc
-2025-11-26 22:22:39.918 DEBUG 31436 --- [nio-8080-exec-1] c.e.q.service.impl.CommentServiceImpl    : Loaded 14 comments for book 23 (allComments)
-Hibernate:
-    /* select
-        generatedAlias0
-    from
-        Comment as generatedAlias0
-    left join
-        generatedAlias0.book as generatedAlias1
-    where
-        (
-            generatedAlias1.id=:param0
-        )
-        and (
-            generatedAlias0.parent is null
-        )
-    order by
-        generatedAlias0.createdAt desc */ select
-            comment0_.id as id1_0_0_,
-            user2_.id as id1_5_1_,
-            user4_.id as id1_5_2_,
-            replies5_.id as id1_0_3_,
-            user6_.id as id1_5_4_,
-            user8_.id as id1_5_5_,
-            comment0_.book_id as book_id4_0_0_,
-            comment0_.content as content2_0_0_,
-            comment0_.created_at as created_3_0_0_,
-            comment0_.parent_id as parent_i5_0_0_,
-            comment0_.user_id as user_id6_0_0_,
-            user2_.avatar as avatar2_5_1_,
-            user2_.created_at as created_3_5_1_,
-            user2_.email as email4_5_1_,
-            user2_.enabled as enabled5_5_1_,
-            user2_.nickname as nickname6_5_1_,
-            user2_.password as password7_5_1_,
-            user2_.role as role8_5_1_,
-            user2_.updated_at as updated_9_5_1_,
-            user2_.username as usernam10_5_1_,
-            user4_.avatar as avatar2_5_2_,
-            user4_.created_at as created_3_5_2_,
-            user4_.email as email4_5_2_,
-            user4_.enabled as enabled5_5_2_,
-            user4_.nickname as nickname6_5_2_,
-            user4_.password as password7_5_2_,
-            user4_.role as role8_5_2_,
-            user4_.updated_at as updated_9_5_2_,
-            user4_.username as usernam10_5_2_,
-            likedby3_.comment_id as comment_1_3_0__,
-            likedby3_.user_id as user_id2_3_0__,
-            replies5_.book_id as book_id4_0_3_,
-            replies5_.content as content2_0_3_,
-            replies5_.created_at as created_3_0_3_,
-            replies5_.parent_id as parent_i5_0_3_,
-            replies5_.user_id as user_id6_0_3_,
-            replies5_.parent_id as parent_i5_0_1__,
-            replies5_.id as id1_0_1__,
-            user6_.avatar as avatar2_5_4_,
-            user6_.created_at as created_3_5_4_,
-            user6_.email as email4_5_4_,
-            user6_.enabled as enabled5_5_4_,
-            user6_.nickname as nickname6_5_4_,
-            user6_.password as password7_5_4_,
-            user6_.role as role8_5_4_,
-            user6_.updated_at as updated_9_5_4_,
-            user6_.username as usernam10_5_4_,
-            user8_.avatar as avatar2_5_5_,
-            user8_.created_at as created_3_5_5_,
-            user8_.email as email4_5_5_,
-            user8_.enabled as enabled5_5_5_,
-            user8_.nickname as nickname6_5_5_,
-            user8_.password as password7_5_5_,
-            user8_.role as role8_5_5_,
-            user8_.updated_at as updated_9_5_5_,
-            user8_.username as usernam10_5_5_,
-            likedby7_.comment_id as comment_1_3_2__,
-            likedby7_.user_id as user_id2_3_2__
-        from
-            book_db.comments comment0_
-        left outer join
-            books book1_
-                on comment0_.book_id=book1_.id
-        left outer join
-            users user2_
-                on comment0_.user_id=user2_.id
-        left outer join
-            comment_likes likedby3_
-                on comment0_.id=likedby3_.comment_id
-        left outer join
-            users user4_
-                on likedby3_.user_id=user4_.id
-        left outer join
-            book_db.comments replies5_
-                on comment0_.id=replies5_.parent_id
-        left outer join
-            users user6_
-                on replies5_.user_id=user6_.id
-        left outer join
-            comment_likes likedby7_
-                on replies5_.id=likedby7_.comment_id
-        left outer join
-            users user8_
-                on likedby7_.user_id=user8_.id
-        where
-            book1_.id=?
-            and (
-                comment0_.parent_id is null
-            )
-        order by
-            comment0_.created_at desc
-2025-11-26 22:22:39.925 DEBUG 31436 --- [nio-8080-exec-1] c.e.q.service.impl.CommentServiceImpl    : Root comments (deduped) loaded: 11 for book 23
-Hibernate:
-    select
-        replies0_.parent_id as parent_i5_0_0_,
-        replies0_.id as id1_0_0_,
-        replies0_.id as id1_0_1_,
-        replies0_.book_id as book_id4_0_1_,
-        replies0_.content as content2_0_1_,
-        replies0_.created_at as created_3_0_1_,
-        replies0_.parent_id as parent_i5_0_1_,
-        replies0_.user_id as user_id6_0_1_
-    from
-        book_db.comments replies0_
-    where
-        replies0_.parent_id=?
-Hibernate:
-    select
-        replies0_.parent_id as parent_i5_0_0_,
-        replies0_.id as id1_0_0_,
-        replies0_.id as id1_0_1_,
-        replies0_.book_id as book_id4_0_1_,
-        replies0_.content as content2_0_1_,
-        replies0_.created_at as created_3_0_1_,
-        replies0_.parent_id as parent_i5_0_1_,
-        replies0_.user_id as user_id6_0_1_
-    from
-        book_db.comments replies0_
-    where
-        replies0_.parent_id=?
-Hibernate:
-    select
-        replies0_.parent_id as parent_i5_0_0_,
-        replies0_.id as id1_0_0_,
-        replies0_.id as id1_0_1_,
-        replies0_.book_id as book_id4_0_1_,
-        replies0_.content as content2_0_1_,
-        replies0_.created_at as created_3_0_1_,
-        replies0_.parent_id as parent_i5_0_1_,
-        replies0_.user_id as user_id6_0_1_
-    from
-        book_db.comments replies0_
-    where
-        replies0_.parent_id=?
+            user0_.username=?
 Hibernate: 
     /* select
         generatedAlias0.id
     from
-        User as generatedAlias0
-    left join
-        generatedAlias0.favoriteBooks as generatedAlias1
+        Category as generatedAlias0
     where
-        (
-            generatedAlias0.username=:param0
-        )
-        and (
-            generatedAlias1.id=:param1
-        ) */ select
-            user0_.id as col_0_0_
+        generatedAlias0.name=:param0 */ select
+            category0_.id as col_0_0_
+        from
+            categories category0_
+        where
+            category0_.name=? limit ?
+2025-12-07 16:37:39.211  INFO 3776 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-07 16:37:39.211  INFO 3776 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-07 16:37:39.213  INFO 3776 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms  
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        User as generatedAlias0
+    where
+        generatedAlias0.username=:param0 */ select
+            user0_.id as id1_5_,
+            user0_.avatar as avatar2_5_,
+            user0_.created_at as created_3_5_,
+            user0_.email as email4_5_,
+            user0_.enabled as enabled5_5_,
+            user0_.nickname as nickname6_5_,
+            user0_.password as password7_5_,
+            user0_.role as role8_5_,
+            user0_.updated_at as updated_9_5_,
+            user0_.username as usernam10_5_
         from
             users user0_
-        left outer join
+        where
+            user0_.username=?
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Category as generatedAlias0
+    order by
+        generatedAlias0.name asc */ select
+            category0_.id as id1_2_,
+            category0_.name as name2_2_
+        from
+            categories category0_
+        order by
+            category0_.name asc
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        Book as generatedAlias0
+    order by
+        generatedAlias0.createdAt desc */ select
+            book0_.id as id1_1_,
+            book0_.author as author2_1_,
+            book0_.category_id as categor11_1_,
+            book0_.cover_image as cover_im3_1_,
+            book0_.created_at as created_4_1_,
+            book0_.description as descript5_1_,
+            book0_.isbn as isbn6_1_,
+            book0_.publisher as publishe7_1_,
+            book0_.title as title8_1_,
+            book0_.updated_at as updated_9_1_,
+            book0_.year as year10_1_
+        from
+            books book0_
+        order by
+            book0_.created_at desc limit ?
+Hibernate: 
+    /* select
+        count(generatedAlias0)
+    from
+        Book as generatedAlias0 */ select
+            count(book0_.id) as col_0_0_
+        from
+            books book0_
+Hibernate: 
+    /* select
+        generatedAlias0
+    from
+        User as generatedAlias0
+    where
+        generatedAlias0.username=:param0 */ select
+            user0_.id as id1_5_,
+            user0_.avatar as avatar2_5_,
+            user0_.created_at as created_3_5_,
+            user0_.email as email4_5_,
+            user0_.enabled as enabled5_5_,
+            user0_.nickname as nickname6_5_,
+            user0_.password as password7_5_,
+            user0_.role as role8_5_,
+            user0_.updated_at as updated_9_5_,
+            user0_.username as usernam10_5_
+        from
+            users user0_
+        where
+            user0_.username=?
+Hibernate: 
+    /* SELECT
+        b
+    FROM
+        User u
+    JOIN
+        u.favoriteBooks b
+    WHERE
+        u.username = :username
+    order by
+        u.createdAt desc */ select
+            book2_.id as id1_1_,
+            book2_.author as author2_1_,
+            book2_.category_id as categor11_1_,
+            book2_.cover_image as cover_im3_1_,
+            book2_.created_at as created_4_1_,
+            book2_.description as descript5_1_,
+            book2_.isbn as isbn6_1_,
+            book2_.publisher as publishe7_1_,
+            book2_.title as title8_1_,
+            book2_.updated_at as updated_9_1_,
+            book2_.year as year10_1_
+        from
+            users user0_
+        inner join
             user_favorite_books favoritebo1_
                 on user0_.id=favoritebo1_.user_id
-        left outer join
+        inner join
             books book2_
                 on favoritebo1_.book_id=book2_.id
         where
             user0_.username=?
-            and book2_.id=? limit ?
+        order by
+            user0_.created_at desc limit ?
+Hibernate: 
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?
+Hibernate:
+    select
+        category0_.id as id1_2_0_,
+        category0_.name as name2_2_0_
+    from
+        categories category0_
+    where
+        category0_.id=?

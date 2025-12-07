@@ -88,6 +88,18 @@ public class UserController {
         return "user/profile";
     }
 
+    // 兼容旧路径：/user/edit -> /user/edit-profile
+    @GetMapping("/user/edit")
+    public String redirectEditLegacy() {
+        return "redirect:/user/edit-profile";
+    }
+
+    // 兼容旧路径：/user/password -> /user/change-password
+    @GetMapping("/user/password")
+    public String redirectPasswordLegacy() {
+        return "redirect:/user/change-password";
+    }
+
     // 编辑个人资料
     @GetMapping("/user/edit-profile")
     public String showEditProfile(Authentication authentication, Model model) {
